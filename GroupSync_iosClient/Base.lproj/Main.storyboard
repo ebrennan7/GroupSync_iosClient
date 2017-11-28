@@ -23,15 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to GroupSync" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Xf2-4w-Ogv">
-                                <rect key="frame" x="86" y="139" width="203" height="66"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="66" id="uvm-4r-1pf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJn-fT-WDi">
                                 <rect key="frame" x="0.0" y="512" width="375" height="155"/>
                                 <color key="backgroundColor" red="0.41830563545227051" green="0.87390416860580444" blue="0.97522276639938354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -44,31 +35,40 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="3Up-tt-nLb">
-                                <rect key="frame" x="40" y="275" width="47" height="23"/>
+                                <rect key="frame" x="71" y="275" width="47" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7pL-V8-jTO">
-                                <rect key="frame" x="9" y="370" width="78" height="23"/>
+                                <rect key="frame" x="40" y="370" width="78" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KVA-kO-0ZZ">
-                                <rect key="frame" x="123" y="271" width="180" height="30"/>
+                                <rect key="frame" x="154" y="271" width="180" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" smartInsertDeleteType="no" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fZb-nr-LVe">
-                                <rect key="frame" x="123" y="366" width="180" height="30"/>
+                                <rect key="frame" x="154" y="366" width="180" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to GroupSync" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Xf2-4w-Ogv">
+                                <rect key="frame" x="86" y="118" width="203" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="uvm-4r-1pf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TJn-fT-WDi" firstAttribute="leading" secondItem="bVo-fT-ptk" secondAttribute="leading" id="6HM-4u-f3R"/>
                             <constraint firstItem="3Up-tt-nLb" firstAttribute="trailing" secondItem="7pL-V8-jTO" secondAttribute="trailing" id="9v7-hu-vbx"/>
@@ -76,11 +76,11 @@
                             <constraint firstItem="fZb-nr-LVe" firstAttribute="centerY" secondItem="7pL-V8-jTO" secondAttribute="centerY" id="CKV-VJ-fXe"/>
                             <constraint firstItem="3Up-tt-nLb" firstAttribute="centerY" secondItem="bVo-fT-ptk" secondAttribute="centerY" constant="-47.25" id="MvE-V3-Ihl"/>
                             <constraint firstItem="7pL-V8-jTO" firstAttribute="top" secondItem="3Up-tt-nLb" secondAttribute="bottom" constant="72" id="P2v-sf-JKl"/>
-                            <constraint firstItem="3Up-tt-nLb" firstAttribute="leading" secondItem="Aw2-Ll-GXd" secondAttribute="leading" constant="40" id="WfJ-BG-cC4"/>
+                            <constraint firstItem="3Up-tt-nLb" firstAttribute="leading" secondItem="Aw2-Ll-GXd" secondAttribute="leading" constant="71" id="WfJ-BG-cC4"/>
                             <constraint firstItem="KVA-kO-0ZZ" firstAttribute="leading" secondItem="3Up-tt-nLb" secondAttribute="trailing" constant="36" id="aFa-3E-G4c"/>
                             <constraint firstItem="fZb-nr-LVe" firstAttribute="trailing" secondItem="KVA-kO-0ZZ" secondAttribute="trailing" id="eX6-d2-tho"/>
-                            <constraint firstItem="Aw2-Ll-GXd" firstAttribute="trailing" secondItem="fZb-nr-LVe" secondAttribute="trailing" constant="72" id="vjN-FI-c1G"/>
-                            <constraint firstItem="Xf2-4w-Ogv" firstAttribute="top" secondItem="Aw2-Ll-GXd" secondAttribute="top" constant="75" id="wJe-id-KhF"/>
+                            <constraint firstItem="Aw2-Ll-GXd" firstAttribute="trailing" secondItem="fZb-nr-LVe" secondAttribute="trailing" constant="41" id="vjN-FI-c1G"/>
+                            <constraint firstItem="Xf2-4w-Ogv" firstAttribute="top" secondItem="Aw2-Ll-GXd" secondAttribute="top" constant="54" id="wJe-id-KhF"/>
                             <constraint firstItem="TJn-fT-WDi" firstAttribute="bottom" secondItem="Aw2-Ll-GXd" secondAttribute="bottom" id="xhn-Zf-Ufp"/>
                             <constraint firstItem="3Up-tt-nLb" firstAttribute="centerY" secondItem="KVA-kO-0ZZ" secondAttribute="centerY" id="xyZ-Jq-kcO"/>
                             <constraint firstItem="TJn-fT-WDi" firstAttribute="centerX" secondItem="Xf2-4w-Ogv" secondAttribute="centerX" id="yXV-tq-tn5"/>
@@ -171,7 +171,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3ed-Hk-Of2"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="3ed-Hk-Of2"/>
                     <connections>
                         <segue destination="Otf-ci-7Ye" kind="show" identifier="OpeningScreen" id="LH2-Xm-HmL"/>
                     </connections>
