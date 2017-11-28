@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9205CDDF1FCDB0B2008F6466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */; };
+		9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDE01FCDB0B2008F6466 /* ViewController.swift */; };
+		9205CDE41FCDB0B2008F6466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9205CDE21FCDB0B2008F6466 /* Main.storyboard */; };
+		9205CDE61FCDB0B2008F6466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9205CDE51FCDB0B2008F6466 /* Assets.xcassets */; };
+		9205CDE91FCDB0B2008F6466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9205CDE71FCDB0B2008F6466 /* LaunchScreen.storyboard */; };
+		9205CDF41FCDB0B2008F6466 /* GroupSync_iosClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDF31FCDB0B2008F6466 /* GroupSync_iosClientTests.swift */; };
+		9205CDFF1FCDB0B2008F6466 /* GroupSync_iosClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDFE1FCDB0B2008F6466 /* GroupSync_iosClientUITests.swift */; };
+		920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920CD5E91FCDC7BE00349451 /* LoginView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9205CDF01FCDB0B2008F6466 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9205CDD31FCDB0B2008F6466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9205CDDA1FCDB0B2008F6466;
+			remoteInfo = GroupSync_iosClient;
+		};
+		9205CDFB1FCDB0B2008F6466 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9205CDD31FCDB0B2008F6466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9205CDDA1FCDB0B2008F6466;
+			remoteInfo = GroupSync_iosClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9205CDDB1FCDB0B2008F6466 /* GroupSync_iosClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupSync_iosClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9205CDE01FCDB0B2008F6466 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9205CDE31FCDB0B2008F6466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9205CDE51FCDB0B2008F6466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9205CDE81FCDB0B2008F6466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9205CDEA1FCDB0B2008F6466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9205CDEF1FCDB0B2008F6466 /* GroupSync_iosClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupSync_iosClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9205CDF31FCDB0B2008F6466 /* GroupSync_iosClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSync_iosClientTests.swift; sourceTree = "<group>"; };
+		9205CDF51FCDB0B2008F6466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9205CDFA1FCDB0B2008F6466 /* GroupSync_iosClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupSync_iosClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9205CDFE1FCDB0B2008F6466 /* GroupSync_iosClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSync_iosClientUITests.swift; sourceTree = "<group>"; };
+		9205CE001FCDB0B2008F6466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9205CE0C1FCDB15C008F6466 /* Screen Shot 2017-11-28 at 14.46.47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2017-11-28 at 14.46.47.png"; path = "../../../../Users/Ember/Documents/Screenshots/Screen Shot 2017-11-28 at 14.46.47.png"; sourceTree = "<group>"; };
+		920CD5E91FCDC7BE00349451 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9205CDD81FCDB0B2008F6466 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9205CDEC1FCDB0B2008F6466 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9205CDF71FCDB0B2008F6466 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9205CDD21FCDB0B2008F6466 = {
+			isa = PBXGroup;
+			children = (
+				9205CDDD1FCDB0B2008F6466 /* GroupSync_iosClient */,
+				9205CDF21FCDB0B2008F6466 /* GroupSync_iosClientTests */,
+				9205CDFD1FCDB0B2008F6466 /* GroupSync_iosClientUITests */,
+				9205CDDC1FCDB0B2008F6466 /* Products */,
+				9205CE0C1FCDB15C008F6466 /* Screen Shot 2017-11-28 at 14.46.47.png */,
+			);
+			sourceTree = "<group>";
+		};
+		9205CDDC1FCDB0B2008F6466 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9205CDDB1FCDB0B2008F6466 /* GroupSync_iosClient.app */,
+				9205CDEF1FCDB0B2008F6466 /* GroupSync_iosClientTests.xctest */,
+				9205CDFA1FCDB0B2008F6466 /* GroupSync_iosClientUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9205CDDD1FCDB0B2008F6466 /* GroupSync_iosClient */ = {
+			isa = PBXGroup;
+			children = (
+				9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */,
+				9205CDE01FCDB0B2008F6466 /* ViewController.swift */,
+				9205CDE21FCDB0B2008F6466 /* Main.storyboard */,
+				920CD5E91FCDC7BE00349451 /* LoginView.swift */,
+				9205CDE51FCDB0B2008F6466 /* Assets.xcassets */,
+				9205CDE71FCDB0B2008F6466 /* LaunchScreen.storyboard */,
+				9205CDEA1FCDB0B2008F6466 /* Info.plist */,
+			);
+			path = GroupSync_iosClient;
+			sourceTree = "<group>";
+		};
+		9205CDF21FCDB0B2008F6466 /* GroupSync_iosClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				9205CDF31FCDB0B2008F6466 /* GroupSync_iosClientTests.swift */,
+				9205CDF51FCDB0B2008F6466 /* Info.plist */,
+			);
+			path = GroupSync_iosClientTests;
+			sourceTree = "<group>";
+		};
+		9205CDFD1FCDB0B2008F6466 /* GroupSync_iosClientUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9205CDFE1FCDB0B2008F6466 /* GroupSync_iosClientUITests.swift */,
+				9205CE001FCDB0B2008F6466 /* Info.plist */,
+			);
+			path = GroupSync_iosClientUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9205CDDA1FCDB0B2008F6466 /* GroupSync_iosClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9205CE031FCDB0B2008F6466 /* Build configuration list for PBXNativeTarget "GroupSync_iosClient" */;
+			buildPhases = (
+				9205CDD71FCDB0B2008F6466 /* Sources */,
+				9205CDD81FCDB0B2008F6466 /* Frameworks */,
+				9205CDD91FCDB0B2008F6466 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GroupSync_iosClient;
+			productName = GroupSync_iosClient;
+			productReference = 9205CDDB1FCDB0B2008F6466 /* GroupSync_iosClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9205CDEE1FCDB0B2008F6466 /* GroupSync_iosClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9205CE061FCDB0B2008F6466 /* Build configuration list for PBXNativeTarget "GroupSync_iosClientTests" */;
+			buildPhases = (
+				9205CDEB1FCDB0B2008F6466 /* Sources */,
+				9205CDEC1FCDB0B2008F6466 /* Frameworks */,
+				9205CDED1FCDB0B2008F6466 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9205CDF11FCDB0B2008F6466 /* PBXTargetDependency */,
+			);
+			name = GroupSync_iosClientTests;
+			productName = GroupSync_iosClientTests;
+			productReference = 9205CDEF1FCDB0B2008F6466 /* GroupSync_iosClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9205CDF91FCDB0B2008F6466 /* GroupSync_iosClientUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9205CE091FCDB0B2008F6466 /* Build configuration list for PBXNativeTarget "GroupSync_iosClientUITests" */;
+			buildPhases = (
+				9205CDF61FCDB0B2008F6466 /* Sources */,
+				9205CDF71FCDB0B2008F6466 /* Frameworks */,
+				9205CDF81FCDB0B2008F6466 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9205CDFC1FCDB0B2008F6466 /* PBXTargetDependency */,
+			);
+			name = GroupSync_iosClientUITests;
+			productName = GroupSync_iosClientUITests;
+			productReference = 9205CDFA1FCDB0B2008F6466 /* GroupSync_iosClientUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9205CDD31FCDB0B2008F6466 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = EmberBrennan;
+				TargetAttributes = {
+					9205CDDA1FCDB0B2008F6466 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					9205CDEE1FCDB0B2008F6466 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9205CDDA1FCDB0B2008F6466;
+					};
+					9205CDF91FCDB0B2008F6466 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9205CDDA1FCDB0B2008F6466;
+					};
+				};
+			};
+			buildConfigurationList = 9205CDD61FCDB0B2008F6466 /* Build configuration list for PBXProject "GroupSync_iosClient" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9205CDD21FCDB0B2008F6466;
+			productRefGroup = 9205CDDC1FCDB0B2008F6466 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9205CDDA1FCDB0B2008F6466 /* GroupSync_iosClient */,
+				9205CDEE1FCDB0B2008F6466 /* GroupSync_iosClientTests */,
+				9205CDF91FCDB0B2008F6466 /* GroupSync_iosClientUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9205CDD91FCDB0B2008F6466 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9205CDE91FCDB0B2008F6466 /* LaunchScreen.storyboard in Resources */,
+				9205CDE61FCDB0B2008F6466 /* Assets.xcassets in Resources */,
+				9205CDE41FCDB0B2008F6466 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9205CDED1FCDB0B2008F6466 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9205CDF81FCDB0B2008F6466 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9205CDD71FCDB0B2008F6466 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */,
+				9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */,
+				9205CDDF1FCDB0B2008F6466 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9205CDEB1FCDB0B2008F6466 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9205CDF41FCDB0B2008F6466 /* GroupSync_iosClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9205CDF61FCDB0B2008F6466 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9205CDFF1FCDB0B2008F6466 /* GroupSync_iosClientUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9205CDF11FCDB0B2008F6466 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9205CDDA1FCDB0B2008F6466 /* GroupSync_iosClient */;
+			targetProxy = 9205CDF01FCDB0B2008F6466 /* PBXContainerItemProxy */;
+		};
+		9205CDFC1FCDB0B2008F6466 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9205CDDA1FCDB0B2008F6466 /* GroupSync_iosClient */;
+			targetProxy = 9205CDFB1FCDB0B2008F6466 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9205CDE21FCDB0B2008F6466 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9205CDE31FCDB0B2008F6466 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9205CDE71FCDB0B2008F6466 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9205CDE81FCDB0B2008F6466 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9205CE011FCDB0B2008F6466 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9205CE021FCDB0B2008F6466 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9205CE041FCDB0B2008F6466 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKF3UTYQR8;
+				INFOPLIST_FILE = GroupSync_iosClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ember.GroupSync-iosClient";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9205CE051FCDB0B2008F6466 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKF3UTYQR8;
+				INFOPLIST_FILE = GroupSync_iosClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ember.GroupSync-iosClient";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9205CE071FCDB0B2008F6466 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKF3UTYQR8;
+				INFOPLIST_FILE = GroupSync_iosClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ember.GroupSync-iosClientTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GroupSync_iosClient.app/GroupSync_iosClient";
+			};
+			name = Debug;
+		};
+		9205CE081FCDB0B2008F6466 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKF3UTYQR8;
+				INFOPLIST_FILE = GroupSync_iosClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ember.GroupSync-iosClientTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GroupSync_iosClient.app/GroupSync_iosClient";
+			};
+			name = Release;
+		};
+		9205CE0A1FCDB0B2008F6466 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKF3UTYQR8;
+				INFOPLIST_FILE = GroupSync_iosClientUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ember.GroupSync-iosClientUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GroupSync_iosClient;
+			};
+			name = Debug;
+		};
+		9205CE0B1FCDB0B2008F6466 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKF3UTYQR8;
+				INFOPLIST_FILE = GroupSync_iosClientUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ember.GroupSync-iosClientUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GroupSync_iosClient;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9205CDD61FCDB0B2008F6466 /* Build configuration list for PBXProject "GroupSync_iosClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9205CE011FCDB0B2008F6466 /* Debug */,
+				9205CE021FCDB0B2008F6466 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9205CE031FCDB0B2008F6466 /* Build configuration list for PBXNativeTarget "GroupSync_iosClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9205CE041FCDB0B2008F6466 /* Debug */,
+				9205CE051FCDB0B2008F6466 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9205CE061FCDB0B2008F6466 /* Build configuration list for PBXNativeTarget "GroupSync_iosClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9205CE071FCDB0B2008F6466 /* Debug */,
+				9205CE081FCDB0B2008F6466 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9205CE091FCDB0B2008F6466 /* Build configuration list for PBXNativeTarget "GroupSync_iosClientUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9205CE0A1FCDB0B2008F6466 /* Debug */,
+				9205CE0B1FCDB0B2008F6466 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9205CDD31FCDB0B2008F6466 /* Project object */;
+}
