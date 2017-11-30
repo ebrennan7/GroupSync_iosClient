@@ -15,6 +15,7 @@
 		9205CDF41FCDB0B2008F6466 /* GroupSync_iosClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDF31FCDB0B2008F6466 /* GroupSync_iosClientTests.swift */; };
 		9205CDFF1FCDB0B2008F6466 /* GroupSync_iosClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDFE1FCDB0B2008F6466 /* GroupSync_iosClientUITests.swift */; };
 		920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920CD5E91FCDC7BE00349451 /* LoginView.swift */; };
+		921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		9205CE001FCDB0B2008F6466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9205CE0C1FCDB15C008F6466 /* Screen Shot 2017-11-28 at 14.46.47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2017-11-28 at 14.46.47.png"; path = "../../../../Users/Ember/Documents/Screenshots/Screen Shot 2017-11-28 at 14.46.47.png"; sourceTree = "<group>"; };
 		920CD5E91FCDC7BE00349451 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		9205CDDD1FCDB0B2008F6466 /* GroupSync_iosClient */ = {
 			isa = PBXGroup;
 			children = (
+				921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */,
 				9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */,
 				9205CDE01FCDB0B2008F6466 /* ViewController.swift */,
 				9205CDE21FCDB0B2008F6466 /* Main.storyboard */,
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */,
 				920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */,
 				9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */,
 				9205CDDF1FCDB0B2008F6466 /* AppDelegate.swift in Sources */,
