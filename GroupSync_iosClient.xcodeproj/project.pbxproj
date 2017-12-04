@@ -16,6 +16,8 @@
 		9205CDFF1FCDB0B2008F6466 /* GroupSync_iosClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDFE1FCDB0B2008F6466 /* GroupSync_iosClientUITests.swift */; };
 		920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920CD5E91FCDC7BE00349451 /* LoginView.swift */; };
 		921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */; };
+		92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeView.swift */; };
+		92B1A00F1FD5BB0C0009E316 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		9205CE0C1FCDB15C008F6466 /* Screen Shot 2017-11-28 at 14.46.47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2017-11-28 at 14.46.47.png"; path = "../../../../Users/Ember/Documents/Screenshots/Screen Shot 2017-11-28 at 14.46.47.png"; sourceTree = "<group>"; };
 		920CD5E91FCDC7BE00349451 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		92B1A00C1FD5BA9A0009E316 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 		9205CDDD1FCDB0B2008F6466 /* GroupSync_iosClient */ = {
 			isa = PBXGroup;
 			children = (
+				92B1A00C1FD5BA9A0009E316 /* HomeView.swift */,
+				92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */,
 				921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */,
 				9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */,
 				9205CDE01FCDB0B2008F6466 /* ViewController.swift */,
@@ -267,9 +273,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92B1A00F1FD5BB0C0009E316 /* GroupsView.swift in Sources */,
 				921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */,
 				920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */,
 				9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */,
+				92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */,
 				9205CDDF1FCDB0B2008F6466 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

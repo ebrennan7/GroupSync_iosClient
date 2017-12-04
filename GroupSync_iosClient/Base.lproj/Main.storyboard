@@ -36,7 +36,7 @@
                                     <color key="titleColor" red="0.10616666823625565" green="0.17191857099533081" blue="0.34630870819091797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Kum-Vd-vso" kind="presentation" id="r3F-SJ-1vS"/>
+                                    <segue destination="Kum-Vd-vso" kind="show" id="UAl-nt-roV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to GroupSync" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Xf2-4w-Ogv">
@@ -131,32 +131,47 @@
             <point key="canvasLocation" x="670" y="-779"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="lDS-zs-9NB">
+            <objects>
+                <viewController id="zeA-2q-mUA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sjQ-CA-hk4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="m8Q-Gd-feb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yk2-Fe-1il" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2062" y="-743"/>
+        </scene>
+        <!--Home View-->
         <scene sceneID="Qlg-iv-VhQ">
             <objects>
-                <viewController id="Kum-Vd-vso" sceneMemberID="viewController">
+                <viewController id="Kum-Vd-vso" customClass="HomeView" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fBI-8X-nCh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="N9e-Ra-qFs">
-                                <rect key="frame" x="62" y="15" width="253" height="0.0"/>
+                                <rect key="frame" x="62" y="59" width="253" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="z5t-ua-aY7"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1r-P9-dRU" userLabel="GroupsButton">
-                                <rect key="frame" x="16" y="227" width="160" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="uT3-fm-JCg"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="271" width="160" height="160"/>
                                 <state key="normal" image="GroupsIcon"/>
+                                <connections>
+                                    <segue destination="zeA-2q-mUA" kind="show" id="wwi-oF-AMw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PE-NA-Pyj" userLabel="SettingsButton">
-                                <rect key="frame" x="204" y="446" width="160" height="160"/>
+                                <rect key="frame" x="204" y="490" width="160" height="160"/>
                                 <state key="normal" image="SettingsIcon"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgn-iq-754">
-                                <rect key="frame" x="191" y="398" width="186" height="28"/>
+                                <rect key="frame" x="191" y="442" width="186" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="l8h-fV-1Fr"/>
                                 </constraints>
@@ -166,21 +181,21 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oax-nq-BU5">
-                                <rect key="frame" x="1" y="398" width="190" height="28"/>
+                                <rect key="frame" x="1" y="442" width="190" height="28"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Groups">
                                     <color key="titleColor" red="0.10616666823625565" green="0.17191857099533081" blue="0.34630870819091797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlX-BF-Hnr">
-                                <rect key="frame" x="191" y="617" width="186" height="23"/>
+                                <rect key="frame" x="191" y="661" width="186" height="35"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" red="0.10616666823625565" green="0.17191857099533081" blue="0.34630870819091797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3P-JG-J2i">
-                                <rect key="frame" x="1" y="617" width="190" height="23"/>
+                                <rect key="frame" x="1" y="661" width="190" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="2MO-vg-yP8"/>
                                 </constraints>
@@ -190,17 +205,17 @@
                                 </state>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZK9-gH-Pem" userLabel="CreateButton">
-                                <rect key="frame" x="16" y="446" width="160" height="160"/>
+                                <rect key="frame" x="16" y="490" width="160" height="160"/>
                                 <state key="normal" image="CreateGroupIcon"/>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bz-ul-ydf" userLabel="ProfileButton">
-                                <rect key="frame" x="204" y="227" width="160" height="160"/>
+                                <rect key="frame" x="204" y="271" width="160" height="160"/>
                                 <state key="normal" image="ProfileIcon"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="8w1-8L-1vz">
-                                <rect key="frame" x="68" y="38" width="240" height="155"/>
+                                <rect key="frame" x="68" y="82" width="240" height="167"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="8w1-8L-1vz" secondAttribute="height" multiplier="48:31" id="wQS-mB-8me"/>
+                                    <constraint firstAttribute="width" secondItem="8w1-8L-1vz" secondAttribute="height" multiplier="48:31" constant="-18.580645161290306" id="wQS-mB-8me"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -211,10 +226,9 @@
                             <constraint firstItem="N9e-Ra-qFs" firstAttribute="leading" secondItem="fBI-8X-nCh" secondAttribute="leadingMargin" constant="46" id="2yP-uN-GdO"/>
                             <constraint firstItem="ZK9-gH-Pem" firstAttribute="width" secondItem="4bz-ul-ydf" secondAttribute="width" id="3X4-Dw-RAQ"/>
                             <constraint firstAttribute="trailing" secondItem="Vgn-iq-754" secondAttribute="trailing" constant="-2" id="3rk-4c-UTZ"/>
-                            <constraint firstItem="4bz-ul-ydf" firstAttribute="leading" relation="lessThanOrEqual" secondItem="P1r-P9-dRU" secondAttribute="trailing" constant="28" id="3v6-dn-Qe7"/>
+                            <constraint firstItem="4bz-ul-ydf" firstAttribute="leading" secondItem="P1r-P9-dRU" secondAttribute="trailing" constant="28" id="3v6-dn-Qe7"/>
                             <constraint firstItem="6PE-NA-Pyj" firstAttribute="width" secondItem="4bz-ul-ydf" secondAttribute="width" id="Bx8-LL-c08"/>
                             <constraint firstItem="d3P-JG-J2i" firstAttribute="baseline" secondItem="KlX-BF-Hnr" secondAttribute="firstBaseline" id="CPU-9S-zhc"/>
-                            <constraint firstItem="4bz-ul-ydf" firstAttribute="trailing" secondItem="6PE-NA-Pyj" secondAttribute="trailing" id="EdL-bL-cEk"/>
                             <constraint firstItem="ZK9-gH-Pem" firstAttribute="top" secondItem="oax-nq-BU5" secondAttribute="bottom" constant="20" id="Ege-re-LFB"/>
                             <constraint firstItem="d3P-JG-J2i" firstAttribute="top" secondItem="KlX-BF-Hnr" secondAttribute="top" id="Gab-2r-Rnl"/>
                             <constraint firstItem="oax-nq-BU5" firstAttribute="leading" secondItem="d3P-JG-J2i" secondAttribute="leading" id="H6h-i4-wSY"/>
@@ -227,9 +241,11 @@
                             <constraint firstItem="Vgn-iq-754" firstAttribute="trailing" secondItem="1IE-l8-GSm" secondAttribute="trailing" constant="2" id="KrV-Zm-gae"/>
                             <constraint firstItem="KlX-BF-Hnr" firstAttribute="leading" secondItem="d3P-JG-J2i" secondAttribute="trailing" id="Kvw-jV-b3W"/>
                             <constraint firstItem="oax-nq-BU5" firstAttribute="bottom" secondItem="Vgn-iq-754" secondAttribute="bottom" id="Mve-GC-zbr"/>
+                            <constraint firstItem="P1r-P9-dRU" firstAttribute="leading" secondItem="1IE-l8-GSm" secondAttribute="leading" constant="16" id="NBR-1K-sYS"/>
                             <constraint firstItem="P1r-P9-dRU" firstAttribute="top" secondItem="1IE-l8-GSm" secondAttribute="top" constant="207" id="NBp-cX-o8v"/>
                             <constraint firstItem="P1r-P9-dRU" firstAttribute="height" secondItem="4bz-ul-ydf" secondAttribute="height" id="OId-kS-ASA"/>
                             <constraint firstItem="ZK9-gH-Pem" firstAttribute="height" secondItem="6PE-NA-Pyj" secondAttribute="height" id="Th1-Uj-byZ"/>
+                            <constraint firstItem="1IE-l8-GSm" firstAttribute="trailing" secondItem="4bz-ul-ydf" secondAttribute="trailing" constant="11" id="Th8-9i-0El"/>
                             <constraint firstItem="P1r-P9-dRU" firstAttribute="leading" secondItem="fBI-8X-nCh" secondAttribute="leadingMargin" id="Usk-ZW-LIM"/>
                             <constraint firstItem="P1r-P9-dRU" firstAttribute="bottom" secondItem="4bz-ul-ydf" secondAttribute="bottom" id="VDE-Ad-P9c"/>
                             <constraint firstItem="P1r-P9-dRU" firstAttribute="trailing" secondItem="ZK9-gH-Pem" secondAttribute="trailing" id="W3E-tI-VGz"/>
@@ -237,7 +253,6 @@
                             <constraint firstItem="6PE-NA-Pyj" firstAttribute="width" secondItem="P1r-P9-dRU" secondAttribute="width" id="ZSg-tE-38T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N9e-Ra-qFs" secondAttribute="trailing" constant="44" id="c0e-hy-t5y"/>
                             <constraint firstItem="ZK9-gH-Pem" firstAttribute="top" secondItem="6PE-NA-Pyj" secondAttribute="top" id="c8x-PN-4s6"/>
-                            <constraint firstItem="KlX-BF-Hnr" firstAttribute="baseline" secondItem="d3P-JG-J2i" secondAttribute="firstBaseline" id="cXs-g1-w2Q"/>
                             <constraint firstItem="oax-nq-BU5" firstAttribute="leading" secondItem="1IE-l8-GSm" secondAttribute="leading" constant="1" id="dmn-9B-FQp"/>
                             <constraint firstItem="ZK9-gH-Pem" firstAttribute="height" secondItem="P1r-P9-dRU" secondAttribute="height" id="eZJ-OT-ka9"/>
                             <constraint firstItem="Vgn-iq-754" firstAttribute="trailing" secondItem="KlX-BF-Hnr" secondAttribute="trailing" id="f2J-0A-3ar"/>
@@ -248,7 +263,6 @@
                             <constraint firstItem="8w1-8L-1vz" firstAttribute="top" secondItem="1IE-l8-GSm" secondAttribute="top" constant="18" id="p1O-e2-bS5"/>
                             <constraint firstItem="P1r-P9-dRU" firstAttribute="top" secondItem="4bz-ul-ydf" secondAttribute="top" id="pNO-Cs-Qhk"/>
                             <constraint firstItem="oax-nq-BU5" firstAttribute="top" secondItem="P1r-P9-dRU" secondAttribute="bottom" constant="11" id="rT3-B1-Jhg"/>
-                            <constraint firstItem="1IE-l8-GSm" firstAttribute="trailing" secondItem="4bz-ul-ydf" secondAttribute="trailing" constant="11" id="sIY-mm-v67"/>
                             <constraint firstItem="Vgn-iq-754" firstAttribute="top" secondItem="4bz-ul-ydf" secondAttribute="bottom" constant="11" id="slq-9t-PdA"/>
                             <constraint firstItem="ZK9-gH-Pem" firstAttribute="width" secondItem="P1r-P9-dRU" secondAttribute="width" id="tH6-41-ITR"/>
                             <constraint firstItem="6PE-NA-Pyj" firstAttribute="centerX" secondItem="KlX-BF-Hnr" secondAttribute="centerX" id="u3C-Rs-TVC"/>
@@ -256,14 +270,16 @@
                             <constraint firstItem="oax-nq-BU5" firstAttribute="trailing" secondItem="d3P-JG-J2i" secondAttribute="trailing" id="x4R-bL-2O7"/>
                             <constraint firstItem="8w1-8L-1vz" firstAttribute="centerX" secondItem="N9e-Ra-qFs" secondAttribute="centerX" id="x9x-tq-U8b"/>
                             <constraint firstItem="4bz-ul-ydf" firstAttribute="leading" secondItem="6PE-NA-Pyj" secondAttribute="leading" id="y0z-oG-5ZD"/>
-                            <constraint firstItem="P1r-P9-dRU" firstAttribute="top" secondItem="8w1-8L-1vz" secondAttribute="bottom" constant="34" id="y2G-pX-TCw"/>
+                            <constraint firstItem="P1r-P9-dRU" firstAttribute="top" secondItem="8w1-8L-1vz" secondAttribute="bottom" constant="22" id="y2G-pX-TCw"/>
+                            <constraint firstItem="KlX-BF-Hnr" firstAttribute="top" secondItem="6PE-NA-Pyj" secondAttribute="bottom" constant="11" id="zTi-oq-BkY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1IE-l8-GSm"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nlg-HK-dOd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeB-Ug-Lc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1860" y="32.833583208395808"/>
+            <point key="canvasLocation" x="2062" y="33"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SVa-wN-1Hb">
@@ -448,7 +464,7 @@
                                                     <color key="titleShadowColor" red="0.34630870819999998" green="0.13029367659999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="Kum-Vd-vso" kind="presentation" id="Joa-IP-7c8"/>
+                                                    <segue destination="Kum-Vd-vso" kind="show" id="OZ6-6a-r2L"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUx-J1-zIm">
@@ -545,7 +561,7 @@
         <image name="SettingsIcon" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Joa-IP-7c8"/>
+        <segue reference="OZ6-6a-r2L"/>
         <segue reference="LH2-Xm-HmL"/>
     </inferredMetricsTieBreakers>
 </document>
