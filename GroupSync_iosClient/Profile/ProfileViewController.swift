@@ -39,13 +39,13 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
 //    {
 //        let image = UIImagePickerController()
 //        image.delegate = self
-//        
+//
 //        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
-//        
+//
 //        image.allowsEditing = false
-//        
+//
 //        self.present(image, animated: true)
-//        
+//
 //    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])

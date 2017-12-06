@@ -10,14 +10,41 @@ import UIKit
 
 class LoginView: UIViewController {
 
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextView: UITextField!
+    
+
+ 
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         self.addDoneButton()
+        
+        changeLabelShapes()
+   
+        
+       
 
         // Do any additional setup after loading the view.
+    }
+    func changeLabelShapes()
+    {
+        emailLabel.layer.masksToBounds = true;
+        passwordLabel.layer.masksToBounds = true;
+        passwordTextView.layer.masksToBounds = true;
+        emailTextField.layer.masksToBounds = true;
+
+
+        emailLabel.layer.cornerRadius = emailLabel.frame.size.width/24
+        passwordLabel.layer.cornerRadius = passwordLabel.frame.size.width/24
+        emailTextField.layer.cornerRadius = emailTextField.frame.size.width/24
+        passwordTextView.layer.cornerRadius = passwordTextView.frame.size.width/24
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,67 +75,5 @@ class LoginView: UIViewController {
         self.passwordTextView?.resignFirstResponder()
         self.emailTextField?.resignFirstResponder()
     }
-    
-//    func registerForKeyboardNotifications(){
-//        //Adding notifies on keyboard appearing
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//    }
-//    
-//    func deregisterFromKeyboardNotifications(){
-//        //Removing notifies on keyboard appearing
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//    }
-//    @objc func keyboardWasShown(notification: NSNotification){
-//        //Need to calculate keyboard exact size due to Apple suggestions
-//        self.scrollView.isScrollEnabled = true
-//        var info = notification.userInfo!
-//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
-//        
-//        self.scrollView.contentInset = contentInsets
-//        self.scrollView.scrollIndicatorInsets = contentInsets
-//        
-//        var aRect : CGRect = self.view.frame
-//        aRect.size.height -= keyboardSize!.height
-//        if let activeField = self.passwordTextView {
-//            if (!aRect.contains(activeField.frame.origin)){
-//                self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
-//            }
-//        }
-//    }
-//    
-//    @objc func keyboardWillBeHidden(notification: NSNotification){
-//        //Once keyboard disappears, restore original positions
-//        var info = notification.userInfo!
-//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
-//        self.scrollView.contentInset = contentInsets
-//        self.scrollView.scrollIndicatorInsets = contentInsets
-//        self.view.endEditing(true)
-//        self.scrollView.isScrollEnabled = false
-//    }
-//    
-//    
-//    func textFieldDidBeginEditing(_ textField: UITextField){
-//        activeField = textField
-//    }
-//    
-//    func textFieldDidEndEditing(_ textField: UITextField){
-//        activeField = nil
-//    }
-//    
-//    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
