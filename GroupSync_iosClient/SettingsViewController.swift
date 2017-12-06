@@ -11,8 +11,11 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var logOutButton: UIButton!
-    
-    @IBOutlet weak var indicatorLabel: UILabel!
+
+    @IBAction func logOutButtonPressed()
+    {
+        createAlert(title: "Are you sure you want to log out?", message: "")
+    }
     
     @IBAction func `switch`(_ sender: UISwitch) {
 //        if(sender.isOn == true)
@@ -26,10 +29,28 @@ class SettingsViewController: UIViewController {
 //
 //        }
     }
+    func createAlert(title:String, message: String)
+    {
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            
+            self.performSegue(withIdentifier: "unwindToViewController", sender: self)
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     override func viewDidLoad() {
         
 
-        logOutButton.layer.cornerRadius = logOutButton.frame.size.width/10
+        logOutButton.layer.cornerRadius = logOutButton.frame.size.width/24
 //        logOutButton.clipsToBounds = true
     }
     
