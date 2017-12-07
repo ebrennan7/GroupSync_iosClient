@@ -16,6 +16,7 @@
 		9205CDFF1FCDB0B2008F6466 /* GroupSync_iosClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDFE1FCDB0B2008F6466 /* GroupSync_iosClientUITests.swift */; };
 		920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920CD5E91FCDC7BE00349451 /* LoginView.swift */; };
 		921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */; };
+		921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */; };
 		92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeView.swift */; };
 		92B1A00F1FD5BB0C0009E316 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
@@ -56,6 +57,7 @@
 		9205CE0C1FCDB15C008F6466 /* Screen Shot 2017-11-28 at 14.46.47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2017-11-28 at 14.46.47.png"; path = "../../../../Users/Ember/Documents/Screenshots/Screen Shot 2017-11-28 at 14.46.47.png"; sourceTree = "<group>"; };
 		920CD5E91FCDC7BE00349451 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpSettings.swift; sourceTree = "<group>"; };
 		92B1A00C1FD5BA9A0009E316 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				9205CDE21FCDB0B2008F6466 /* Main.storyboard */,
 				920CD5E91FCDC7BE00349451 /* LoginView.swift */,
 				9205CDE51FCDB0B2008F6466 /* Assets.xcassets */,
+				921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */,
 				9205CDE71FCDB0B2008F6466 /* LaunchScreen.storyboard */,
 				9205CDEA1FCDB0B2008F6466 /* Info.plist */,
 				92B1A0141FD6FD900009E316 /* Profile */,
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92B1A00F1FD5BB0C0009E316 /* GroupsView.swift in Sources */,
+				921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */,
 				921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */,
 				920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */,
 				9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */,

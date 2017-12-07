@@ -10,6 +10,7 @@ import UIKit
 
 class SignUpView: UIViewController {
 
+    @IBOutlet weak var signUpProgress: UIProgressView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -31,10 +32,48 @@ class SignUpView: UIViewController {
         changeLabelShapes()
         
         changeTextViewShapes()
+        signUpProgress.progress=0;
+        
+        self.addDoneButton()
 
        
         // Do any additional setup after loading the view.
     }
+    
+    func addDoneButton()
+    {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle       = UIBarStyle.default
+        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.passwordTextView?.inputAccessoryView = doneToolbar
+        self.emailTextView?.inputAccessoryView = doneToolbar
+        self.lastNameTextView?.inputAccessoryView = doneToolbar
+        self.firstNameTextView?.inputAccessoryView = doneToolbar
+        self.verifyPasswordTextView?.inputAccessoryView = doneToolbar
+
+
+
+        
+    }
+    
+    @objc func doneButtonAction()
+    {
+        self.passwordTextView?.resignFirstResponder()
+        self.verifyPasswordTextView?.resignFirstResponder()
+        self.lastNameTextView?.resignFirstResponder()
+        self.firstNameTextView?.resignFirstResponder()
+        self.emailTextView?.resignFirstResponder()
+    }
+
 
     func changeLabelShapes()
     {
@@ -69,7 +108,50 @@ class SignUpView: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    @IBAction func editingFirstNameFinished(_ sender: UITextField) {
+        if(firstNameTextView.text != "")
+        {
+            signUpProgress.progress=0.20
+        }
+    }
+    
+    @IBAction func editingLastNameFinished(_ sender: UITextField) {
+        
+        
+        
+        if(lastNameTextView.text != "" && signUpProgress.progress == 0.20)
+        {
+        signUpProgress.progress=0.40;
+        }
+        
+    }
+    
+    @IBAction func editingEmailFinished(_ sender: UITextField) {
+        
+        if(emailTextView.text != "" && signUpProgress.progress == 0.40)
+        {
+            signUpProgress.progress=0.60
+        }
+        
+    }
+    
+    @IBAction func editingPasswordFinished(_ sender: UITextField) {
+        
+    if(passwordTextView.text != "" && signUpProgress.progress == 0.60)
+    {
+        signUpProgress.progress=0.80
+    }
+    
+    }
+    
+    @IBAction func editingVerifyPasswordFinished(_ sender: UITextField) {
+        
+        if(verifyPasswordTextView.text == passwordTextView.text && signUpProgress.progress == 0.80)
+        {
+            signUpProgress.progress=1
+        }
+    }
     /*
     // MARK: - Navigation
 

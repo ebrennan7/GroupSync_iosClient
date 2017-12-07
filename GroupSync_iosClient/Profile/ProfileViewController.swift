@@ -9,7 +9,95 @@
 import UIKit
 
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    
+    
+    @IBOutlet weak var nameField: UILabel!
+    
+    @IBOutlet weak var emailField: UILabel!
+    @IBOutlet weak var nameEdit: UITextField!
+    @IBOutlet weak var emailEdit: UITextField!
+    @IBOutlet weak var middlePositionEditPopUp: NSLayoutConstraint!
+    
+    @IBOutlet weak var middlePositionPopUp: NSLayoutConstraint!
+    
 
+    func addDoneButton()
+    {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle       = UIBarStyle.default
+        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.nameEdit?.inputAccessoryView = doneToolbar
+        self.emailEdit?.inputAccessoryView = doneToolbar
+    }
+    
+    @objc func doneButtonAction()
+    {
+        self.nameEdit?.resignFirstResponder()
+        self.emailEdit?.resignFirstResponder()
+    }
+
+    
+    @IBAction func editPhoto()
+    {
+                if(UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum))
+                {
+                    print("BTN")
+        
+                    imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+                    imagePicker.sourceType = .savedPhotosAlbum
+                    imagePicker.allowsEditing = false
+                    self.present(imagePicker,animated: true,completion: nil)
+    
+                    
+        }
+    
+        func imagePickerController(picker: UIImagePickerController!, didFinishPicking image: UIImage!, editingInfo: NSDictionary!)
+        {
+            self.dismiss(animated: true, completion: {() -> Void in
+    
+            })
+            profilePictureView.image = image
+        
+
+        }
+            cancelPopUp()
+    }
+    
+    @IBAction func editProfile()
+    {
+        middlePositionEditPopUp.constant=0;
+        
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+            
+        })
+    }
+    
+    @IBAction func closeEditPopUp(_ sender: UIButton) {
+        
+        nameField.text = nameEdit.text
+        emailField.text = emailEdit.text
+        
+        middlePositionEditPopUp.constant = 1200 * -1
+        cancelPopUp()
+        
+        UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()
+    
+        })
+    }
+    
+    
     let grayView = UIView()
 
 //    let collectionView: UICollectionView = {
@@ -91,31 +179,45 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
 //    {
 //        UIView.animate(withDuration: 0.5, animations: {self.grayView.alpha = 0})
 //    }
-    
+    @IBAction func cancelPopUp()
+    {
+        middlePositionPopUp.constant=1200
+        
+        UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()
+            self.dimScreenView.alpha=0;
+        })
+        
+      
+        
+        
+    }
     
     @IBAction func buttonPressed()
     {
-        if(UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum))
-        {
-            print("BTN")
-
-            imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-            imagePicker.sourceType = .savedPhotosAlbum
-            imagePicker.allowsEditing = false
-            self.present(imagePicker,animated: true,completion: nil)
-        }
-    }
-
-    func imagePickerController(picker: UIImagePickerController!, didFinishPicking image: UIImage!, editingInfo: NSDictionary!)
-    {
-        self.dismiss(animated: true, completion: {() -> Void in
-
+        
+            
+        
+        middlePositionPopUp.constant=0;
+        
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+            self.dimScreenView.alpha=0.5;
         })
-        profilePictureView.image = image
+        
     }
+//
+    @IBOutlet weak var popUpView: UIView!
+    @IBOutlet weak var dimScreenView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.addDoneButton()
+        popUpView.layer.masksToBounds = true;
+        popUpView.layer.cornerRadius = 10;
+        
+        
         
         profilePictureView.layer.cornerRadius = profilePictureView.frame.size.width/2
         profilePictureView.clipsToBounds = true

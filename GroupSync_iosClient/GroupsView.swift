@@ -10,9 +10,13 @@ import UIKit
 
 class GroupsView: UIViewController {
 
+    @IBOutlet weak var createGroupButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        createGroupButton.layer.cornerRadius = createGroupButton.frame.size.width/24
+        
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         // Do any additional setup after loading the view.
     }

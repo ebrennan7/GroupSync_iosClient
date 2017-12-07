@@ -3,7 +3,7 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Screen Shot 2017-11-28 at 19.41.33.png",
+      "filename" : "map.png",
       "scale" : "2x"
     },
     {
@@ -32,8 +32,9 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "map-1.png",
       "scale" : "2x"
     },
     {
