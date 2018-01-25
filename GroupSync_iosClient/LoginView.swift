@@ -103,7 +103,9 @@ class LoginView: UIViewController {
             print("NOW")
             
             
-            self.present(homeView, animated: true, completion: nil)
+            let navController = UINavigationController(rootViewController: homeView)
+
+            self.present(navController, animated: true, completion: nil)
             //                                    self.navigationController?.present(homeView, animated: true, completion: nil)
         }
     }

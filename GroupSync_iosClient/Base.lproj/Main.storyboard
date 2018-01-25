@@ -591,7 +591,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOF-uj-wg0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2828" y="33"/>
+            <point key="canvasLocation" x="-3129" y="32"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -956,6 +956,6 @@
         <image name="SettingsIcon" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LH2-Xm-HmL"/>
+        <segue reference="B4x-kl-vBy"/>
     </inferredMetricsTieBreakers>
 </document>

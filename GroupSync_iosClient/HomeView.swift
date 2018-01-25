@@ -28,7 +28,8 @@ class HomeView: UIViewController {
         if userDefaults.object(forKey: "userSignedIn") == nil {
             
             if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView") as? ViewController {
-                self.navigationController?.present(loginView, animated: true, completion: nil)
+                let navController = UINavigationController(rootViewController: loginView)
+                self.navigationController?.present(navController, animated: true, completion: nil)
             }
         }
     }
