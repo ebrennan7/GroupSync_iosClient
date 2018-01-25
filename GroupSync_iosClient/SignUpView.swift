@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Foundation
+
 
 class SignUpView: UIViewController {
-
+    
     @IBOutlet weak var signUpProgress: UIProgressView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
@@ -17,26 +19,140 @@ class SignUpView: UIViewController {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var verifyPasswordLabel: UILabel!
     
-    @IBOutlet weak var firstNameTextView: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
     
-    @IBOutlet weak var lastNameTextView: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     
-    @IBOutlet weak var emailTextView: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     
-    @IBOutlet weak var passwordTextView: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var verifyPasswordTextView: UITextField!
+    @IBOutlet weak var verifyPasswordTextField: UITextField!
+    
+    @IBAction func signUpButton(_ sender: UIButton) {
+        if firstNameTextField.text!.isEmpty||lastNameTextField.text!.isEmpty||emailTextField.text!.isEmpty||passwordTextField.text!.isEmpty||verifyPasswordTextField.text!.isEmpty
+        {
+            createAlert(title: "All fields must be filled in", message: "")
+        }
+        else if !(passwordTextField.text!==verifyPasswordTextField.text!)
+        {
+            createAlert(title: "Password fields do not match", message: "")
+        }
+        else if !(isValidEmail(email: emailTextField.text!))
+            {
+                createAlert(title: "Email is not valid", message: "")
+            }
+        else{
+            signUpPostRequest()
+        }
+    }
+    func signUpPostRequest()
+    {
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "14769248-607a-fc94-d01e-86ab7e51e49a"
+        ]
+        let parameters = [
+            "email": emailTextField.text! ,
+            "name": firstNameTextField.text!,
+            "surname": lastNameTextField.text!,
+            "password": passwordTextField.text!,
+            "password_re_enter": verifyPasswordTextField.text!
+            ] as [String : Any]
+
+        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        guard let data = postData else{
+            return
+        }
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/signup_post")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            }
+            do {
+                let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
+                
+                DispatchQueue.main.async {
+                    
+                    print(resultJson)
+                    
+                    if let dictionary = resultJson as? [String: Any] {
+                        if let nestedDictionary = dictionary["data"] as? [String: Any]
+                        {
+                            //A valid email is only returned if the request was successful
+                            
+                            if let emailSuccessful = nestedDictionary["user_email"] as? String
+                            
+                            {
+                                self.successfulSignUp()
+
+                            }
+                        }
+                            else
+                            {
+                                self.createAlert(title: "Account already exists with that email", message: "")
+                            }
+                        }
+                    }
+                
+            } catch {
+                print("Error -> \(error)")
+            }
+        })
+        
+        dataTask.resume()
+        
+    }
+    func createAlert(title:String, message: String)
+    {
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func successfulSignUp()
+    {
+        if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView") as? ViewController
+        {
+            self.present(loginView,animated: true,completion: nil)
+        }
+    }
+    
+    func isValidEmail(email:String) -> Bool
+    {
+        let emailSpec = "[A-Z0-0a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailCheck = NSPredicate(format: "SELF MATCHES %@", emailSpec)
+        return emailCheck.evaluate(with: email)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         changeLabelShapes()
         
         changeTextViewShapes()
-        signUpProgress.progress=0;
+   
         
         self.addDoneButton()
-
-       
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -54,27 +170,27 @@ class SignUpView: UIViewController {
         doneToolbar.items = items
         doneToolbar.sizeToFit()
         
-        self.passwordTextView?.inputAccessoryView = doneToolbar
-        self.emailTextView?.inputAccessoryView = doneToolbar
-        self.lastNameTextView?.inputAccessoryView = doneToolbar
-        self.firstNameTextView?.inputAccessoryView = doneToolbar
-        self.verifyPasswordTextView?.inputAccessoryView = doneToolbar
-
-
-
+        self.passwordTextField?.inputAccessoryView = doneToolbar
+        self.emailTextField?.inputAccessoryView = doneToolbar
+        self.lastNameTextField?.inputAccessoryView = doneToolbar
+        self.firstNameTextField?.inputAccessoryView = doneToolbar
+        self.verifyPasswordTextField?.inputAccessoryView = doneToolbar
+        
+        
+        
         
     }
     
     @objc func doneButtonAction()
     {
-        self.passwordTextView?.resignFirstResponder()
-        self.verifyPasswordTextView?.resignFirstResponder()
-        self.lastNameTextView?.resignFirstResponder()
-        self.firstNameTextView?.resignFirstResponder()
-        self.emailTextView?.resignFirstResponder()
+        self.passwordTextField?.resignFirstResponder()
+        self.verifyPasswordTextField?.resignFirstResponder()
+        self.lastNameTextField?.resignFirstResponder()
+        self.firstNameTextField?.resignFirstResponder()
+        self.emailTextField?.resignFirstResponder()
     }
-
-
+    
+    
     func changeLabelShapes()
     {
         emailLabel.layer.masksToBounds = true;
@@ -92,16 +208,16 @@ class SignUpView: UIViewController {
     func changeTextViewShapes()
     {
         
-        emailTextView.layer.masksToBounds = true;
-        passwordTextView.layer.masksToBounds = true;
-        verifyPasswordTextView.layer.masksToBounds = true;
-        firstNameTextView.layer.masksToBounds = true;
-        lastNameTextView.layer.masksToBounds = true;
-        emailTextView.layer.cornerRadius = emailTextView.frame.size.width/24
-        verifyPasswordTextView.layer.cornerRadius = verifyPasswordTextView.frame.size.width/24
-        firstNameTextView.layer.cornerRadius = firstNameTextView.frame.size.width/24
-        passwordTextView.layer.cornerRadius = passwordTextView.frame.size.width/24
-        lastNameTextView.layer.cornerRadius = lastNameTextView.frame.size.width/24
+        emailTextField.layer.masksToBounds = true;
+        passwordTextField.layer.masksToBounds = true;
+        verifyPasswordTextField.layer.masksToBounds = true;
+        firstNameTextField.layer.masksToBounds = true;
+        lastNameTextField.layer.masksToBounds = true;
+        emailTextField.layer.cornerRadius = emailTextField.frame.size.width/24
+        verifyPasswordTextField.layer.cornerRadius = verifyPasswordTextField.frame.size.width/24
+        firstNameTextField.layer.cornerRadius = firstNameTextField.frame.size.width/24
+        passwordTextField.layer.cornerRadius = passwordTextField.frame.size.width/24
+        lastNameTextField.layer.cornerRadius = lastNameTextField.frame.size.width/24
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -110,7 +226,7 @@ class SignUpView: UIViewController {
     
     
     @IBAction func editingFirstNameFinished(_ sender: UITextField) {
-        if(firstNameTextView.text != "")
+        if(firstNameTextField.text != "")
         {
             signUpProgress.progress=0.20
         }
@@ -120,16 +236,16 @@ class SignUpView: UIViewController {
         
         
         
-        if(lastNameTextView.text != "" && signUpProgress.progress == 0.20)
+        if(lastNameTextField.text != "" && signUpProgress.progress == 0.20)
         {
-        signUpProgress.progress=0.40;
+            signUpProgress.progress=0.40;
         }
         
     }
     
     @IBAction func editingEmailFinished(_ sender: UITextField) {
         
-        if(emailTextView.text != "" && signUpProgress.progress == 0.40)
+        if(emailTextField.text != "" && signUpProgress.progress == 0.40)
         {
             signUpProgress.progress=0.60
         }
@@ -138,28 +254,28 @@ class SignUpView: UIViewController {
     
     @IBAction func editingPasswordFinished(_ sender: UITextField) {
         
-    if(passwordTextView.text != "" && signUpProgress.progress == 0.60)
-    {
-        signUpProgress.progress=0.80
-    }
-    
+        if(passwordTextField.text != "" && signUpProgress.progress == 0.60)
+        {
+            signUpProgress.progress=0.80
+        }
+        
     }
     
     @IBAction func editingVerifyPasswordFinished(_ sender: UITextField) {
         
-        if(verifyPasswordTextView.text == passwordTextView.text && signUpProgress.progress == 0.80)
+        if(verifyPasswordTextField.text == passwordTextField.text && signUpProgress.progress == 0.80)
         {
             signUpProgress.progress=1
         }
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

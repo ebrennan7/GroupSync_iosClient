@@ -19,6 +19,20 @@ class HomeView: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        
+        let userDefaults = UserDefaults.standard
+        
+        if userDefaults.object(forKey: "userSignedIn") == nil {
+            
+            if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView") as? ViewController {
+                self.navigationController?.present(loginView, animated: true, completion: nil)
+            }
+        }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         navigationController?.setNavigationBarHidden(false, animated: false)

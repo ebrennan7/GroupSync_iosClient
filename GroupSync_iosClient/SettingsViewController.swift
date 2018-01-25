@@ -35,7 +35,16 @@ class SettingsViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
             
-            self.performSegue(withIdentifier: "unwindToViewController", sender: self)
+            //log out happens
+            
+            
+            self.clearUserDefaults()
+            
+            if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView") as? ViewController {
+                  self.present(loginView, animated: true, completion: nil)
+            }
+            
+//            self.performSegue(withIdentifier: "unwindToViewController", sender: self)
             
         }))
         
@@ -47,6 +56,14 @@ class SettingsViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    func clearUserDefaults()
+    {
+        let userInfo = UserDefaults.standard
+        userInfo.removeObject(forKey: "userSignedIn")
+        userInfo.synchronize()
+    }
+    
     override func viewDidLoad() {
         
 

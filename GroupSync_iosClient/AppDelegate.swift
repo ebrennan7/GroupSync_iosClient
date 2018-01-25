@@ -7,14 +7,35 @@
 //
 
 import UIKit
+//import AWSCore
+//import AWSMobileClient
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    func application(_ application: UIApplication, open url: URL,
+                     sourceApplication: String?, annotation: Any) -> Bool {
+//
+//        return AWSMobileClient.sharedInstance().interceptApplication(
+//            application, open: url,
+//            sourceApplication: sourceApplication,
+//            annotation: annotation)
+        
+        return true
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+//        //Below checks for succesful connection to AWS
+//        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
+//        AWSDDLog.sharedInstance.logLevel = .info
+//
+//        return AWSMobileClient.sharedInstance().interceptApplication(application,
+//                                                                     didFinishLaunchingWithOptions: launchOptions)
         // Override point for customization after application launch.
         return true
     }

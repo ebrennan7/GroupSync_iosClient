@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NJV-pE-4Pw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NJV-pE-4Pw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -25,18 +25,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJn-fT-WDi">
-                                <rect key="frame" x="0.0" y="519" width="375" height="148"/>
+                                <rect key="frame" x="0.0" y="475" width="375" height="192"/>
                                 <color key="backgroundColor" red="0.41830563545227051" green="0.87390416860580444" blue="0.97522276639938354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="LOG IN">
                                     <color key="titleColor" red="0.10616666823625565" green="0.17191857099533081" blue="0.34630870819091797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Kum-Vd-vso" kind="show" id="UAl-nt-roV"/>
+                                    <action selector="logInButton:" destination="Otf-ci-7Ye" eventType="touchUpInside" id="pag-An-vKx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to GroupSync" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Xf2-4w-Ogv">
-                                <rect key="frame" x="16" y="98" width="343" height="66"/>
+                                <rect key="frame" x="16" y="54" width="343" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="cyU-XE-guF"/>
                                 </constraints>
@@ -45,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="3Up-tt-nLb">
-                                <rect key="frame" x="16" y="175" width="343" height="30"/>
+                                <rect key="frame" x="16" y="131" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.93267565965652466" green="0.97570806741714478" blue="0.78403174877166748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aH2-RE-Zv5"/>
@@ -55,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="byD-gI-gzF">
-                                <rect key="frame" x="16" y="220" width="343" height="30"/>
+                                <rect key="frame" x="16" y="176" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ndi-Qo-5kX"/>
                                 </constraints>
@@ -64,14 +64,14 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQX-9W-jXr">
-                                <rect key="frame" x="126" y="423" width="123" height="30"/>
+                                <rect key="frame" x="126" y="379" width="123" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TLN-fv-cvn"/>
                                 </constraints>
                                 <state key="normal" title="Forgot Password?"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7pL-V8-jTO">
-                                <rect key="frame" x="16" y="301" width="343" height="30"/>
+                                <rect key="frame" x="16" y="257" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.93267565965652466" green="0.97570806741714478" blue="0.78403174877166748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7pL-V8-jTO" secondAttribute="height" multiplier="343:23" constant="-104.39130434782606" id="9LG-iM-XmM"/>
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hu4-9E-VDs">
-                                <rect key="frame" x="16" y="341" width="343" height="30"/>
+                                <rect key="frame" x="16" y="297" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gDV-VN-bBW"/>
                                 </constraints>
@@ -121,7 +121,7 @@
                         <outlet property="emailLabel" destination="3Up-tt-nLb" id="xug-hm-O7A"/>
                         <outlet property="emailTextField" destination="byD-gI-gzF" id="6Le-zq-s9E"/>
                         <outlet property="passwordLabel" destination="7pL-V8-jTO" id="hW9-cX-z32"/>
-                        <outlet property="passwordTextView" destination="hu4-9E-VDs" id="Nio-bN-xmo"/>
+                        <outlet property="passwordTextField" destination="hu4-9E-VDs" id="P4U-XO-SM3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9Q-wY-fyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -223,9 +223,6 @@
                                             <color key="titleColor" red="0.10616666819999999" green="0.17191857099999999" blue="0.34630870819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.34630870819999998" green="0.13029367659999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="ODO-sb-PI1" kind="show" id="8ef-GX-cr6"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -251,7 +248,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yz-Fm-mmx">
-                                <rect key="frame" x="65" y="1299" width="245" height="470"/>
+                                <rect key="frame" x="65" y="1298.5" width="245" height="470"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYT-DU-l2A">
                                         <rect key="frame" x="47" y="32" width="150" height="150"/>
@@ -409,7 +406,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feature coming soon.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WE-Wx-m8X">
-                                <rect key="frame" x="91.5" y="321" width="191" height="25"/>
+                                <rect key="frame" x="92" y="321" width="191" height="25"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -427,56 +424,10 @@
             </objects>
             <point key="canvasLocation" x="2062" y="-1524"/>
         </scene>
-        <!--Groups View-->
-        <scene sceneID="VGf-nv-BLa">
-            <objects>
-                <viewController id="ODO-sb-PI1" customClass="GroupsView" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1xE-E2-Kl1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="YbZ-ZM-16U">
-                                <rect key="frame" x="97" y="124" width="181" height="25"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hm-4j-1QQ">
-                                <rect key="frame" x="16" y="211" width="343" height="35"/>
-                                <color key="backgroundColor" red="0.41830563545227051" green="0.87390416860580444" blue="0.97522276639938354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Create Group">
-                                    <color key="titleColor" red="0.19651117920875549" green="0.28891143202781677" blue="0.3680020272731781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="logOutButtonPressed" destination="smO-Cy-zr7" eventType="touchUpInside" id="sjN-ll-5jn"/>
-                                    <segue destination="DRy-6Q-TGy" kind="show" id="gWC-IO-kfb"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="YbZ-ZM-16U" firstAttribute="centerX" secondItem="6Hm-4j-1QQ" secondAttribute="centerX" id="Lcl-0w-md0"/>
-                            <constraint firstItem="6Hm-4j-1QQ" firstAttribute="trailing" secondItem="1xE-E2-Kl1" secondAttribute="trailingMargin" id="YVK-Xm-NzZ"/>
-                            <constraint firstItem="YbZ-ZM-16U" firstAttribute="top" secondItem="shh-fu-ui4" secondAttribute="top" constant="60" id="e3c-DP-kfm"/>
-                            <constraint firstItem="6Hm-4j-1QQ" firstAttribute="top" secondItem="YbZ-ZM-16U" secondAttribute="bottom" constant="62" id="o03-MG-7CU"/>
-                            <constraint firstItem="6Hm-4j-1QQ" firstAttribute="leading" secondItem="1xE-E2-Kl1" secondAttribute="leadingMargin" id="xgX-Pu-tEt"/>
-                            <constraint firstItem="YbZ-ZM-16U" firstAttribute="leading" secondItem="shh-fu-ui4" secondAttribute="leading" constant="97" id="zBF-hc-M7R"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="shh-fu-ui4"/>
-                    </view>
-                    <connections>
-                        <outlet property="createGroupButton" destination="6Hm-4j-1QQ" id="qMY-tB-kVf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Pn-pW-ndn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3244" y="-1524.2878560719641"/>
-        </scene>
         <!--Home View-->
         <scene sceneID="Qlg-iv-VhQ">
             <objects>
-                <viewController id="Kum-Vd-vso" customClass="HomeView" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeView" id="Kum-Vd-vso" customClass="HomeView" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fBI-8X-nCh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -490,9 +441,6 @@
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1r-P9-dRU" userLabel="GroupsButton">
                                 <rect key="frame" x="16" y="282" width="166" height="166"/>
                                 <state key="normal" image="GroupsIcon"/>
-                                <connections>
-                                    <segue destination="ODO-sb-PI1" kind="show" id="nxF-jz-6GO"/>
-                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PE-NA-Pyj" userLabel="SettingsButton">
                                 <rect key="frame" x="198" y="505" width="166" height="166"/>
@@ -600,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeB-Ug-Lc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2062" y="33"/>
+            <point key="canvasLocation" x="-1265" y="32"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8Ai-ym-1nC">
@@ -611,7 +559,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feature coming soon.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsF-iV-H3w">
-                                <rect key="frame" x="91.5" y="321" width="191" height="25"/>
+                                <rect key="frame" x="92" y="321" width="191" height="25"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -638,17 +586,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="lzw-L0-CAe"/>
+                        <segue destination="Kum-Vd-vso" kind="relationship" relationship="rootViewController" id="zvG-Nt-hh3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOF-uj-wg0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-196" y="33"/>
+            <point key="canvasLocation" x="-2828" y="33"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginView" id="BYZ-38-t0r" customClass="ViewController" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Login">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -684,7 +632,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="L4r-gZ-SxQ">
-                                <rect key="frame" x="81" y="124" width="212" height="151"/>
+                                <rect key="frame" x="81" y="80" width="212" height="151"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="L4r-gZ-SxQ" secondAttribute="height" multiplier="40:27" constant="-11.703703703703695" id="rrQ-YJ-9rf"/>
                                 </constraints>
@@ -722,7 +670,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpx-al-8ff">
-                                <rect key="frame" x="0.0" y="64" width="375" height="786"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="830"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mDp-a9-Jfa">
                                         <rect key="frame" x="0.0" y="8" width="375" height="850"/>
@@ -836,7 +784,7 @@
                                                     <color key="titleShadowColor" red="0.34630870819999998" green="0.13029367659999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="Kum-Vd-vso" kind="show" id="OZ6-6a-r2L"/>
+                                                    <segue destination="Otf-ci-7Ye" kind="show" id="B4x-kl-vBy"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUx-J1-zIm">
@@ -924,16 +872,16 @@
                     <size key="freeformSize" width="375" height="850"/>
                     <connections>
                         <outlet property="emailLabel" destination="IAM-pK-5H9" id="mwl-dA-B5S"/>
-                        <outlet property="emailTextView" destination="AEg-2K-MCq" id="wOK-J4-6pq"/>
+                        <outlet property="emailTextField" destination="AEg-2K-MCq" id="wOK-J4-6pq"/>
                         <outlet property="firstNameLabel" destination="tSN-G5-jUt" id="JMe-gt-Gqt"/>
-                        <outlet property="firstNameTextView" destination="XaL-IB-rPQ" id="ohw-I3-heK"/>
+                        <outlet property="firstNameTextField" destination="XaL-IB-rPQ" id="ohw-I3-heK"/>
                         <outlet property="lastNameLabel" destination="BBv-CL-ZQC" id="FKD-FP-5bM"/>
-                        <outlet property="lastNameTextView" destination="FlQ-gw-YLT" id="Lpg-VH-hNl"/>
+                        <outlet property="lastNameTextField" destination="FlQ-gw-YLT" id="Lpg-VH-hNl"/>
                         <outlet property="passwordLabel" destination="aNr-pX-6Yf" id="4zl-pX-q1T"/>
-                        <outlet property="passwordTextView" destination="xMX-oB-5dU" id="jhr-gf-pUC"/>
+                        <outlet property="passwordTextField" destination="xMX-oB-5dU" id="jhr-gf-pUC"/>
                         <outlet property="signUpProgress" destination="XFe-Ln-cRH" id="ceY-vf-bAr"/>
                         <outlet property="verifyPasswordLabel" destination="9WG-5R-dHT" id="v5p-Dz-HL6"/>
-                        <outlet property="verifyPasswordTextView" destination="XUx-J1-zIm" id="7nt-go-bnV"/>
+                        <outlet property="verifyPasswordTextField" destination="XUx-J1-zIm" id="7nt-go-bnV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ag-yL-as4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1008,9 +956,6 @@
         <image name="SettingsIcon" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gWC-IO-kfb"/>
-        <segue reference="OZ6-6a-r2L"/>
-        <segue reference="nxF-jz-6GO"/>
         <segue reference="LH2-Xm-HmL"/>
     </inferredMetricsTieBreakers>
 </document>

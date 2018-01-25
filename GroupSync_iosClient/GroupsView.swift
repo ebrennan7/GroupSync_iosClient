@@ -12,6 +12,11 @@ class GroupsView: UIViewController {
 
     @IBOutlet weak var createGroupButton: UIButton!
     
+    @IBAction func connectToDatabase(_ sender: UIButton) {
+        
+//        let conn = PQconnectdb("postgresql://localhost".cString(using: using: .utf8))
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         createGroupButton.layer.cornerRadius = createGroupButton.frame.size.width/24

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911FAA2C4145EF671AA039A7 /* libPods-GroupSync_iosClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8808CDD1933E8C1626D8FC /* libPods-GroupSync_iosClientTests.a */; };
 		9205CDDF1FCDB0B2008F6466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */; };
 		9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDE01FCDB0B2008F6466 /* ViewController.swift */; };
 		9205CDE41FCDB0B2008F6466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9205CDE21FCDB0B2008F6466 /* Main.storyboard */; };
@@ -17,10 +18,14 @@
 		920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920CD5E91FCDC7BE00349451 /* LoginView.swift */; };
 		921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */; };
 		921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */; };
+		921DCE05200FA91100C01260 /* connectToDatabase.c in Sources */ = {isa = PBXBuildFile; fileRef = 921DCE03200FA91100C01260 /* connectToDatabase.c */; };
 		92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeView.swift */; };
 		92B1A00F1FD5BB0C0009E316 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
 		92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */; };
+		92F75C4D200FD85500116C55 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 92F75C4C200FD85500116C55 /* awsconfiguration.json */; };
+		C458A27A926081328E721425 /* libPods-GroupSync_iosClientUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 416304B911168C2B28F7CD5A /* libPods-GroupSync_iosClientUITests.a */; };
+		EEDAC6C3363163302A955F91 /* Pods_GroupSync_iosClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3581E68C3EE773EDA7BCA7 /* Pods_GroupSync_iosClient.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00EB833F1458163D4444B72B /* Pods-GroupSync_iosClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClient/Pods-GroupSync_iosClient.release.xcconfig"; sourceTree = "<group>"; };
+		36D7D8D1D70DE2775D0C1969 /* Pods-GroupSync_iosClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientUITests/Pods-GroupSync_iosClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3D61BA4E0C7E3E7D935EF58B /* Pods-GroupSync_iosClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClient/Pods-GroupSync_iosClient.debug.xcconfig"; sourceTree = "<group>"; };
+		3F8808CDD1933E8C1626D8FC /* libPods-GroupSync_iosClientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroupSync_iosClientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		416304B911168C2B28F7CD5A /* libPods-GroupSync_iosClientUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroupSync_iosClientUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4403AC67F38F5B532FB74AD4 /* Pods-GroupSync_iosClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientUITests/Pods-GroupSync_iosClientUITests.release.xcconfig"; sourceTree = "<group>"; };
+		45EF740B97C610FC426FF6D9 /* Pods-GroupSync_iosClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9205CDDB1FCDB0B2008F6466 /* GroupSync_iosClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupSync_iosClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9205CDE01FCDB0B2008F6466 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,10 +70,16 @@
 		920CD5E91FCDC7BE00349451 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpSettings.swift; sourceTree = "<group>"; };
+		921DCE02200FA91100C01260 /* GroupSync_iosClient-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GroupSync_iosClient-Bridging-Header.h"; sourceTree = "<group>"; };
+		921DCE03200FA91100C01260 /* connectToDatabase.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = connectToDatabase.c; sourceTree = "<group>"; };
+		921DCE04200FA91100C01260 /* connectToDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connectToDatabase.h; sourceTree = "<group>"; };
 		92B1A00C1FD5BA9A0009E316 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		92F75C4C200FD85500116C55 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		A1C30FD2489825012CE68503 /* Pods-GroupSync_iosClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		CE3581E68C3EE773EDA7BCA7 /* Pods_GroupSync_iosClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupSync_iosClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEDAC6C3363163302A955F91 /* Pods_GroupSync_iosClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				911FAA2C4145EF671AA039A7 /* libPods-GroupSync_iosClientTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C458A27A926081328E721425 /* libPods-GroupSync_iosClientUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +118,8 @@
 				9205CDFD1FCDB0B2008F6466 /* GroupSync_iosClientUITests */,
 				9205CDDC1FCDB0B2008F6466 /* Products */,
 				9205CE0C1FCDB15C008F6466 /* Screen Shot 2017-11-28 at 14.46.47.png */,
+				97A9C0F8843C00EAB4B2B213 /* Pods */,
+				99863E6A08577A42EF21DC0C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,9 +136,12 @@
 		9205CDDD1FCDB0B2008F6466 /* GroupSync_iosClient */ = {
 			isa = PBXGroup;
 			children = (
+				92F75C4C200FD85500116C55 /* awsconfiguration.json */,
 				92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */,
 				92B1A00C1FD5BA9A0009E316 /* HomeView.swift */,
 				92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */,
+				921DCE03200FA91100C01260 /* connectToDatabase.c */,
+				921DCE04200FA91100C01260 /* connectToDatabase.h */,
 				921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */,
 				9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */,
 				9205CDE01FCDB0B2008F6466 /* ViewController.swift */,
@@ -126,6 +152,7 @@
 				9205CDE71FCDB0B2008F6466 /* LaunchScreen.storyboard */,
 				9205CDEA1FCDB0B2008F6466 /* Info.plist */,
 				92B1A0141FD6FD900009E316 /* Profile */,
+				921DCE02200FA91100C01260 /* GroupSync_iosClient-Bridging-Header.h */,
 			);
 			path = GroupSync_iosClient;
 			sourceTree = "<group>";
@@ -156,6 +183,29 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		97A9C0F8843C00EAB4B2B213 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D61BA4E0C7E3E7D935EF58B /* Pods-GroupSync_iosClient.debug.xcconfig */,
+				00EB833F1458163D4444B72B /* Pods-GroupSync_iosClient.release.xcconfig */,
+				45EF740B97C610FC426FF6D9 /* Pods-GroupSync_iosClientTests.debug.xcconfig */,
+				A1C30FD2489825012CE68503 /* Pods-GroupSync_iosClientTests.release.xcconfig */,
+				36D7D8D1D70DE2775D0C1969 /* Pods-GroupSync_iosClientUITests.debug.xcconfig */,
+				4403AC67F38F5B532FB74AD4 /* Pods-GroupSync_iosClientUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		99863E6A08577A42EF21DC0C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE3581E68C3EE773EDA7BCA7 /* Pods_GroupSync_iosClient.framework */,
+				3F8808CDD1933E8C1626D8FC /* libPods-GroupSync_iosClientTests.a */,
+				416304B911168C2B28F7CD5A /* libPods-GroupSync_iosClientUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9205CE031FCDB0B2008F6466 /* Build configuration list for PBXNativeTarget "GroupSync_iosClient" */;
 			buildPhases = (
+				98A3C2C32E6C6DA2512C3BA5 /* [CP] Check Pods Manifest.lock */,
 				9205CDD71FCDB0B2008F6466 /* Sources */,
 				9205CDD81FCDB0B2008F6466 /* Frameworks */,
 				9205CDD91FCDB0B2008F6466 /* Resources */,
+				E11ED81A1B1FE9E91233A9E7 /* [CP] Embed Pods Frameworks */,
+				63C56C3C0BF84FB7C123F360 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,9 +233,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9205CE061FCDB0B2008F6466 /* Build configuration list for PBXNativeTarget "GroupSync_iosClientTests" */;
 			buildPhases = (
+				753668BF0AF26473277FA4F3 /* [CP] Check Pods Manifest.lock */,
 				9205CDEB1FCDB0B2008F6466 /* Sources */,
 				9205CDEC1FCDB0B2008F6466 /* Frameworks */,
 				9205CDED1FCDB0B2008F6466 /* Resources */,
+				5CD7BADA05F4D97BA013FBAA /* [CP] Embed Pods Frameworks */,
+				5D4340468D3016B2622398F2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,9 +254,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9205CE091FCDB0B2008F6466 /* Build configuration list for PBXNativeTarget "GroupSync_iosClientUITests" */;
 			buildPhases = (
+				489794F1E33D6D904F49E1FB /* [CP] Check Pods Manifest.lock */,
 				9205CDF61FCDB0B2008F6466 /* Sources */,
 				9205CDF71FCDB0B2008F6466 /* Frameworks */,
 				9205CDF81FCDB0B2008F6466 /* Resources */,
+				5D10D4ED7326515CEA62062D /* [CP] Embed Pods Frameworks */,
+				F82B13077EADEBC9341E4F92 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,6 +283,7 @@
 				TargetAttributes = {
 					9205CDDA1FCDB0B2008F6466 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					9205CDEE1FCDB0B2008F6466 = {
@@ -263,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92F75C4D200FD85500116C55 /* awsconfiguration.json in Resources */,
 				9205CDE91FCDB0B2008F6466 /* LaunchScreen.storyboard in Resources */,
 				9205CDE61FCDB0B2008F6466 /* Assets.xcassets in Resources */,
 				9205CDE41FCDB0B2008F6466 /* Main.storyboard in Resources */,
@@ -285,6 +346,156 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		489794F1E33D6D904F49E1FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GroupSync_iosClientUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CD7BADA05F4D97BA013FBAA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D10D4ED7326515CEA62062D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GroupSync_iosClientUITests/Pods-GroupSync_iosClientUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D4340468D3016B2622398F2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63C56C3C0BF84FB7C123F360 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GroupSync_iosClient/Pods-GroupSync_iosClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		753668BF0AF26473277FA4F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GroupSync_iosClientTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98A3C2C32E6C6DA2512C3BA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GroupSync_iosClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E11ED81A1B1FE9E91233A9E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GroupSync_iosClient/Pods-GroupSync_iosClient-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GroupSync_iosClient/Pods-GroupSync_iosClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F82B13077EADEBC9341E4F92 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GroupSync_iosClientUITests/Pods-GroupSync_iosClientUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9205CDD71FCDB0B2008F6466 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -294,6 +505,7 @@
 				921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */,
 				921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */,
 				920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */,
+				921DCE05200FA91100C01260 /* connectToDatabase.c in Sources */,
 				9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */,
 				92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */,
 				92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */,
@@ -387,6 +599,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -444,6 +657,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -462,14 +676,20 @@
 		};
 		9205CE041FCDB0B2008F6466 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D61BA4E0C7E3E7D935EF58B /* Pods-GroupSync_iosClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EKF3UTYQR8;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GroupSync_iosClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				NEW_SETTING = "platform :ios, '9.0'\ntarget :'YourAppTarget' do\n    use_frameworks!\n    pod 'AWSMobileClient', '~> 2.6.6'\n    # other pods\nend";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ember.GroupSync-iosClient";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GroupSync_iosClient/GroupSync_iosClient-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -477,14 +697,19 @@
 		};
 		9205CE051FCDB0B2008F6466 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00EB833F1458163D4444B72B /* Pods-GroupSync_iosClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EKF3UTYQR8;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GroupSync_iosClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				NEW_SETTING = "platform :ios, '9.0'\ntarget :'YourAppTarget' do\n    use_frameworks!\n    pod 'AWSMobileClient', '~> 2.6.6'\n    # other pods\nend";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ember.GroupSync-iosClient";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GroupSync_iosClient/GroupSync_iosClient-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -492,6 +717,7 @@
 		};
 		9205CE071FCDB0B2008F6466 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45EF740B97C610FC426FF6D9 /* Pods-GroupSync_iosClientTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -509,6 +735,7 @@
 		};
 		9205CE081FCDB0B2008F6466 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1C30FD2489825012CE68503 /* Pods-GroupSync_iosClientTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -526,6 +753,7 @@
 		};
 		9205CE0A1FCDB0B2008F6466 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36D7D8D1D70DE2775D0C1969 /* Pods-GroupSync_iosClientUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -542,6 +770,7 @@
 		};
 		9205CE0B1FCDB0B2008F6466 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4403AC67F38F5B532FB74AD4 /* Pods-GroupSync_iosClientUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
