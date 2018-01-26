@@ -19,7 +19,7 @@
         <!--Login View-->
         <scene sceneID="cHs-mR-vyR">
             <objects>
-                <viewController id="Otf-ci-7Ye" customClass="LoginView" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginPage" id="Otf-ci-7Ye" customClass="LoginView" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bVo-fT-ptk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -882,6 +882,7 @@
                         <outlet property="signUpProgress" destination="XFe-Ln-cRH" id="ceY-vf-bAr"/>
                         <outlet property="verifyPasswordLabel" destination="9WG-5R-dHT" id="v5p-Dz-HL6"/>
                         <outlet property="verifyPasswordTextField" destination="XUx-J1-zIm" id="7nt-go-bnV"/>
+                        <segue destination="Otf-ci-7Ye" kind="show" identifier="signUpButtonSegue" id="NMq-sU-Add"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ag-yL-as4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -956,6 +957,6 @@
         <image name="SettingsIcon" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LH2-Xm-HmL"/>
+        <segue reference="NMq-sU-Add"/>
     </inferredMetricsTieBreakers>
 </document>

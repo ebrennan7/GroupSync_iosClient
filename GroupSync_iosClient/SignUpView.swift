@@ -93,7 +93,7 @@ class SignUpView: UIViewController {
                             if let emailSuccessful = nestedDictionary["user_email"] as? String
                             
                             {
-                                self.successfulSignUp()
+                              self.createLoginAlert(title: "Signup Successful", message: "")
 
                             }
                         }
@@ -121,18 +121,39 @@ class SignUpView: UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
             
             
+            
         }))
         
         self.present(alert, animated: true, completion: nil)
         
     }
+    func createLoginAlert(title:String, message: String)
+    {
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        
+//        alert.addAction(UIAlertAction(title: "Login", style: UIAlertActionStyle.default, handler: { (action) in
+//            alert.addAction(self.successfulSignUp)
+//
+        alert.addAction(UIAlertAction(title:"Login", style: .default, handler:  { action in self.performSegue(withIdentifier: "signUpButtonSegue", sender: self) }
+
+            
+         ))
+        
+        self.present(alert, animated: true, completion: nil)
+
+        
+    
+    }
     
     func successfulSignUp()
     {
-        if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView") as? ViewController
+        
+        if let loginPage = self.storyboard?.instantiateViewController(withIdentifier: "loginPage") as? ViewController
         {
             
-            self.present(loginView,animated: true,completion: nil)
+            self.present(loginPage ,animated: true,completion: nil)
         }
     }
     
