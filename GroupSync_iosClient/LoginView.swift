@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import SystemConfiguration
 
 class LoginView: UIViewController {
     
@@ -16,11 +18,38 @@ class LoginView: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    func isConnectedToInternet() -> Bool
+    {
+        
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        return (isReachable && !needsConnection)
+    }
+    
+    
     
     @IBAction func logInButton(_ sender: UIButton) {
         if emailTextField
             .text!.isEmpty||passwordTextField.text!.isEmpty{
             createAlert(title: "You must fill in Email and Password fields", message: "")
+        }
+        else if !(isConnectedToInternet())
+        {
+            createAlert(title: "You don't have an active internet connection", message: "")
         }
         else
         {
@@ -70,11 +99,11 @@ class LoginView: UIViewController {
                             if let token  = nestedDictionary["authToken"] as? String
                             {
                                 
-                
+                                
                                 //For testing //
                                 print(token)
                                 self.successfulLogin()
-
+                                
                             }
                             else
                             {
@@ -104,7 +133,7 @@ class LoginView: UIViewController {
             
             
             let navController = UINavigationController(rootViewController: homeView)
-
+            
             self.present(navController, animated: true, completion: nil)
             //                                    self.navigationController?.present(homeView, animated: true, completion: nil)
         }
@@ -213,3 +242,4 @@ class LoginView: UIViewController {
     }
     
 }
+

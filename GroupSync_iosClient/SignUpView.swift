@@ -131,6 +131,7 @@ class SignUpView: UIViewController {
     {
         if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView") as? ViewController
         {
+            
             self.present(loginView,animated: true,completion: nil)
         }
     }

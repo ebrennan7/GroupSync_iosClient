@@ -784,7 +784,7 @@
                                                     <color key="titleShadowColor" red="0.34630870819999998" green="0.13029367659999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="Otf-ci-7Ye" kind="show" id="B4x-kl-vBy"/>
+                                                    <action selector="signUpButton:" destination="z8a-w6-bGJ" eventType="touchUpInside" id="1Yu-DD-Xyb"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUx-J1-zIm">
@@ -956,6 +956,6 @@
         <image name="SettingsIcon" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B4x-kl-vBy"/>
+        <segue reference="LH2-Xm-HmL"/>
     </inferredMetricsTieBreakers>
 </document>
