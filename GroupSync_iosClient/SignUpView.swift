@@ -62,7 +62,7 @@ class SignUpView: UIViewController {
             ] as [String : Any]
 
         let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
-        guard let data = postData else{
+        guard postData != nil else{
             return
         }
         
@@ -76,21 +76,21 @@ class SignUpView: UIViewController {
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
-                print(error)
+                print(error!)
             }
             do {
                 let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
                 
                 DispatchQueue.main.async {
                     
-                    print(resultJson)
+                    print(resultJson!)
                     
-                    if let dictionary = resultJson as? [String: Any] {
+                    if let dictionary = resultJson {
                         if let nestedDictionary = dictionary["data"] as? [String: Any]
                         {
                             //A valid email is only returned if the request was successful
                             
-                            if let emailSuccessful = nestedDictionary["user_email"] as? String
+                            if (nestedDictionary["user_email"] as? String) != nil
                             
                             {
                               self.createLoginAlert(title: "Signup Successful", message: "")

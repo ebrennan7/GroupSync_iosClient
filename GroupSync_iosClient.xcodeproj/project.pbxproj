@@ -23,6 +23,7 @@
 		92B1A00F1FD5BB0C0009E316 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
 		92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */; };
+		92E8D896201BBAC2004A4F94 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8D895201BBAC2004A4F94 /* KeyChain.swift */; };
 		92F75C4D200FD85500116C55 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 92F75C4C200FD85500116C55 /* awsconfiguration.json */; };
 		C458A27A926081328E721425 /* libPods-GroupSync_iosClientUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 416304B911168C2B28F7CD5A /* libPods-GroupSync_iosClientUITests.a */; };
 		EEDAC6C3363163302A955F91 /* Pods_GroupSync_iosClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3581E68C3EE773EDA7BCA7 /* Pods_GroupSync_iosClient.framework */; };
@@ -77,6 +78,7 @@
 		92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		92E8D895201BBAC2004A4F94 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		92F75C4C200FD85500116C55 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		A1C30FD2489825012CE68503 /* Pods-GroupSync_iosClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		CE3581E68C3EE773EDA7BCA7 /* Pods_GroupSync_iosClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupSync_iosClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,8 +149,8 @@
 				9205CDE01FCDB0B2008F6466 /* ViewController.swift */,
 				9205CDE21FCDB0B2008F6466 /* Main.storyboard */,
 				920CD5E91FCDC7BE00349451 /* LoginView.swift */,
+				92E8D895201BBAC2004A4F94 /* KeyChain.swift */,
 				9205CDE51FCDB0B2008F6466 /* Assets.xcassets */,
-				921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */,
 				9205CDE71FCDB0B2008F6466 /* LaunchScreen.storyboard */,
 				9205CDEA1FCDB0B2008F6466 /* Info.plist */,
 				92B1A0141FD6FD900009E316 /* Profile */,
@@ -178,6 +180,7 @@
 		92B1A0141FD6FD900009E316 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */,
 				92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */,
 			);
 			path = Profile;
@@ -501,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E8D896201BBAC2004A4F94 /* KeyChain.swift in Sources */,
 				92B1A00F1FD5BB0C0009E316 /* GroupsView.swift in Sources */,
 				921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */,
 				921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */,

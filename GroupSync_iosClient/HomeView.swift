@@ -10,6 +10,10 @@ import UIKit
 
 class HomeView: UIViewController {
 
+    @IBAction func groupsButton(_ sender: UIButton) {
+        let key = KeychainService.loadPassword()
+        print(key!)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
        

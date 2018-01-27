@@ -9,6 +9,9 @@
 import UIKit
 import Foundation
 import SystemConfiguration
+import Security
+
+
 
 class LoginView: UIViewController {
     
@@ -71,7 +74,7 @@ class LoginView: UIViewController {
             ] as [String : Any]
         
         let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
-        guard let data = postData else {
+        guard postData != nil else {
             return
         }
         
@@ -80,12 +83,15 @@ class LoginView: UIViewController {
                                           timeoutInterval: 10.0)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = headers
-        request.httpBody = postData as? Data
+        request.httpBody = postData
         
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
-                print(error)
+                DispatchQueue.main.async {
+                    print(error!)
+
+                }
             }
             do {
                 let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
@@ -93,7 +99,7 @@ class LoginView: UIViewController {
                 DispatchQueue.main.async {
                     
                     
-                    if let dictionary = resultJson as? [String: Any] {
+                    if let dictionary = resultJson {
                         if let nestedDictionary = dictionary["data"] as? [String: Any] {
                             
                             if let token  = nestedDictionary["authToken"] as? String
@@ -102,7 +108,7 @@ class LoginView: UIViewController {
                                 
                                 //For testing //
                                 print(token)
-                                self.successfulLogin()
+                                self.successfulLogin(token: token)
                                 
                             }
                             else
@@ -121,13 +127,18 @@ class LoginView: UIViewController {
         
     }
     
-    func successfulLogin()
+    
+    func successfulLogin(token: String)
     {
         
+        let token = token as NSString
+        KeychainService.savePassword(token: token)
         //Below keeps user logged in if they have been authorised//
         let userInfo = UserDefaults.standard
         userInfo.set("loggedIn", forKey: "userSignedIn")
         userInfo.synchronize()
+        
+        
         if let homeView = self.storyboard?.instantiateViewController(withIdentifier: "homeView") as? HomeView {
             print("NOW")
             

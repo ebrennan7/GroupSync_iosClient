@@ -441,6 +441,10 @@
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1r-P9-dRU" userLabel="GroupsButton">
                                 <rect key="frame" x="16" y="282" width="166" height="166"/>
                                 <state key="normal" image="GroupsIcon"/>
+                                <connections>
+                                    <action selector="groupsButton:" destination="Kum-Vd-vso" eventType="touchUpInside" id="IRG-j9-p2A"/>
+                                    <segue destination="PIg-ri-K6g" kind="show" id="KVq-UW-35I"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PE-NA-Pyj" userLabel="SettingsButton">
                                 <rect key="frame" x="198" y="505" width="166" height="166"/>
@@ -944,6 +948,21 @@
                 <exit id="4qH-13-85A" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2061.5999999999999" y="858.62068965517244"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bdf-6K-Ny9">
+            <objects>
+                <viewController id="PIg-ri-K6g" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wvN-3x-oyu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="3GX-cZ-Mbq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uiq-Cd-XgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3434" y="-1524"/>
         </scene>
     </scenes>
     <resources>
