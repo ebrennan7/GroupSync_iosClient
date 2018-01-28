@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class GroupViewController: UIViewController, UICollectionViewDelegate {
+class GroupViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -23,6 +23,8 @@ class GroupViewController: UIViewController, UICollectionViewDelegate {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        //Figure out how to make the objects globally and accessible from here
         return result.count
     }
     
@@ -30,6 +32,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate {
     
     
     @IBOutlet weak var GroupCollectionView: UICollectionView!
+    
     var result = [GroupObject]()
     
 
@@ -176,8 +179,8 @@ class GroupViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         getGroups()
 //        
-//        self.GroupCollectionView.delegate=self
-//        self.GroupCollectionView.dataSource = self
+        self.GroupCollectionView.delegate=self
+        self.GroupCollectionView.dataSource = self
         //        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         // Do any additional setup after loading the view.
