@@ -223,6 +223,9 @@
                                             <color key="titleColor" red="0.10616666819999999" green="0.17191857099999999" blue="0.34630870819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.34630870819999998" green="0.13029367659999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="FqR-Fh-eAa" kind="show" id="zrQ-xh-XL5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -424,6 +427,71 @@
             </objects>
             <point key="canvasLocation" x="2062" y="-1524"/>
         </scene>
+        <!--Group View Controller-->
+        <scene sceneID="1mN-NY-4uM">
+            <objects>
+                <viewController id="FqR-Fh-eAa" customClass="GroupViewController" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ALi-JB-BMP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p9l-1c-KrM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I9l-DJ-kdt">
+                                    <size key="itemSize" width="180" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collection_cell" id="uIa-qc-8U5" customClass="GroupCollectionViewCell" customModule="GroupSync_iosClient" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncU-NB-KpA">
+                                                    <rect key="frame" x="10" y="0.0" width="160" height="159"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ncU-NB-KpA" secondAttribute="height" multiplier="160:159" id="9vt-4d-IUP"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="Groups"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group_Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhl-XN-XQe">
+                                                    <rect key="frame" x="0.0" y="169" width="180" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="ncU-NB-KpA" firstAttribute="top" secondItem="uIa-qc-8U5" secondAttribute="top" id="0NO-HT-54Y"/>
+                                            <constraint firstItem="bhl-XN-XQe" firstAttribute="top" secondItem="ncU-NB-KpA" secondAttribute="bottom" constant="10" id="6iz-4n-i6z"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="bhl-XN-XQe" secondAttribute="trailing" constant="-8" id="CqB-Nx-xl6"/>
+                                            <constraint firstItem="ncU-NB-KpA" firstAttribute="leading" secondItem="uIa-qc-8U5" secondAttribute="leading" constant="10" id="Ue0-Uw-v5O"/>
+                                            <constraint firstAttribute="trailing" secondItem="ncU-NB-KpA" secondAttribute="trailing" constant="10" id="YiP-oJ-gY0"/>
+                                            <constraint firstItem="bhl-XN-XQe" firstAttribute="leading" secondItem="uIa-qc-8U5" secondAttribute="leadingMargin" constant="-8" id="czv-hw-J3P"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="bhl-XN-XQe" secondAttribute="bottom" constant="2" id="fnS-zs-Kxg"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="groupButton" destination="ncU-NB-KpA" id="yh9-aR-HK4"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Zw1-to-cbW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2UC-gq-dph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3136.8000000000002" y="-1524.2878560719641"/>
+        </scene>
         <!--Home View-->
         <scene sceneID="Qlg-iv-VhQ">
             <objects>
@@ -443,7 +511,7 @@
                                 <state key="normal" image="GroupsIcon"/>
                                 <connections>
                                     <action selector="groupsButton:" destination="Kum-Vd-vso" eventType="touchUpInside" id="IRG-j9-p2A"/>
-                                    <segue destination="PIg-ri-K6g" kind="show" id="KVq-UW-35I"/>
+                                    <segue destination="FqR-Fh-eAa" kind="show" id="KRb-d7-GwD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PE-NA-Pyj" userLabel="SettingsButton">
@@ -949,25 +1017,11 @@
             </objects>
             <point key="canvasLocation" x="2061.5999999999999" y="858.62068965517244"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="bdf-6K-Ny9">
-            <objects>
-                <viewController id="PIg-ri-K6g" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wvN-3x-oyu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="3GX-cZ-Mbq"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uiq-Cd-XgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3434" y="-1524"/>
-        </scene>
     </scenes>
     <resources>
         <image name="CreateGroupIcon" width="512" height="512"/>
         <image name="Edit Profile" width="512" height="512"/>
+        <image name="Groups" width="512" height="512"/>
         <image name="GroupsIcon" width="512" height="512"/>
         <image name="Logo" width="700" height="490"/>
         <image name="Photo" width="512" height="512"/>
@@ -976,6 +1030,7 @@
         <image name="SettingsIcon" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="zrQ-xh-XL5"/>
         <segue reference="NMq-sU-Add"/>
     </inferredMetricsTieBreakers>
 </document>

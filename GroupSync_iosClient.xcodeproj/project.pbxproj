@@ -20,9 +20,10 @@
 		921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */; };
 		921DCE05200FA91100C01260 /* connectToDatabase.c in Sources */ = {isa = PBXBuildFile; fileRef = 921DCE03200FA91100C01260 /* connectToDatabase.c */; };
 		92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeView.swift */; };
-		92B1A00F1FD5BB0C0009E316 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
 		92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */; };
+		92D19E31201E3D6F00BB24EA /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D19E30201E3D6F00BB24EA /* GroupViewController.swift */; };
+		92D19E33201E43D800BB24EA /* GroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D19E32201E43D800BB24EA /* GroupCollectionViewCell.swift */; };
 		92E8D896201BBAC2004A4F94 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8D895201BBAC2004A4F94 /* KeyChain.swift */; };
 		92F75C4D200FD85500116C55 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 92F75C4C200FD85500116C55 /* awsconfiguration.json */; };
 		C458A27A926081328E721425 /* libPods-GroupSync_iosClientUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 416304B911168C2B28F7CD5A /* libPods-GroupSync_iosClientUITests.a */; };
@@ -75,9 +76,10 @@
 		921DCE03200FA91100C01260 /* connectToDatabase.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = connectToDatabase.c; sourceTree = "<group>"; };
 		921DCE04200FA91100C01260 /* connectToDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connectToDatabase.h; sourceTree = "<group>"; };
 		92B1A00C1FD5BA9A0009E316 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		92D19E30201E3D6F00BB24EA /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupViewController.swift; path = /College/Year4/FYP/GroupSync_iosClient/GroupSync_iosClient/GroupViewController.swift; sourceTree = "<absolute>"; };
+		92D19E32201E43D800BB24EA /* GroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		92E8D895201BBAC2004A4F94 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		92F75C4C200FD85500116C55 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		A1C30FD2489825012CE68503 /* Pods-GroupSync_iosClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,10 +140,11 @@
 		9205CDDD1FCDB0B2008F6466 /* GroupSync_iosClient */ = {
 			isa = PBXGroup;
 			children = (
+				92D19E30201E3D6F00BB24EA /* GroupViewController.swift */,
+				92D19E32201E43D800BB24EA /* GroupCollectionViewCell.swift */,
 				92F75C4C200FD85500116C55 /* awsconfiguration.json */,
 				92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */,
 				92B1A00C1FD5BA9A0009E316 /* HomeView.swift */,
-				92B1A00E1FD5BB0C0009E316 /* GroupsView.swift */,
 				921DCE03200FA91100C01260 /* connectToDatabase.c */,
 				921DCE04200FA91100C01260 /* connectToDatabase.h */,
 				921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */,
@@ -504,10 +507,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D19E33201E43D800BB24EA /* GroupCollectionViewCell.swift in Sources */,
 				92E8D896201BBAC2004A4F94 /* KeyChain.swift in Sources */,
-				92B1A00F1FD5BB0C0009E316 /* GroupsView.swift in Sources */,
 				921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */,
 				921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */,
+				92D19E31201E3D6F00BB24EA /* GroupViewController.swift in Sources */,
 				920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */,
 				921DCE05200FA91100C01260 /* connectToDatabase.c in Sources */,
 				9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */,

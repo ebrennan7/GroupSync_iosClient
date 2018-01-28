@@ -105,10 +105,19 @@ class LoginView: UIViewController {
                             if let token  = nestedDictionary["authToken"] as? String
                             {
                                 
+                                if let user_id = nestedDictionary["user_id"]
+                                {
+                                     print(user_id)
+                                    print(token)
+
+                                    self.successfulLogin(token: token, user_id: user_id as! Int)
+
+                                }
+                                
                                 
                                 //For testing //
-                                print(token)
-                                self.successfulLogin(token: token)
+                                
+                                
                                 
                             }
                             else
@@ -128,7 +137,7 @@ class LoginView: UIViewController {
     }
     
     
-    func successfulLogin(token: String)
+    func successfulLogin(token: String, user_id: Int)
     {
         
         let token = token as NSString
@@ -136,6 +145,7 @@ class LoginView: UIViewController {
         //Below keeps user logged in if they have been authorised//
         let userInfo = UserDefaults.standard
         userInfo.set("loggedIn", forKey: "userSignedIn")
+        userInfo.set(user_id, forKey: "userID")
         userInfo.synchronize()
         
         
