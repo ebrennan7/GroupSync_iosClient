@@ -9,35 +9,49 @@
 import UIKit
 import Foundation
 
+
 class GroupViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection_cell", for: indexPath) as! GroupCollectionViewCell
-
+        
+        cell.groupNameLabel.text! = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
+        cell.groupId = GroupViewController.GI.getIds()[indexPath.row]
+        cell.groupName = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
+        
+        
         return cell
     }
-
+    
     
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  
         
-        //Figure out how to make the objects globally and accessible from here
-        return result.count
+        
+//        collectionView.reloadData()
+
+//        print(GroupViewController.GI.getIds())
+ 
+        return GroupViewController.GI.getIds().count
+        
+        
     }
-    
+
     
     
     
     @IBOutlet weak var GroupCollectionView: UICollectionView!
     
-    var result = [GroupObject]()
     
-
- 
-
+    static var GI = GroupIds()
+    static var GN = GroupNames()
+    static var pi = 5
+    
+    
     
     
     func getGroups()
@@ -85,10 +99,17 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
                                     
                                     
                                     
-                                    self.result = self.getObjects(groupId: self.getGroupIds(groups: groups), groupName: self.getGroupNames(groups: groups), groupImage: #imageLiteral(resourceName: "Groups"))
+                                    var result = self.getObjects(groupId: self.getGroupIds(groups: groups), groupName: self.getGroupNames(groups: groups), groupImage: #imageLiteral(resourceName: "Groups"))
                                     
                                     
-                                    print(self.result.count)
+                                    print(result.count)
+                                    
+                                    GroupViewController.GI = GroupIds()
+                                    GroupViewController.GI.setId(groups: self.getGroupIds(groups: groups))
+                                    
+                                    GroupViewController.GN = GroupNames()
+                                    GroupViewController.GN.setNames(groups: self.getGroupNames(groups: groups))
+                                    
                                     
                                     
                                 }
@@ -107,14 +128,14 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
     func getObjects(groupId: [String], groupName: [String], groupImage: UIImage?) -> [GroupObject]
     {
         var groupList = [GroupObject]()
-        
+
         for f in 0..<groupId.count{
             groupList.append(GroupObject.init(groupId: groupId[f], groupName: groupName[f], groupImage: #imageLiteral(resourceName: "Groups")))
         }
-        
+
         return groupList
     }
-    
+
     func getGroupIds(groups: String) ->  [String]
     {
         
@@ -174,13 +195,21 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.GroupCollectionView.delegate=self
+        self.GroupCollectionView.dataSource = self
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getGroups()
-//        
-        self.GroupCollectionView.delegate=self
-        self.GroupCollectionView.dataSource = self
+
+        
+       
+      
+        
         //        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         // Do any additional setup after loading the view.
@@ -214,13 +243,39 @@ extension String {
         return removeCharacters(from: CharacterSet(charactersIn: from))
     }
 }
+public class GroupIds {
+    
+    var groupIds = [String]()
+    
+    func setId(groups: [String])
+    {
+        groupIds=groups
+    }
+    func getIds() -> [String]
+    {
+    return groupIds
+    }
+}
+public class GroupNames {
+    var groupNames = [String]()
+    
+    func setNames(groups: [String])
+    {
+        groupNames = groups
+        
+    }
+    func getNames() -> [String]
+    {
+        return groupNames
+    }
+}
 
 public class GroupObject {
-    
+
     var groupId: String
     var groupName: String
     var groupImage: UIImage?
-    
+
     init (groupId: String, groupName: String, groupImage: UIImage)
     {
         self.groupId = groupId
@@ -236,7 +291,7 @@ public class GroupObject {
     func getImage () -> UIImage {
         return self.groupImage!
     }
-    
-    
+
+
 }
 

@@ -436,8 +436,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p9l-1c-KrM">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="121" width="375" height="546"/>
+                                <color key="backgroundColor" red="0.9290760159" green="0.9371982217" blue="0.94539719820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I9l-DJ-kdt">
                                     <size key="itemSize" width="180" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -458,6 +458,9 @@
                                                         <constraint firstAttribute="width" secondItem="ncU-NB-KpA" secondAttribute="height" multiplier="160:159" id="9vt-4d-IUP"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="Groups"/>
+                                                    <connections>
+                                                        <action selector="buttonPressed:" destination="uIa-qc-8U5" eventType="touchUpInside" id="bCL-Zl-ezF"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group_Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhl-XN-XQe">
                                                     <rect key="frame" x="0.0" y="169" width="180" height="21"/>
@@ -478,14 +481,25 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="groupButton" destination="ncU-NB-KpA" id="yh9-aR-HK4"/>
+                                            <outlet property="groupNameLabel" destination="bhl-XN-XQe" id="UUZ-vB-Ixy"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-9J-jaW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="57"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="p9l-1c-KrM" firstAttribute="top" secondItem="Zw1-to-cbW" secondAttribute="top" id="b0J-nT-7K6"/>
+                            <constraint firstItem="gUg-9J-jaW" firstAttribute="top" secondItem="Zw1-to-cbW" secondAttribute="top" id="6fa-2h-vHh"/>
+                            <constraint firstItem="gUg-9J-jaW" firstAttribute="trailing" secondItem="Zw1-to-cbW" secondAttribute="trailing" id="BjU-9u-NfI"/>
+                            <constraint firstItem="p9l-1c-KrM" firstAttribute="top" secondItem="gUg-9J-jaW" secondAttribute="bottom" id="CdA-9i-vdA"/>
+                            <constraint firstItem="gUg-9J-jaW" firstAttribute="leading" secondItem="Zw1-to-cbW" secondAttribute="leading" id="FXt-cC-Wrj"/>
+                            <constraint firstItem="p9l-1c-KrM" firstAttribute="top" secondItem="Zw1-to-cbW" secondAttribute="top" constant="57" id="b0J-nT-7K6"/>
                             <constraint firstItem="p9l-1c-KrM" firstAttribute="bottom" secondItem="Zw1-to-cbW" secondAttribute="bottom" id="dQq-cz-vm5"/>
                             <constraint firstItem="p9l-1c-KrM" firstAttribute="leading" secondItem="Zw1-to-cbW" secondAttribute="leading" id="dkF-NB-EEa"/>
                             <constraint firstItem="p9l-1c-KrM" firstAttribute="trailing" secondItem="Zw1-to-cbW" secondAttribute="trailing" id="svM-3m-KIQ"/>
