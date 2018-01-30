@@ -644,28 +644,128 @@
             </objects>
             <point key="canvasLocation" x="-1265" y="32"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Group View Controller-->
         <scene sceneID="8Ai-ym-1nC">
             <objects>
-                <viewController id="DRy-6Q-TGy" sceneMemberID="viewController">
+                <viewController id="DRy-6Q-TGy" customClass="CreateGroupViewController" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ss1-u9-f2I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feature coming soon.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsF-iV-H3w">
-                                <rect key="frame" x="92" y="321" width="191" height="25"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avY-z8-4bW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="ob7-WJ-704"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="10p-27-pfn">
+                                <rect key="frame" x="16" y="140" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.93267565969999999" green="0.97570806740000005" blue="0.78403174880000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NhA-o8-Gkx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make Public Group?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xnc-4T-eKC">
+                                <rect key="frame" x="16" y="251" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.93267565969999999" green="0.97570806740000005" blue="0.78403174880000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Jzw-Co-4DJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Active Until:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zex-cx-9WB">
+                                <rect key="frame" x="16" y="363" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.93267565969999999" green="0.97570806740000005" blue="0.78403174880000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xKJ-PY-rbJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s59-KM-Jcb">
+                                <rect key="frame" x="164" y="306" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="hdD-zr-oLP"/>
+                                </constraints>
+                            </switch>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="RV1-jI-way">
+                                <rect key="frame" x="0.0" y="413" width="375" height="157"/>
+                                <date key="date" timeIntervalSinceReferenceDate="539031962.74405503">
+                                    <!--2018-01-30 19:06:02 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeD-E9-sM9">
+                                <rect key="frame" x="0.0" y="569" width="375" height="98"/>
+                                <color key="backgroundColor" red="0.080284791600000002" green="0.83268530439999999" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="98" id="AmH-yk-Wmp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Create Group">
+                                    <color key="titleColor" red="0.10616666819999999" green="0.17191857099999999" blue="0.34630870819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.34630870819999998" green="0.13029367659999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createGroupButton:" destination="DRy-6Q-TGy" eventType="touchUpInside" id="0CB-uv-5Fp"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2f9-1x-2dG">
+                                <rect key="frame" x="16" y="195" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eYG-Uk-d9f"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                                <connections>
+                                    <action selector="editingFirstNameFinished:" destination="z8a-w6-bGJ" eventType="editingDidEnd" id="Vp7-R9-WSw"/>
+                                    <action selector="firstNameTextField:" destination="y7K-6D-Pu7" eventType="editingDidEnd" id="F9X-rX-54Y"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bsF-iV-H3w" firstAttribute="centerY" secondItem="Ss1-u9-f2I" secondAttribute="centerY" id="YJx-YS-Sb9"/>
-                            <constraint firstItem="bsF-iV-H3w" firstAttribute="centerX" secondItem="Ss1-u9-f2I" secondAttribute="centerX" id="u4D-GD-hw8"/>
+                            <constraint firstItem="10p-27-pfn" firstAttribute="trailing" secondItem="2f9-1x-2dG" secondAttribute="trailing" id="3bj-yO-JYZ"/>
+                            <constraint firstItem="RV1-jI-way" firstAttribute="top" secondItem="zex-cx-9WB" secondAttribute="bottom" constant="20" id="3xW-M0-ISg"/>
+                            <constraint firstItem="xnc-4T-eKC" firstAttribute="trailing" secondItem="zex-cx-9WB" secondAttribute="trailing" id="4GX-Bq-X83"/>
+                            <constraint firstItem="avY-z8-4bW" firstAttribute="leading" secondItem="Ss1-u9-f2I" secondAttribute="leading" id="5lw-0J-igq"/>
+                            <constraint firstItem="avY-z8-4bW" firstAttribute="centerX" secondItem="10p-27-pfn" secondAttribute="centerX" id="5qi-5g-5tO"/>
+                            <constraint firstItem="10p-27-pfn" firstAttribute="leading" secondItem="2f9-1x-2dG" secondAttribute="leading" id="7eh-ko-SaS"/>
+                            <constraint firstItem="avY-z8-4bW" firstAttribute="leading" secondItem="RV1-jI-way" secondAttribute="leading" id="C7M-w0-3v7"/>
+                            <constraint firstItem="2f9-1x-2dG" firstAttribute="top" secondItem="10p-27-pfn" secondAttribute="bottom" constant="25" id="Dx7-Q6-CSc"/>
+                            <constraint firstItem="RV1-jI-way" firstAttribute="trailing" secondItem="IeD-E9-sM9" secondAttribute="trailing" id="F1T-QA-rHq"/>
+                            <constraint firstItem="2f9-1x-2dG" firstAttribute="leading" secondItem="xnc-4T-eKC" secondAttribute="leading" id="MBU-gS-0oO"/>
+                            <constraint firstItem="avY-z8-4bW" firstAttribute="trailing" secondItem="RV1-jI-way" secondAttribute="trailing" id="Q5R-Nc-05q"/>
+                            <constraint firstItem="zex-cx-9WB" firstAttribute="top" secondItem="s59-KM-Jcb" secondAttribute="bottom" constant="26" id="QOq-86-iNj"/>
+                            <constraint firstItem="IeD-E9-sM9" firstAttribute="bottom" secondItem="Qfk-yH-m1g" secondAttribute="bottom" id="RLb-G4-v5I"/>
+                            <constraint firstItem="s59-KM-Jcb" firstAttribute="leading" secondItem="Qfk-yH-m1g" secondAttribute="leading" constant="164" id="an7-M8-5yz"/>
+                            <constraint firstItem="xnc-4T-eKC" firstAttribute="top" secondItem="2f9-1x-2dG" secondAttribute="bottom" constant="26" id="bPG-OZ-MQX"/>
+                            <constraint firstItem="Qfk-yH-m1g" firstAttribute="bottom" secondItem="RV1-jI-way" secondAttribute="bottom" constant="97" id="d3B-vp-vRS"/>
+                            <constraint firstItem="10p-27-pfn" firstAttribute="top" secondItem="avY-z8-4bW" secondAttribute="bottom" constant="8" symbolic="YES" id="fkc-ZX-ODM"/>
+                            <constraint firstItem="xnc-4T-eKC" firstAttribute="leading" secondItem="zex-cx-9WB" secondAttribute="leading" id="hHi-x8-nPm"/>
+                            <constraint firstItem="10p-27-pfn" firstAttribute="leading" secondItem="Ss1-u9-f2I" secondAttribute="leadingMargin" id="kFb-ST-810"/>
+                            <constraint firstItem="RV1-jI-way" firstAttribute="leading" secondItem="IeD-E9-sM9" secondAttribute="leading" id="ksB-S9-Q7K"/>
+                            <constraint firstAttribute="trailing" secondItem="avY-z8-4bW" secondAttribute="trailing" id="kyN-ND-mnw"/>
+                            <constraint firstItem="avY-z8-4bW" firstAttribute="top" secondItem="Qfk-yH-m1g" secondAttribute="top" id="pgY-kF-hB0"/>
+                            <constraint firstItem="2f9-1x-2dG" firstAttribute="trailing" secondItem="xnc-4T-eKC" secondAttribute="trailing" id="v3J-ZG-J9t"/>
+                            <constraint firstItem="s59-KM-Jcb" firstAttribute="top" secondItem="xnc-4T-eKC" secondAttribute="bottom" constant="25" id="zxu-Je-lYr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qfk-yH-m1g"/>
                     </view>
+                    <connections>
+                        <outlet property="activeUntil" destination="RV1-jI-way" id="9wL-2j-Uft"/>
+                        <outlet property="groupNameTextField" destination="2f9-1x-2dG" id="1YY-Dh-4b1"/>
+                        <outlet property="publicSwitch" destination="s59-KM-Jcb" id="vvY-cE-oOc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j60-mj-LHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1053,6 +1153,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zrQ-xh-XL5"/>
-        <segue reference="NMq-sU-Add"/>
+        <segue reference="LH2-Xm-HmL"/>
     </inferredMetricsTieBreakers>
 </document>

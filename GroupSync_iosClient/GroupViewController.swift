@@ -93,12 +93,6 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
                         if let dictionary = resultJson {
                             if let nestedDictionary = dictionary["data"] as? [String: Any]{
                                 if let groups = nestedDictionary["groups"] as? String{
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     var result = self.getObjects(groupId: self.getGroupIds(groups: groups), groupName: self.getGroupNames(groups: groups), groupImage: #imageLiteral(resourceName: "Groups"))
                                     
                                     
