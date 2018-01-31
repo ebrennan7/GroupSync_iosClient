@@ -18,7 +18,8 @@
 		920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920CD5E91FCDC7BE00349451 /* LoginView.swift */; };
 		921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */; };
 		921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */; };
-		921DCE05200FA91100C01260 /* connectToDatabase.c in Sources */ = {isa = PBXBuildFile; fileRef = 921DCE03200FA91100C01260 /* connectToDatabase.c */; };
+		922C9A232022202100539837 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922C9A222022202100539837 /* AlertModel.swift */; };
+		922C9A2520222BF000539837 /* ActiveTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922C9A2420222BF000539837 /* ActiveTimeModel.swift */; };
 		92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeView.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
 		92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */; };
@@ -75,8 +76,8 @@
 		921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpSettings.swift; sourceTree = "<group>"; };
 		921DCE02200FA91100C01260 /* GroupSync_iosClient-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GroupSync_iosClient-Bridging-Header.h"; sourceTree = "<group>"; };
-		921DCE03200FA91100C01260 /* connectToDatabase.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = connectToDatabase.c; sourceTree = "<group>"; };
-		921DCE04200FA91100C01260 /* connectToDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connectToDatabase.h; sourceTree = "<group>"; };
+		922C9A222022202100539837 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		922C9A2420222BF000539837 /* ActiveTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimeModel.swift; sourceTree = "<group>"; };
 		92B1A00C1FD5BA9A0009E316 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -145,18 +146,18 @@
 			isa = PBXGroup;
 			children = (
 				92D19E30201E3D6F00BB24EA /* GroupViewController.swift */,
+				922C9A2420222BF000539837 /* ActiveTimeModel.swift */,
 				92D19E32201E43D800BB24EA /* GroupCollectionViewCell.swift */,
 				92F75C4C200FD85500116C55 /* awsconfiguration.json */,
 				92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */,
 				92B1A00C1FD5BA9A0009E316 /* HomeView.swift */,
-				921DCE03200FA91100C01260 /* connectToDatabase.c */,
-				921DCE04200FA91100C01260 /* connectToDatabase.h */,
 				921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */,
 				9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */,
 				9205CDE01FCDB0B2008F6466 /* ViewController.swift */,
 				9205CDE21FCDB0B2008F6466 /* Main.storyboard */,
 				92D19E362020F62B00BB24EA /* CreateGroupViewController.swift */,
 				92D19E382020F63C00BB24EA /* CreateGroupModel.swift */,
+				922C9A222022202100539837 /* AlertModel.swift */,
 				920CD5E91FCDC7BE00349451 /* LoginView.swift */,
 				92E8D895201BBAC2004A4F94 /* KeyChain.swift */,
 				9205CDE51FCDB0B2008F6466 /* Assets.xcassets */,
@@ -519,13 +520,14 @@
 				921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */,
 				92D19E31201E3D6F00BB24EA /* GroupViewController.swift in Sources */,
 				920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */,
-				921DCE05200FA91100C01260 /* connectToDatabase.c in Sources */,
 				9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */,
 				92D19E372020F62B00BB24EA /* CreateGroupViewController.swift in Sources */,
 				92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */,
 				92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */,
 				92D19E392020F63C00BB24EA /* CreateGroupModel.swift in Sources */,
+				922C9A2520222BF000539837 /* ActiveTimeModel.swift in Sources */,
 				9205CDDF1FCDB0B2008F6466 /* AppDelegate.swift in Sources */,
+				922C9A232022202100539837 /* AlertModel.swift in Sources */,
 				92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -90,7 +90,7 @@ class LoginView: UIViewController {
             if (error != nil) {
                 DispatchQueue.main.async {
                     print(error!)
-
+                    
                 }
             }
             do {
@@ -107,11 +107,11 @@ class LoginView: UIViewController {
                                 
                                 if let user_id = nestedDictionary["user_id"]
                                 {
-                                     print(user_id)
+                                    print(user_id)
                                     print(token)
-
+                                    
                                     self.successfulLogin(token: token, user_id: user_id as! Int)
-
+                                    
                                 }
                                 
                                 
@@ -124,6 +124,10 @@ class LoginView: UIViewController {
                             {
                                 self.createAlert(title: "Email and password do not match an existing account", message: "")
                             }
+                            
+                            if let user_info = nestedDictionary["user"]{
+                                self.saveUserInfo(user_info: (user_info as! String))
+                            }
                         }
                     }
                 }
@@ -133,6 +137,39 @@ class LoginView: UIViewController {
         })
         
         dataTask.resume()
+        
+    }
+    func saveUserInfo(user_info: String)
+    {
+        let userInfo = UserDefaults.standard
+        var names = user_info.components(separatedBy: ",")
+        var content = (names[4]).components(separatedBy: ":")
+        
+        let firstName = content[1]
+        content = (names[5].components(separatedBy: ":"))
+        let secondName = content[1]
+        
+        content = names[3].components(separatedBy: ":")
+        let email = content[1]
+        
+        print(names[7])
+        print(names[6])
+
+        content = names[7].components(separatedBy: ":")
+        let contentType = content[1]
+        
+        content = names[6].components(separatedBy: ":")
+        let fileName = content[1]
+        
+        
+        userInfo.set(firstName, forKey: "firstName")
+        userInfo.set(secondName, forKey: "secondName")
+        userInfo.set(email, forKey: "email")
+        userInfo.set(fileName, forKey: "fileName")
+        userInfo.set(contentType, forKey: "contentType")
+        
+        userInfo.synchronize()
+        
         
     }
     
@@ -160,20 +197,7 @@ class LoginView: UIViewController {
         }
     }
     
-    func createAlert(title:String, message: String)
-    {
-        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
-            
-            
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+    
     
     
     
@@ -216,6 +240,24 @@ class LoginView: UIViewController {
     //                }
     //        })
     //    }
+    
+    
+    
+    func createAlert(title:String, message: String)
+    {
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     
     
     func changeLabelShapes()

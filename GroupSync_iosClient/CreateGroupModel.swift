@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class CreateGroupModel {
     private var name: String
     private var open: String
@@ -17,18 +18,19 @@ class CreateGroupModel {
         self.name=name
         
         if open{
-            self.open="yes"
+            self.open="true"
         }else{
-            self.open="no"
+            self.open="false"
         }
         self.endTime=endTime
     }
+
     
-    
-    func createGroupPost(){
+    func createGroupPost(completion: @escaping (_ success: Bool) -> ())
+    {
         
         let userInfo = UserDefaults.standard
-        
+        var success: Bool = false
         let headers = [
             "Content-Type": "application/json",
             "Cache-Control": "no-cache",
@@ -45,33 +47,46 @@ class CreateGroupModel {
         guard postData != nil else {
             return
         }
-        
+     
+
         let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/create_group")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = headers
         request.httpBody = postData
-        
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                print(error!)
-            } else {
-                do
-                {
-                    let resultJson = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
-                    
-                    print(resultJson)
+        DispatchQueue.main.async {
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                if (error != nil) {
+                    print(error!)
+                } else {
+                    do
+                    {
+                        
+                        if let resultJson = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
+                        {
+                            
+                           
+                            success=true
+                        
+                            
+                            
+                        }
+                        else{
+                            print("Error with JSON")
+                        }
+                    }
+                    catch{
+                        print("Error -> \(error)")
+                    }
                 }
-                catch{
-                    print("Error -> \(error)")
-                }
-            }
-            
-        })
+                completion(success)
+            })
+            dataTask.resume()
+  
+        }
         
-        dataTask.resume()
-        
+      
     }
 }

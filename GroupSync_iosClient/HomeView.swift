@@ -11,8 +11,13 @@ import UIKit
 class HomeView: UIViewController {
 
     @IBAction func groupsButton(_ sender: UIButton) {
-        let key = KeychainService.loadPassword()
-        print(key!)
+        if let key = KeychainService.loadPassword()
+        {
+            print(key)
+        }
+        else{
+            print("Error with Keychain")
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -57,6 +57,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
     func getGroups()
     {
         let userInfo = UserDefaults.standard
+        print(userInfo.object(forKey: "userID"))
         let headers = [
             "Content-Type": "application/json",
             "Cache-Control": "no-cache",
@@ -96,14 +97,14 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
                                     var result = self.getObjects(groupId: self.getGroupIds(groups: groups), groupName: self.getGroupNames(groups: groups), groupImage: #imageLiteral(resourceName: "Groups"))
                                     
                                     
-                                    print(result.count)
+//                                    print(groups)
                                     
                                     GroupViewController.GI = GroupIds()
                                     GroupViewController.GI.setId(groups: self.getGroupIds(groups: groups))
-                                    
+
                                     GroupViewController.GN = GroupNames()
                                     GroupViewController.GN.setNames(groups: self.getGroupNames(groups: groups))
-                                    
+
                                     
                                     
                                 }
@@ -136,14 +137,14 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         let groups=groups
         
         var groupIds = groups.components(separatedBy: ",")
-        
+      
         
         var groupIdList = [String]()
-        let loopBoundary = groupIds.count/2 + 14
         
-        for f in stride(from: 0, to: loopBoundary, by: 12)
+//        let loopBoundary = groupIds.count/2 * 11
+        
+        for f in stride(from: 0, to: groupIds.count, by: 12)
         {
-            
             groupIdList.append((groupIds[f].removeCharacters(from: CharacterSet.letters).removeCharacters(from: CharacterSet.punctuationCharacters)))
             
         }
@@ -167,9 +168,9 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         let groups=groups
         var groupNameList = [String]()
         var groupNames = groups.components(separatedBy: ",")
-        let loopBoundary = groupNames.count/2 + 14
+        let loopBoundary = groupNames.count/2 * 12
         //
-        for f in stride(from: 1, to: loopBoundary, by: 12)
+        for f in stride(from: 1, to: groupNames.count, by: 12)
         {
             var token = (groupNames[f].components(separatedBy: ":"))
             
@@ -177,7 +178,6 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
             
             
         }
-        
         
         
         

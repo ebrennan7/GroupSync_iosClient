@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -18,10 +19,30 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var nameEdit: UITextField!
     @IBOutlet weak var emailEdit: UITextField!
     @IBOutlet weak var middlePositionEditPopUp: NSLayoutConstraint!
+    var nameString: String!
+    var emailString: String?
+    
+    let userInfo = UserDefaults.standard
+    
+    
+    
     
     @IBOutlet weak var middlePositionPopUp: NSLayoutConstraint!
     
-
+    
+    func setUserDetails()
+    {
+        let firstName = (userInfo.object(forKey: "firstName") as? String)?.removeCharacters(from: "\"")
+        let secondName = (userInfo.object(forKey: "secondName") as? String)?.removeCharacters(from: "\"")
+        
+        
+        
+        
+        
+        nameString = ("\(firstName!) \(secondName!)")
+        emailString = (userInfo.object(forKey: "email") as? String)?.removeCharacters(from: "\"")
+    }
+    
     func addDoneButton()
     {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
@@ -45,32 +66,32 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         self.nameEdit?.resignFirstResponder()
         self.emailEdit?.resignFirstResponder()
     }
-
+    
     
     @IBAction func editPhoto()
     {
-                if(UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum))
-                {
-                    print("BTN")
-        
-                    imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-                    imagePicker.sourceType = .savedPhotosAlbum
-                    imagePicker.allowsEditing = false
-                    self.present(imagePicker,animated: true,completion: nil)
-    
-                    
+        if(UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum))
+        {
+            print("BTN")
+            
+            imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            self.present(imagePicker,animated: true,completion: nil)
+            
+            
         }
-    
+        
         func imagePickerController(picker: UIImagePickerController!, didFinishPicking image: UIImage!, editingInfo: NSDictionary!)
         {
             self.dismiss(animated: true, completion: {() -> Void in
-    
+                
             })
             profilePictureView.image = image
-        
-
+            
+            
         }
-            cancelPopUp()
+        cancelPopUp()
     }
     
     @IBAction func editProfile()
@@ -93,48 +114,48 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         cancelPopUp()
         
         UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()
-    
+            
         })
     }
     
     
     let grayView = UIView()
-
-//    let collectionView: UICollectionView = {
-//        let layout = UICollectionViewLayout()
-//        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        cv.backgroundColor = UIColor.white
-//        return cv
-//    }()
-//    let cellID = "cellID"
+    
+    //    let collectionView: UICollectionView = {
+    //        let layout = UICollectionViewLayout()
+    //        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    //        cv.backgroundColor = UIColor.white
+    //        return cv
+    //    }()
+    //    let cellID = "cellID"
     @IBOutlet weak var profilePictureView: UIImageView!
     var imagePicker = UIImagePickerController()
     
-//    override convenience init( objectId : UIViewController ) {
-//        self.init()
-//        collectionView.dataSource = self
-//        collectionView.delegate = self
-//
-//        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
-//    }
- 
-
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-
-//    func importImage()
-//    {
-//        let image = UIImagePickerController()
-//        image.delegate = self
-//
-//        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
-//
-//        image.allowsEditing = false
-//
-//        self.present(image, animated: true)
-//
-//    }
+    //    override convenience init( objectId : UIViewController ) {
+    //        self.init()
+    //        collectionView.dataSource = self
+    //        collectionView.delegate = self
+    //
+    //        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+    //    }
+    
+    
+    //    required init?(coder aDecoder: NSCoder) {
+    //        fatalError("init(coder:) has not been implemented")
+    //    }
+    
+    //    func importImage()
+    //    {
+    //        let image = UIImagePickerController()
+    //        image.delegate = self
+    //
+    //        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
+    //
+    //        image.allowsEditing = false
+    //
+    //        self.present(image, animated: true)
+    //
+    //    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
@@ -144,41 +165,41 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         }
         else
         {
-            print("couldnt be repsented as an image")
+            print("couldnt be represented as an image")
         }
         
         self.dismiss(animated: true, completion: nil)
     }
     
     
-//    @IBAction func showSettings()
-//    {
-//        let grayView = UIView()
-//        grayView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-//
-//        grayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
-//
-//        view.addSubview(grayView)
-//        view.addSubview(collectionView)
-//
-//
-//        let height: CGFloat = 200
-//        let y = view.frame.height - height
-//        collectionView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
-//        grayView.frame = view.frame
-//        grayView.alpha = 0
-//
-//        UIView.animate(withDuration: 0.5, animations:
-//            { self.grayView.alpha = 1
-//
-//        self.collectionView.frame = CGRect(x: 0, y: y, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
-//        })
-//    }
-//
-//    @objc func handleDismiss()
-//    {
-//        UIView.animate(withDuration: 0.5, animations: {self.grayView.alpha = 0})
-//    }
+    //    @IBAction func showSettings()
+    //    {
+    //        let grayView = UIView()
+    //        grayView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+    //
+    //        grayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
+    //
+    //        view.addSubview(grayView)
+    //        view.addSubview(collectionView)
+    //
+    //
+    //        let height: CGFloat = 200
+    //        let y = view.frame.height - height
+    //        collectionView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
+    //        grayView.frame = view.frame
+    //        grayView.alpha = 0
+    //
+    //        UIView.animate(withDuration: 0.5, animations:
+    //            { self.grayView.alpha = 1
+    //
+    //        self.collectionView.frame = CGRect(x: 0, y: y, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+    //        })
+    //    }
+    //
+    //    @objc func handleDismiss()
+    //    {
+    //        UIView.animate(withDuration: 0.5, animations: {self.grayView.alpha = 0})
+    //    }
     @IBAction func cancelPopUp()
     {
         middlePositionPopUp.constant=1200
@@ -187,7 +208,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             self.dimScreenView.alpha=0;
         })
         
-      
+        
         
         
     }
@@ -195,7 +216,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBAction func buttonPressed()
     {
         
-            
+        
         
         middlePositionPopUp.constant=0;
         
@@ -206,12 +227,17 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         })
         
     }
-//
+    //
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var dimScreenView: UIView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        setUserDetails()
+        
+        nameField.text = nameString
+        emailField.text = emailString
         
         self.addDoneButton()
         popUpView.layer.masksToBounds = true;
@@ -221,54 +247,61 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         profilePictureView.layer.cornerRadius = profilePictureView.frame.size.width/2
         profilePictureView.clipsToBounds = true
-
-        let url = URL(string: "https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/12047093_10204975005523992_2362019574812578826_n.jpg?oh=1534068ec897a748300517d63566909d&oe=5ACE079B" )
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+//        let userInfo = UserDefaults.standard
+//        let fileName = (userInfo.object(forKey: "userID") as? String)
+//        let userId = (userInfo.object(forKey: "fileName") as? String)
+//
+        DispatchQueue.main.async {
             
-            if(error != nil)
-            {
-                print ("ERROR")
-            }
-            else{
-                var documentsDirectory:String?
-                var paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-            
-                if(paths.count > 0)
-                {
-                    documentsDirectory=paths[0]
-                    
-                    let savePath = documentsDirectory! + "/profile.jpg"
+            let url = URL(string: "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/images/missing.png" )
+            let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
                 
+                if(error != nil)
+                {
+                    print ("ERROR")
+                }
+                else{
+                    var documentsDirectory:String?
+                    var paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
                     
-                    
-                    
-                    FileManager.default.createFile(atPath: savePath, contents: data, attributes: nil)
-                    DispatchQueue.main.async {
-                        self.profilePictureView.image = UIImage(named: savePath)
+                    if(paths.count > 0)
+                    {
+                        documentsDirectory=paths[0]
+                        
+                        let savePath = documentsDirectory! + "/profile.jpg"
+                        
+                        
+                        
+                        
+                        FileManager.default.createFile(atPath: savePath, contents: data, attributes: nil)
+                        DispatchQueue.main.async {
+                            self.profilePictureView.image = UIImage(named: savePath)
+                        }
                     }
                 }
             }
+            task.resume()
+            
         }
-        task.resume()
     }
-        
-        // Do any additional setup after loading the view.
+    
+    // Do any additional setup after loading the view.
     
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 2
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath as IndexPath)
-//        return cell
-//    }
-
-
-
+    //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    //        return 2
+    //    }
+    //
+    //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath as IndexPath)
+    //        return cell
+    //    }
+    
+    
+    
 }
