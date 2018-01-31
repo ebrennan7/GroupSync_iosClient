@@ -29,18 +29,18 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-  
         
         
-//        collectionView.reloadData()
-
-//        print(GroupViewController.GI.getIds())
- 
+        
+        //        collectionView.reloadData()
+        
+        //        print(GroupViewController.GI.getIds())
+        
         return GroupViewController.GI.getIds().count
         
         
     }
-
+    
     
     
     
@@ -49,7 +49,6 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     static var GI = GroupIds()
     static var GN = GroupNames()
-    static var pi = 5
     
     
     
@@ -97,16 +96,21 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
                                     var result = self.getObjects(groupId: self.getGroupIds(groups: groups), groupName: self.getGroupNames(groups: groups), groupImage: #imageLiteral(resourceName: "Groups"))
                                     
                                     
-//                                    print(groups)
+                                    //                                    print(groups)
                                     
-                                    GroupViewController.GI = GroupIds()
-                                    GroupViewController.GI.setId(groups: self.getGroupIds(groups: groups))
-
-                                    GroupViewController.GN = GroupNames()
-                                    GroupViewController.GN.setNames(groups: self.getGroupNames(groups: groups))
-
-                                    
-                                    
+                                    if(groups.count==0)
+                                    {
+                                        print("no groups")                                    }
+                                    else{
+                                        
+                                        GroupViewController.GI = GroupIds()
+                                        GroupViewController.GI.setId(groups: self.getGroupIds(groups: groups))
+                                        
+                                        GroupViewController.GN = GroupNames()
+                                        GroupViewController.GN.setNames(groups: self.getGroupNames(groups: groups))
+                                        
+                                        
+                                    }
                                 }
                             }
                         }
@@ -120,43 +124,40 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         dataTask.resume()
     }
+    func noGroups()
+    {
+        
+    }
     func getObjects(groupId: [String], groupName: [String], groupImage: UIImage?) -> [GroupObject]
     {
         var groupList = [GroupObject]()
-
-        for f in 0..<groupId.count{
-            groupList.append(GroupObject.init(groupId: groupId[f], groupName: groupName[f], groupImage: #imageLiteral(resourceName: "Groups")))
+        print(groupId.count)
+        if(groupId.count>1)
+        {
+            for f in 0..<groupId.count{
+                groupList.append(GroupObject.init(groupId: groupId[f], groupName: groupName[f], groupImage: #imageLiteral(resourceName: "Groups")))
+            }
         }
-
+        
         return groupList
     }
-
+    
     func getGroupIds(groups: String) ->  [String]
     {
         
         let groups=groups
         
         var groupIds = groups.components(separatedBy: ",")
-      
+        
         
         var groupIdList = [String]()
         
-//        let loopBoundary = groupIds.count/2 * 11
         
         for f in stride(from: 0, to: groupIds.count, by: 12)
         {
             groupIdList.append((groupIds[f].removeCharacters(from: CharacterSet.letters).removeCharacters(from: CharacterSet.punctuationCharacters)))
             
         }
-        
-        //        for f in stride(from: 0, to: loopBoundary+2, by: 12)
-        //        {
-        //            print(groupIds[f])
-        //        }
-        
-        // TODO make an object with id and name of groups
-        // Make an object array (perhaps struct) of these objects
-        // Add a collection view cell for each struct and give the group the name
         
         
         return groupIdList
@@ -168,8 +169,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         let groups=groups
         var groupNameList = [String]()
         var groupNames = groups.components(separatedBy: ",")
-        let loopBoundary = groupNames.count/2 * 12
-        //
+        
         for f in stride(from: 1, to: groupNames.count, by: 12)
         {
             var token = (groupNames[f].components(separatedBy: ":"))
@@ -199,10 +199,10 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         getGroups()
-
         
-       
-      
+        
+        
+        
         
         //        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
@@ -247,7 +247,7 @@ public class GroupIds {
     }
     func getIds() -> [String]
     {
-    return groupIds
+        return groupIds
     }
 }
 public class GroupNames {
@@ -265,11 +265,11 @@ public class GroupNames {
 }
 
 public class GroupObject {
-
+    
     var groupId: String
     var groupName: String
     var groupImage: UIImage?
-
+    
     init (groupId: String, groupName: String, groupImage: UIImage)
     {
         self.groupId = groupId
@@ -285,7 +285,7 @@ public class GroupObject {
     func getImage () -> UIImage {
         return self.groupImage!
     }
-
-
+    
+    
 }
 
