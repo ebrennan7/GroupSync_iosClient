@@ -17,12 +17,15 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection_cell", for: indexPath) as! GroupCollectionViewCell
         
+        if(GroupViewController.GI.getIds().count>1)
+        {
         cell.groupNameLabel.text! = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
         cell.groupId = GroupViewController.GI.getIds()[indexPath.row]
         cell.groupName = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
         
-        
+        }
         return cell
+        
     }
     
     
@@ -35,8 +38,13 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         //        collectionView.reloadData()
         
         //        print(GroupViewController.GI.getIds())
-        
+        if(GroupViewController.GI.getIds().count==1)
+        {
+            return 0
+        }
+        else{
         return GroupViewController.GI.getIds().count
+        }
         
         
     }
@@ -98,10 +106,8 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
                                     
                                     //                                    print(groups)
                                     
-                                    if(groups.count==0)
-                                    {
-                                        print("no groups")                                    }
-                                    else{
+                            
+                             
                                         
                                         GroupViewController.GI = GroupIds()
                                         GroupViewController.GI.setId(groups: self.getGroupIds(groups: groups))
@@ -110,7 +116,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
                                         GroupViewController.GN.setNames(groups: self.getGroupNames(groups: groups))
                                         
                                         
-                                    }
+                                    
                                 }
                             }
                         }
@@ -123,10 +129,6 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         })
         
         dataTask.resume()
-    }
-    func noGroups()
-    {
-        
     }
     func getObjects(groupId: [String], groupName: [String], groupImage: UIImage?) -> [GroupObject]
     {
