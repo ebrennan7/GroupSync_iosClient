@@ -64,7 +64,6 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
     func getGroups()
     {
         let userInfo = UserDefaults.standard
-        print(userInfo.object(forKey: "userID"))
         let headers = [
             "Content-Type": "application/json",
             "Cache-Control": "no-cache",

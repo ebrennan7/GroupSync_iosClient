@@ -13,12 +13,14 @@ class CreateGroupViewController: UIViewController {
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var publicSwitch: UISwitch!
     @IBOutlet weak var activeUntil: UIDatePicker!
+    @IBOutlet weak var activeFrom: UIDatePicker!
     
     
     
     @IBAction func createGroupButton(_ sender: UIButton) {
-        
-        var createGroupModel = CreateGroupModel(name: groupNameTextField.text!, open: publicSwitch.isOn, endTime: activeUntil.date)
+        print(self.activeFrom.date)
+
+        let createGroupModel = CreateGroupModel(name: groupNameTextField.text!, open: publicSwitch.isOn, endTime: activeUntil.date)
         
         
         
@@ -35,6 +37,7 @@ class CreateGroupViewController: UIViewController {
                     
                 self.alertHandler(success: success)            }
             }
+            
             
             
         })}

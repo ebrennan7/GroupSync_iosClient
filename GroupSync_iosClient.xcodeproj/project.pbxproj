@@ -20,6 +20,7 @@
 		921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */; };
 		922C9A232022202100539837 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922C9A222022202100539837 /* AlertModel.swift */; };
 		922C9A2520222BF000539837 /* ActiveTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922C9A2420222BF000539837 /* ActiveTimeModel.swift */; };
+		924221CC202CEE970031A58F /* ActiveTimesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924221CB202CEE960031A58F /* ActiveTimesModel.swift */; };
 		92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeView.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
 		92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */; };
@@ -78,6 +79,7 @@
 		921DCE02200FA91100C01260 /* GroupSync_iosClient-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GroupSync_iosClient-Bridging-Header.h"; sourceTree = "<group>"; };
 		922C9A222022202100539837 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		922C9A2420222BF000539837 /* ActiveTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimeModel.swift; sourceTree = "<group>"; };
+		924221CB202CEE960031A58F /* ActiveTimesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimesModel.swift; sourceTree = "<group>"; };
 		92B1A00C1FD5BA9A0009E316 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				9205CDE21FCDB0B2008F6466 /* Main.storyboard */,
 				92D19E362020F62B00BB24EA /* CreateGroupViewController.swift */,
 				92D19E382020F63C00BB24EA /* CreateGroupModel.swift */,
+				924221CB202CEE960031A58F /* ActiveTimesModel.swift */,
 				922C9A222022202100539837 /* AlertModel.swift */,
 				920CD5E91FCDC7BE00349451 /* LoginView.swift */,
 				92E8D895201BBAC2004A4F94 /* KeyChain.swift */,
@@ -514,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				924221CC202CEE970031A58F /* ActiveTimesModel.swift in Sources */,
 				92D19E33201E43D800BB24EA /* GroupCollectionViewCell.swift in Sources */,
 				92E8D896201BBAC2004A4F94 /* KeyChain.swift in Sources */,
 				921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */,
