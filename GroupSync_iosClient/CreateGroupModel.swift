@@ -12,11 +12,12 @@ import Foundation
 class CreateGroupModel {
     private var name: String
     private var open: String
-    private var endTime: Date?
-    static var group_id: Int?
+    private var startTime: String
+    private var endTime: String
+    private var group_id: Int?
     
     
-    init(name: String, open: Bool, endTime: Date) {
+    init(name: String, open: Bool, startTime: Date, endTime: Date) {
         self.name=name
         
         if open{
@@ -24,7 +25,13 @@ class CreateGroupModel {
         }else{
             self.open="false"
         }
-        self.endTime=endTime
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
+        
+        self.startTime = dateFormatter.string(from: startTime)
+        self.endTime = dateFormatter.string(from: endTime)
+        
     }
     
     
@@ -74,32 +81,31 @@ class CreateGroupModel {
                             DispatchQueue.main.async {
                                 
                                 
-                                print(resultJson)
                                 let dictionary = resultJson
                                 if let nestedDictionary = dictionary["data"] as? [String: Any]
                                 {
                                     print(nestedDictionary)
                                     let group_idString = nestedDictionary["group_id"] as? Int
-                                    CreateGroupModel.group_id = group_idString
+                                    self.group_id = group_idString
                                     
                                 }
                                 
                                 
                                 
                                 
-                                self.activeTimesPost()
+                                self.addActiveTimesPost()
                                 
                                 
                                 
                                 
                             }
                             success=true
-
+                            
                         }
-                        
-                        //                        else{
-                        //                            print("Error with JSON")
-                        //                        }
+                            
+                        else{
+                            print("Error with JSON")
+                        }
                     }
                     catch{
                         print("Error -> \(error)")
@@ -115,7 +121,9 @@ class CreateGroupModel {
     }
     
     
-    func activeTimesPost(){
+    func addActiveTimesPost(){
+        
+        
         
         let userInfo = UserDefaults.standard
         
@@ -125,9 +133,9 @@ class CreateGroupModel {
             "Postman-Token": "5662b337-4caf-40c5-6127-59ebb5986f5c"
         ]
         let parameters = [
-            "start": "2017-02-16 19:14",
-            "end": "2017-02-17 21:14",
-            "group_id": "1",
+            "start": startTime,
+            "end": endTime,
+            "group_id": self.group_id!,
             "authToken": KeychainService.loadPassword()!
             ] as [String : Any]
         
@@ -150,8 +158,21 @@ class CreateGroupModel {
                     
                     print(error!)
                 }
-            } else {
-                print(CreateGroupModel.group_id!)
+//            } else {
+//                do{
+//
+                
+//                let resultJson = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
+//                    print(resultJson)
+//                print(self.startTime)
+//                print(self.endTime)
+//                print(self.group_id!)
+//                print(KeychainService.loadPassword()!)
+//                print(self.group_id!)
+//                }
+//                catch{
+//                    print("ERROR")
+//                }
             }
         })
         

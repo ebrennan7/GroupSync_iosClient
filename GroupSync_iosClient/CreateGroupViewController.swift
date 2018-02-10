@@ -18,9 +18,17 @@ class CreateGroupViewController: UIViewController {
     
     
     @IBAction func createGroupButton(_ sender: UIButton) {
-        print(self.activeFrom.date)
+        if(groupNameTextField.text==""){
+            createUnsuccessfulAlert(title: "Please enter a group name", message: "")
+        }
+        else{
+            createGroupAction()
+        }
 
-        let createGroupModel = CreateGroupModel(name: groupNameTextField.text!, open: publicSwitch.isOn, endTime: activeUntil.date)
+     }
+    
+    func createGroupAction(){
+        let createGroupModel = CreateGroupModel(name: groupNameTextField.text!, open: publicSwitch.isOn, startTime: activeFrom.date, endTime: activeUntil.date)
         
         
         
@@ -29,18 +37,19 @@ class CreateGroupViewController: UIViewController {
             {
                 DispatchQueue.main.async {
                     
-                self.alertHandler(success: success)
+                    self.alertHandler(success: success)
                 }
             }
             else{
                 DispatchQueue.main.async {
                     
-                self.alertHandler(success: success)            }
+                    self.alertHandler(success: success)            }
             }
             
             
             
-        })}
+        })
+    }
     
     
     func alertHandler(success: Bool)
