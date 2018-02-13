@@ -16,19 +16,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var data: String! //group ID
     var annotation = MKPointAnnotation()
     var userLocation: CLLocation?
-    let location = SendLocation()
 
 
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager:CLLocationManager!
     
+    let location = SendLocation()
+
     
     @IBAction func mapSettingsButton(_ sender: UIButton) {
     
 
         
-            self.location.sendLocationPost()
+            self.location.determineCurrentLocation()
         
     }
     

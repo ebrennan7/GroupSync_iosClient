@@ -9,6 +9,8 @@ target 'GroupSync_iosClient' do
    
 end
 
+pod "PromiseKit/CoreLocation", "~> 6.0"
+
   # Pods for GroupSync_iosClient
 
   target 'GroupSync_iosClientTests' do
