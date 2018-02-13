@@ -19,14 +19,33 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         if(GroupViewController.GI.getIds().count>1)
         {
-        cell.groupNameLabel.text! = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
-        cell.groupId = GroupViewController.GI.getIds()[indexPath.row]
-        cell.groupName = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
-        
+            cell.groupNameLabel.text! = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
+            cell.groupId = GroupViewController.GI.getIds()[indexPath.row]
+            cell.groupName = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
+            cell.cellButton.tag = indexPath.row
+            
+            
         }
         return cell
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        idOfCell = (GroupViewController.GI.getIds()[indexPath.row])
+        
+        self.performSegue(withIdentifier: "showMap", sender: nil)
+        
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var mapController = segue.destination as! MapViewController
+        mapController.data = idOfCell
+    }
+    
+    
     
     
     
@@ -43,7 +62,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
             return 0
         }
         else{
-        return GroupViewController.GI.getIds().count
+            return GroupViewController.GI.getIds().count
         }
         
         
@@ -51,10 +70,13 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     
     
+   
+    
+    
     
     @IBOutlet weak var GroupCollectionView: UICollectionView!
     
-    
+    var idOfCell: String?
     static var GI = GroupIds()
     static var GN = GroupNames()
     
@@ -105,16 +127,16 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
                                     
                                     //                                    print(groups)
                                     
-                            
-                             
-                                        
-                                        GroupViewController.GI = GroupIds()
-                                        GroupViewController.GI.setId(groups: self.getGroupIds(groups: groups))
-                                        
-                                        GroupViewController.GN = GroupNames()
-                                        GroupViewController.GN.setNames(groups: self.getGroupNames(groups: groups))
-                                        
-                                        
+                                    
+                                    
+                                    
+                                    GroupViewController.GI = GroupIds()
+                                    GroupViewController.GI.setId(groups: self.getGroupIds(groups: groups))
+                                    
+                                    GroupViewController.GN = GroupNames()
+                                    GroupViewController.GN.setNames(groups: self.getGroupNames(groups: groups))
+                                    
+                                    
                                     
                                 }
                             }
