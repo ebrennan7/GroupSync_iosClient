@@ -86,7 +86,7 @@
       <AdditionalOptions>
       </AdditionalOptions>
       <LocationScenarioReference
-         identifier = "../../Dublin_Locations.gpx"
+         identifier = "../../UCD_ComputerScience.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>
