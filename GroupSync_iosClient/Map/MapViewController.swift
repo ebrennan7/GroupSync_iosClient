@@ -14,10 +14,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     var group_id: String?
     var data: String! //group ID
-    var annotation = MKPointAnnotation()
     var userLocation: CLLocation?
-    var locationTuples: [(longitude: String, latitude: String)]?
-    
+    var locationTuples: [(name: String, longitude: String, latitude: String, updated: String)]?
+  
+    var annotation = MKPointAnnotation()
+
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -45,17 +46,49 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         //Below calls the completion block and gets a 'return value' for getUsers//
         (getUsers.getUsersForGroup(group_id: data) {(returnValue) in
             self.locationTuples=returnValue
+            
+            self.populateMap()
+            
+            
         })
-        var f=0
         
-        while(f<(locationTuples?.count)!)
-        {
+
+        
+    }
+    func populateMap(){
+
+        DispatchQueue.main.async {
+            
+
+
+//            var f=0
+//            while f<(self.locationTuples?.count)!
+//            {
+//
+//
+//                //            print(self.locationTuples)
+//
+//                print(self.locationTuples)
+//                self.annotation.coordinate = CLLocationCoordinate2D(latitude: Double(self.locationTuples![f].latitude)!, longitude: Double(self.locationTuples![f].longitude)!)
+//                self.annotation.title = "User \(f)"
+//                self.mapView.addAnnotation(self.annotation)
+//            f=f+1
+//
+            
+//            }
             
             
-            annotation.coordinate = CLLocationCoordinate2D(latitude: Double(locationTuples![f].latitude)!, longitude: Double(locationTuples![f].longitude)!)
-            annotation.title = "User"
-            mapView.addAnnotation(annotation)
-            f=f+1
+        
+            
+            for location in self.locationTuples! {
+                let annotation = MKPointAnnotation()
+                annotation.title = location.name
+                annotation.subtitle = location.updated
+                annotation.coordinate = CLLocationCoordinate2D(latitude: Double(location.latitude)!, longitude: Double(location.longitude)!)
+                self.mapView.addAnnotation(annotation)
+            }
+            
+            
         }
     }
     override func viewWillAppear(_ animated: Bool){
@@ -109,4 +142,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
      }
      */
     
+}
+class AnnotationLocation: NSObject, MKAnnotation{
+    var user: String?
+    var coordinate: CLLocationCoordinate2D
+    
+    init(user: String, coordinate: CLLocationCoordinate2D){
+        self.user = user
+        self.coordinate = coordinate
+    }
 }

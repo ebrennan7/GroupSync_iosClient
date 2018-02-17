@@ -12,7 +12,7 @@ import CoreLocation
 
 class GetUsers{
     
-    func getUsersForGroup(group_id: String, completionBlock: @escaping  ([(longitude: String, latitude: String)]) ->Void) -> Void
+    func getUsersForGroup(group_id: String, completionBlock: @escaping  ([(name: String, longitude: String, latitude: String, updated: String)]) ->Void) -> Void
     {
         print(KeychainService.loadPassword()!)
         print(group_id)
@@ -71,18 +71,27 @@ class GetUsers{
         dataTask.resume()
     }
     
-    func parseLocations(locations: String, users: String) -> [(longitude: String, latitude: String)]{
+    func parseLocations(locations: String, users: String) -> [(name: String, longitude: String, latitude: String, updated: String)]{
         
+        var splitNames = users.components(separatedBy: "{")
         var splitLocations = locations.components(separatedBy: "{")
-        var stuff:[(longitude: String, latitude: String)] = []
-
+        var stuff:[(name: String, longitude: String, latitude: String, updated: String)] = []
+//        var dates: [Date]?
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+//
+//    
+        
+//        print("DATES\(dates)")
        
         for f in stride(from: 1, to: splitLocations.count, by: 1)
         {
-            stuff.append((longitude: (splitLocations[f].components(separatedBy: ":")[1].components(separatedBy: ",")[0]), latitude: (splitLocations[f].components(separatedBy: ":")[2].components(separatedBy: ",")[0])))
+            stuff.append((name: splitNames[f].components(separatedBy: ":")[2
+                ].components(separatedBy: ",")[0], longitude: (splitLocations[f].components(separatedBy: ":")[1].components(separatedBy: ",")[0]), latitude: (splitLocations[f].components(separatedBy: ":")[2].components(separatedBy: ",")[0]), updated: (splitLocations[f].components(separatedBy: "\"")[13].components(separatedBy: ",")[0])))
 
         }
      
+        print(stuff)
         return stuff
       
         
