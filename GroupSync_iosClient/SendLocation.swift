@@ -14,8 +14,8 @@ import CoreLocation
 class SendLocation:  NSObject, CLLocationManagerDelegate{
     
     
-    var locationManager:CLLocationManager!
-    
+    var locationManager:CLLocationManager = CLLocationManager()
+  
     
     struct LocationStruct{
         var latitude:CLLocationDegrees?, longitude:CLLocationDegrees?
@@ -28,6 +28,7 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
     
     func sendLocationPost(){
         
+        print("test3")
         
         let userInfo = UserDefaults.standard
         let headers = [
@@ -54,7 +55,7 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = headers
         request.httpBody = postData
-        
+        print("test4")
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
@@ -63,8 +64,15 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
                 }
             }
             do {
-                let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
-                print(resultJson)
+
+                
+                if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]{
+                    print(resultJson)
+
+                }
+                else{
+                    print("Error with JSON")
+                }
                 
             }
             catch{
@@ -77,24 +85,23 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
     
     
     func determineCurrentLocation(){
-        locationManager = CLLocationManager()
+        
         locationManager.delegate = self
+        locationManager.allowsBackgroundLocationUpdates=true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
+
+      
         if CLLocationManager.locationServicesEnabled(){
             DispatchQueue.main.async {
                 
+                print("test1") // This prints fine from background
                 self.locationManager.requestLocation()
             }
             
         }
         
-        //        let timeout = DispatchTime.now() + DispatchTimeInterval.seconds(5)
-        //
-        //        if semaphore.wait(timeout: timeout) == DispatchTimeoutResult.timedOut{
-        //         print("Time out")
-        //        }
-        //
+
         
         
     }
@@ -104,15 +111,15 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
         locationStruct.latitude=userLocation?.coordinate.latitude
         locationStruct.longitude=userLocation?.coordinate.longitude
         
-        //
-        //        (userLocation?.coordinate.latitude)
-        //        print("user longitude = \(userLocation?.coordinate.longitude)")
-        //
-        //
-        //        print(userLocation?.coordinate.latitude)
         
-        //        print(semaphore.signal())
-        //        semaphore.signal()
+        
+        print(userLocation?.coordinate.latitude)
+        print(userLocation?.coordinate.longitude)
+
+//        print(locationStruct.latitude=userLocation?.coordinate.latitude)
+//        print(locationStruct.longitude=userLocation?.coordinate.longitude)
+        print("test2") // This never gets printed from backgrounf
+
         sendLocationPost()
         
         

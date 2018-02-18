@@ -17,7 +17,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection_cell", for: indexPath) as! GroupCollectionViewCell
         
-        if(GroupViewController.GI.getIds().count>1)
+        if(GroupViewController.GI.getIds().count>=1)
         {
             cell.groupNameLabel.text! = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
             cell.groupId = GroupViewController.GI.getIds()[indexPath.row]
@@ -57,7 +57,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         //        collectionView.reloadData()
         
         //        print(GroupViewController.GI.getIds())
-        if(GroupViewController.GI.getIds().count==1)
+        if(GroupViewController.GI.getIds().count<1)
         {
             return 0
         }
@@ -125,7 +125,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
                                     var result = self.getObjects(groupId: self.getGroupIds(groups: groups), groupName: self.getGroupNames(groups: groups), groupImage: #imageLiteral(resourceName: "Groups"))
                                     
                                     
-                                    //                                    print(groups)
+                                                                        print(groups)
                                     
                                     
                                     
@@ -222,6 +222,11 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         getGroups()
+        
+        
+        
+        sendLocation.determineCurrentLocation()
+
         
         
         

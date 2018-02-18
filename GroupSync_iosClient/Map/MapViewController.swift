@@ -24,14 +24,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager:CLLocationManager!
     
-    let location = SendLocation()
     
     
     @IBAction func mapSettingsButton(_ sender: UIButton) {
         
         
         
-        self.location.determineCurrentLocation()
         
         
     }
