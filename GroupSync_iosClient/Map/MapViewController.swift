@@ -15,7 +15,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var group_id: String?
     var data: String! //group ID
     var userLocation: CLLocation?
-    var locationTuples: [(name: String, longitude: String, latitude: String, updated: String)]?
+    var locationTuples: [(name: String, longitude: String, latitude: String, updated: DateComponents)]?
   
     var annotation = MKPointAnnotation()
 
@@ -59,31 +59,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
         DispatchQueue.main.async {
             
-
-
-//            var f=0
-//            while f<(self.locationTuples?.count)!
-//            {
-//
-//
-//                //            print(self.locationTuples)
-//
-//                print(self.locationTuples)
-//                self.annotation.coordinate = CLLocationCoordinate2D(latitude: Double(self.locationTuples![f].latitude)!, longitude: Double(self.locationTuples![f].longitude)!)
-//                self.annotation.title = "User \(f)"
-//                self.mapView.addAnnotation(self.annotation)
-//            f=f+1
-//
-            
-//            }
-            
-            
+  
         
             
             for location in self.locationTuples! {
                 let annotation = MKPointAnnotation()
                 annotation.title = location.name
-                annotation.subtitle = location.updated
+                
+                if let hours = location.updated.hour {
+                    if(hours >= 1){
+                        annotation.subtitle = "\(location.updated.hour ?? 0) hour(s) ago"
+                    }
+                    else{
+                        annotation.subtitle = "\(location.updated.minute ?? 0) minute(s) ago"
+                    }
+                }
+                
+                
                 annotation.coordinate = CLLocationCoordinate2D(latitude: Double(location.latitude)!, longitude: Double(location.longitude)!)
                 self.mapView.addAnnotation(annotation)
             }
@@ -93,35 +85,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
-        
-        //        determineCurrentLocation()
+  
         
     }
-    //
-    //    func determineCurrentLocation(){
-    //        locationManager = CLLocationManager()
-    //        locationManager.delegate = self
-    //        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    //        locationManager.requestAlwaysAuthorization()
-    //
-    //        if CLLocationManager.locationServicesEnabled(){
-    //            locationManager.startUpdatingLocation()
-    //        }
-    //    }
-    //
-    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-    //        userLocation = locations[0] as CLLocation
-    //
-    //
-    //        print("user latitude = \(userLocation?.coordinate.latitude)")
-    //        print("user longitude = \(userLocation?.coordinate.longitude)")
-    //        annotation.coordinate = CLLocationCoordinate2D(latitude: (userLocation?.coordinate.latitude)!, longitude: (userLocation?.coordinate.longitude)!)
-    //        annotation.title = "You"
-    //        mapView.addAnnotation(annotation)
-    //
-    //
-    //    }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
         print("Error \(error)")

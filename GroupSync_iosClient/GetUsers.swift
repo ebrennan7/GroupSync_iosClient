@@ -12,7 +12,7 @@ import CoreLocation
 
 class GetUsers{
     
-    func getUsersForGroup(group_id: String, completionBlock: @escaping  ([(name: String, longitude: String, latitude: String, updated: String)]) ->Void) -> Void
+    func getUsersForGroup(group_id: String, completionBlock: @escaping  ([(name: String, longitude: String, latitude: String, updated: DateComponents)]) ->Void) -> Void
     {
         print(KeychainService.loadPassword()!)
         print(group_id)
@@ -71,27 +71,41 @@ class GetUsers{
         dataTask.resume()
     }
     
-    func parseLocations(locations: String, users: String) -> [(name: String, longitude: String, latitude: String, updated: String)]{
+    func parseLocations(locations: String, users: String) -> [(name: String, longitude: String, latitude: String, updated: DateComponents)]{
         
+        var calendar: Calendar = Calendar.current
         var splitNames = users.components(separatedBy: "{")
         var splitLocations = locations.components(separatedBy: "{")
-        var stuff:[(name: String, longitude: String, latitude: String, updated: String)] = []
-//        var dates: [Date]?
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
-//
-//    
+        var stuff:[(name: String, longitude: String, latitude: String, updated: DateComponents)] = []
+        var dates = [DateComponents]()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss Z"
+        let currentDate = Date()
+         let unitFlags = Set<Calendar.Component>([.hour, .minute])
+        calendar.timeZone = TimeZone(identifier: "UTC")!
+
+
+
+        for f in stride(from: 1, to: splitLocations.count, by: 1)
+        {
+            dates.append(calendar.dateComponents(unitFlags, from: dateFormatter.date(from: splitLocations[f].components(separatedBy: "\"")[13].components(separatedBy: ",")[0])!, to: currentDate))
+        }
         
-//        print("DATES\(dates)")
+      
        
+
+        
+        
+        
         for f in stride(from: 1, to: splitLocations.count, by: 1)
         {
             stuff.append((name: splitNames[f].components(separatedBy: ":")[2
-                ].components(separatedBy: ",")[0], longitude: (splitLocations[f].components(separatedBy: ":")[1].components(separatedBy: ",")[0]), latitude: (splitLocations[f].components(separatedBy: ":")[2].components(separatedBy: ",")[0]), updated: (splitLocations[f].components(separatedBy: "\"")[13].components(separatedBy: ",")[0])))
+                ].components(separatedBy: ",")[0], longitude: (splitLocations[f].components(separatedBy: ":")[1].components(separatedBy: ",")[0]), latitude: (splitLocations[f].components(separatedBy: ":")[2].components(separatedBy: ",")[0]), updated: dates[f-1]))
 
         }
+        
+  
      
-        print(stuff)
         return stuff
       
         
