@@ -615,6 +615,9 @@
                                 <state key="normal" title="Delete Group?">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteGroup:" destination="esU-W8-QBr" eventType="touchUpInside" id="nN9-Z1-WHF"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JVo-Bw-Q4F">
                                 <rect key="frame" x="0.0" y="168" width="375" height="409"/>
@@ -687,6 +690,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="emailTextField" destination="WFR-N9-PlP" id="5x0-WG-LKB"/>
                         <outlet property="usersCollectionView" destination="JVo-Bw-Q4F" id="WDh-i4-z4s"/>
                     </connections>
                 </viewController>

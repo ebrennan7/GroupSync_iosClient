@@ -12,6 +12,75 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
     
     var userNames = [String]()
     var groupId: String!
+    let groupSettingsModel = GroupSettingsModel()
+    var success: Bool?
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBAction func deleteGroup(_ sender: UIButton) {
+        
+       groupSettingsModel.deleteGroupPost(group_id: groupId, completion: { success in
+            if(success)
+            {
+                DispatchQueue.main.async {
+                    
+                    self.alertHandler(success: success)
+                }
+            }
+            else{
+                DispatchQueue.main.async {
+                    
+                    self.alertHandler(success: success)            }
+            }
+            
+            
+            
+        })
+    
+    }
+    func alertHandler(success: Bool)
+    {
+        if(success)
+        {
+            createSuccessfulAlert(title: "Group Creation Successul", message: "")
+        }
+        else{
+            createUnsuccessfulAlert(title: "Group Creation Failed", message: "")
+        }
+    }
+    
+    
+    func createSuccessfulAlert(title:String, message: String)
+    {
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+
+
+        alert.addAction(UIAlertAction(title:"Ok", style: .default
+            
+        ))
+
+        self.present(alert, animated: true, completion: nil)
+
+
+        
+    }
+    
+    func createUnsuccessfulAlert(title:String, message:String)
+    {
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default
+            
+            
+        ))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     @IBOutlet weak var usersCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -18,8 +18,8 @@ class GetGroupUsers{
             "Postman-Token": "a362019e-d006-b752-5414-c60d5be0abf8"
         ]
         let parameters = [
-            "authToken": "8e483bf5-3281-4321-b814-edc7115b9097",
-            "group_id": "85"
+            "authToken": KeychainService.loadPassword()!,
+            "group_id": group_id
             ] as [String : Any]
         
         let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])

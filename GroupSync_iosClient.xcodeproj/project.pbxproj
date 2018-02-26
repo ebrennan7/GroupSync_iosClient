@@ -36,6 +36,7 @@
 		92D19E372020F62B00BB24EA /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D19E362020F62B00BB24EA /* CreateGroupViewController.swift */; };
 		92D19E392020F63C00BB24EA /* CreateGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D19E382020F63C00BB24EA /* CreateGroupModel.swift */; };
 		92E8D896201BBAC2004A4F94 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8D895201BBAC2004A4F94 /* KeyChain.swift */; };
+		92EAA6ED204489EE0097AFA3 /* GroupSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EAA6EC204489EE0097AFA3 /* GroupSettingsModel.swift */; };
 		92F75C4D200FD85500116C55 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 92F75C4C200FD85500116C55 /* awsconfiguration.json */; };
 		C458A27A926081328E721425 /* libPods-GroupSync_iosClientUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 416304B911168C2B28F7CD5A /* libPods-GroupSync_iosClientUITests.a */; };
 		EEDAC6C3363163302A955F91 /* Pods_GroupSync_iosClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3581E68C3EE773EDA7BCA7 /* Pods_GroupSync_iosClient.framework */; };
@@ -102,6 +103,7 @@
 		92D19E362020F62B00BB24EA /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		92D19E382020F63C00BB24EA /* CreateGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupModel.swift; sourceTree = "<group>"; };
 		92E8D895201BBAC2004A4F94 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		92EAA6EC204489EE0097AFA3 /* GroupSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSettingsModel.swift; sourceTree = "<group>"; };
 		92F75C4C200FD85500116C55 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		A1C30FD2489825012CE68503 /* Pods-GroupSync_iosClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		CE3581E68C3EE773EDA7BCA7 /* Pods_GroupSync_iosClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupSync_iosClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				92627D9020445BC6006F4AC7 /* GroupSettingsViewController.swift */,
+				92EAA6EC204489EE0097AFA3 /* GroupSettingsModel.swift */,
 				92627D9320445C3D006F4AC7 /* UsersCollectionViewCell.swift */,
 			);
 			path = GroupSettings;
@@ -588,6 +591,7 @@
 				92D19E372020F62B00BB24EA /* CreateGroupViewController.swift in Sources */,
 				92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */,
 				92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */,
+				92EAA6ED204489EE0097AFA3 /* GroupSettingsModel.swift in Sources */,
 				92D19E392020F63C00BB24EA /* CreateGroupModel.swift in Sources */,
 				922C9A2520222BF000539837 /* ActiveTimeModel.swift in Sources */,
 				92D185B120334416005D209E /* SendLocation.swift in Sources */,
