@@ -13,7 +13,7 @@ import CoreLocation
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     var group_id: String?
-    var data: String! //group ID
+    var currentGroupId: String! //group ID
     var userLocation: CLLocation?
     var locationTuples: [(name: String, longitude: String, latitude: String, updated: DateComponents)]?
   
@@ -29,9 +29,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func mapSettingsButton(_ sender: UIButton) {
         
         
+        self.performSegue(withIdentifier: "showSettings", sender: nil)
         
         
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let groupSettingsController = segue.destination as! GroupSettingsViewController
+        groupSettingsController.groupId = currentGroupId
     }
     
     override func viewDidLoad() {
@@ -39,10 +44,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         
-        print(data)
+        print(currentGroupId)
         let getUsers = GetUsers()
         //Below calls the completion block and gets a 'return value' for getUsers//
-        (getUsers.getUsersForGroup(group_id: data) {(returnValue) in
+        (getUsers.getUsersForGroup(group_id: currentGroupId) {(returnValue) in
             self.locationTuples=returnValue
             
             self.populateMap()

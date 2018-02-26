@@ -22,6 +22,8 @@
 		922C9A232022202100539837 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922C9A222022202100539837 /* AlertModel.swift */; };
 		922C9A2520222BF000539837 /* ActiveTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922C9A2420222BF000539837 /* ActiveTimeModel.swift */; };
 		92541ACD203091B900ED873E /* UCD_ComputerScience.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 92541ACC203091B900ED873E /* UCD_ComputerScience.gpx */; };
+		92627D9120445BC7006F4AC7 /* GroupSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92627D9020445BC6006F4AC7 /* GroupSettingsViewController.swift */; };
+		92627D9420445C3D006F4AC7 /* UsersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92627D9320445C3D006F4AC7 /* UsersCollectionViewCell.swift */; };
 		92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeView.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
 		92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */; };
@@ -86,6 +88,8 @@
 		922C9A222022202100539837 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		922C9A2420222BF000539837 /* ActiveTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimeModel.swift; sourceTree = "<group>"; };
 		92541ACC203091B900ED873E /* UCD_ComputerScience.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = UCD_ComputerScience.gpx; path = ../UCD_ComputerScience.gpx; sourceTree = "<group>"; };
+		92627D9020445BC6006F4AC7 /* GroupSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSettingsViewController.swift; sourceTree = "<group>"; };
+		92627D9320445C3D006F4AC7 /* UsersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCollectionViewCell.swift; sourceTree = "<group>"; };
 		92B1A00C1FD5BA9A0009E316 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */,
 				9205CDE01FCDB0B2008F6466 /* ViewController.swift */,
 				9205CDE21FCDB0B2008F6466 /* Main.storyboard */,
+				92627D9220445C16006F4AC7 /* GroupSettings */,
 				92D185B020334416005D209E /* SendLocation.swift */,
 				92D185B220348A05005D209E /* GetUsers.swift */,
 				92CC0CE4203F727A00D9ED46 /* GetGroupUsers.swift */,
@@ -200,6 +205,15 @@
 				9205CE001FCDB0B2008F6466 /* Info.plist */,
 			);
 			path = GroupSync_iosClientUITests;
+			sourceTree = "<group>";
+		};
+		92627D9220445C16006F4AC7 /* GroupSettings */ = {
+			isa = PBXGroup;
+			children = (
+				92627D9020445BC6006F4AC7 /* GroupSettingsViewController.swift */,
+				92627D9320445C3D006F4AC7 /* UsersCollectionViewCell.swift */,
+			);
+			path = GroupSettings;
 			sourceTree = "<group>";
 		};
 		92B1A0141FD6FD900009E316 /* Profile */ = {
@@ -566,8 +580,10 @@
 				92E8D896201BBAC2004A4F94 /* KeyChain.swift in Sources */,
 				921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */,
 				921BEE9A1FCE0A1F00EE9A78 /* SignUpView.swift in Sources */,
+				92627D9120445BC7006F4AC7 /* GroupSettingsViewController.swift in Sources */,
 				92D19E31201E3D6F00BB24EA /* GroupViewController.swift in Sources */,
 				920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */,
+				92627D9420445C3D006F4AC7 /* UsersCollectionViewCell.swift in Sources */,
 				9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */,
 				92D19E372020F62B00BB24EA /* CreateGroupViewController.swift in Sources */,
 				92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */,

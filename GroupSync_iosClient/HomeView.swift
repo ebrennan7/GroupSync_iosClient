@@ -23,7 +23,7 @@ class HomeView: UIViewController {
         super.viewDidLoad()
         
         var pop = GetGroupUsers()
-       pop.getUserDetails()
+//       pop.getUserDetails()
         
         
        

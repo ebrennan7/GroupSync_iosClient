@@ -9,8 +9,9 @@
 import Foundation
 class GetGroupUsers{
     
-    
-    func getUserDetails(){
+    var names = [String]()
+
+    func getUserDetails(group_id: String, completionBlock: @escaping (_ userNames: [String]) ->Void) -> Void{
         let headers = [
             "Content-Type": "application/json",
             "Cache-Control": "no-cache",
@@ -59,17 +60,20 @@ class GetGroupUsers{
                             
                             
                             
-                                if let innerUserData = try JSONSerialization.jsonObject(with: usersJSONData!, options: []) as? [[String:Any]]
+                                if let innerUser = try JSONSerialization.jsonObject(with: usersJSONData!, options: []) as? [[String:Any]]
                                 {
-                                    var names = [String]()
-                                    for anUser in innerUserData
+                                    for user in innerUser
                                     {
-                                        names.append(anUser["name"]! as! String)
+                                        self.names.append("\(user["name"]!) \(user["surname"]!)")
                                     }
+                                    
+                                    let returnValue = self.names
+                                    completionBlock(returnValue)
 //                                    for name in innerUserData{
 //                                        names.append(innerUserData["name"])
 //                                    }
-                                    print(names)
+                                    print(self.names)
+                                    
                                 }
                                 else{
                                     print("inner data didnt work")
@@ -91,10 +95,11 @@ class GetGroupUsers{
                 
             }
             catch{
-                print("Error 33")
+                print("Error")
             }
         })
         
         dataTask.resume()
     }
+
 }

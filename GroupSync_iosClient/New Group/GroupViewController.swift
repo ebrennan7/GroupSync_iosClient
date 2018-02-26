@@ -42,7 +42,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var mapController = segue.destination as! MapViewController
-        mapController.data = idOfCell
+        mapController.currentGroupId = idOfCell
     }
     
     
