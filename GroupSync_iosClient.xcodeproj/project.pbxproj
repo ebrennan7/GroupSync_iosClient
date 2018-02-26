@@ -25,6 +25,7 @@
 		92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeView.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
 		92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */; };
+		92CC0CE5203F727B00D9ED46 /* GetGroupUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC0CE4203F727A00D9ED46 /* GetGroupUsers.swift */; };
 		92D185AF203343E7005D209E /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D185AE203343E7005D209E /* MapViewModel.swift */; };
 		92D185B120334416005D209E /* SendLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D185B020334416005D209E /* SendLocation.swift */; };
 		92D185B320348A06005D209E /* GetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D185B220348A05005D209E /* GetUsers.swift */; };
@@ -88,6 +89,7 @@
 		92B1A00C1FD5BA9A0009E316 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		92CC0CE4203F727A00D9ED46 /* GetGroupUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroupUsers.swift; sourceTree = "<group>"; };
 		92D185AE203343E7005D209E /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		92D185B020334416005D209E /* SendLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendLocation.swift; path = GroupSync_iosClient/SendLocation.swift; sourceTree = SOURCE_ROOT; };
 		92D185B220348A05005D209E /* GetUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsers.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				9205CDE21FCDB0B2008F6466 /* Main.storyboard */,
 				92D185B020334416005D209E /* SendLocation.swift */,
 				92D185B220348A05005D209E /* GetUsers.swift */,
+				92CC0CE4203F727A00D9ED46 /* GetGroupUsers.swift */,
 				92D185AD203343D1005D209E /* Map */,
 				92D185AB203342A6005D209E /* CreateGroup */,
 				922C9A222022202100539837 /* AlertModel.swift */,
@@ -558,6 +561,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D19E33201E43D800BB24EA /* GroupCollectionViewCell.swift in Sources */,
+				92CC0CE5203F727B00D9ED46 /* GetGroupUsers.swift in Sources */,
 				92D185B320348A06005D209E /* GetUsers.swift in Sources */,
 				92E8D896201BBAC2004A4F94 /* KeyChain.swift in Sources */,
 				921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */,

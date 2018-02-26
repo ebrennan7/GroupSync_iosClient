@@ -67,7 +67,7 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
 
                 
                 if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]{
-                    print(resultJson)
+//                    print(resultJson)
 
                 }
                 else{
