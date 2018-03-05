@@ -586,6 +586,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
+                                <connections>
+                                    <action selector="emailToAdd:" destination="esU-W8-QBr" eventType="editingDidEnd" id="2xM-B1-hPk"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add User:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3n-jF-6vy">
                                 <rect key="frame" x="16" y="26" width="343" height="21"/>
@@ -690,8 +693,9 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="emailTextField" destination="WFR-N9-PlP" id="5x0-WG-LKB"/>
+                        <outlet property="emailTextField" destination="WFR-N9-PlP" id="2CL-Pa-Fmx"/>
                         <outlet property="usersCollectionView" destination="JVo-Bw-Q4F" id="WDh-i4-z4s"/>
+                        <segue destination="FqR-Fh-eAa" kind="show" identifier="backToGroups" id="ayb-5y-vFX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c9R-xV-LHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1620,7 +1624,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PRm-b8-YjW"/>
-        <segue reference="zrQ-xh-XL5"/>
+        <segue reference="ayb-5y-vFX"/>
         <segue reference="NMq-sU-Add"/>
     </inferredMetricsTieBreakers>
 </document>

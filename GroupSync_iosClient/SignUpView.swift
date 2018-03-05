@@ -38,7 +38,7 @@ class SignUpView: UIViewController {
         {
             createAlert(title: "Password fields do not match", message: "")
         }
-        else if !(isValidEmail(email: emailTextField.text!))
+        else if !((emailTextField.text!).isValidEmail())
             {
                 createAlert(title: "Email is not valid", message: "")
             }
@@ -157,12 +157,7 @@ class SignUpView: UIViewController {
         }
     }
     
-    func isValidEmail(email:String) -> Bool
-    {
-        let emailSpec = "[A-Z0-0a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailCheck = NSPredicate(format: "SELF MATCHES %@", emailSpec)
-        return emailCheck.evaluate(with: email)
-    }
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -300,4 +295,15 @@ class SignUpView: UIViewController {
      }
      */
     
+}
+//Extension to check if a string is a valid email
+extension String {
+    
+    func isValidEmail() -> Bool
+    {
+        let emailSpec = "[A-Z0-0a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailCheck = NSPredicate(format: "SELF MATCHES %@", emailSpec)
+        return emailCheck.evaluate(with: self)
+    }
+
 }

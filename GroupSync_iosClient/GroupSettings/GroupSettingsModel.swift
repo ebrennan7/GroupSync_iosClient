@@ -10,6 +10,12 @@ import Foundation
 
 class GroupSettingsModel{
     
+    
+    func addUsersPost(email: String)
+    {
+        print("WORKED")
+    }
+    
     func deleteGroupPost(group_id: String, completion: @escaping (_ success: Bool) -> ())
     {
         var success: Bool = false
@@ -48,19 +54,22 @@ class GroupSettingsModel{
                             
                         {
                             
-                            DispatchQueue.main.async {
+                         
                                 
                                 
                                 let dictionary = resultJson
                                 if let nestedDictionary = dictionary["success"] as? Int
                                 {
-                                    print(nestedDictionary)
+                   
                                     if(nestedDictionary==1)
                                     {
+                          
                                         success=true
                                     }
+
                                 }
                                 else{
+                                    print("DIDNT WORK")
                                     success=false
                                 }
                                 
@@ -71,7 +80,7 @@ class GroupSettingsModel{
                                 
                                 
                                 
-                            }
+                            
                             
                         }
                             

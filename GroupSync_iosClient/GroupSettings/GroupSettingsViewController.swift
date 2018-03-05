@@ -14,37 +14,37 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
     var groupId: String!
     let groupSettingsModel = GroupSettingsModel()
     var success: Bool?
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBAction func deleteGroup(_ sender: UIButton) {
         
-       groupSettingsModel.deleteGroupPost(group_id: groupId, completion: { success in
-            if(success)
-            {
-                DispatchQueue.main.async {
-                    
-                    self.alertHandler(success: success)
-                }
-            }
-            else{
-                DispatchQueue.main.async {
-                    
-                    self.alertHandler(success: success)            }
-            }
+        groupSettingsModel.deleteGroupPost(group_id: groupId, completion: { success in
+            
+            
+            DispatchQueue.main.async {
+                
+                
+                self.alertHandler(success: success)            }
+            
             
             
             
         })
-    
+        
+    }
+    @IBAction func emailToAdd(_ sender: UITextField) {
+        if((emailTextField.text!).isValidEmail())
+        {
+            
+        }
     }
     func alertHandler(success: Bool)
     {
         if(success)
         {
-            createSuccessfulAlert(title: "Group Creation Successul", message: "")
+            createSuccessfulAlert(title: "Group Deletion Successul", message: "")
         }
         else{
-            createUnsuccessfulAlert(title: "Group Creation Failed", message: "")
+            createUnsuccessfulAlert(title: "Group Deletion Failed", message: "")
         }
     }
     
@@ -54,15 +54,15 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
         let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         
-
-
-        alert.addAction(UIAlertAction(title:"Ok", style: .default
+        
+        
+        alert.addAction(UIAlertAction(title:"Ok", style: .default, handler: {action in self.performSegue(withIdentifier: "backToGroups", sender: self)}
             
         ))
-
+        
         self.present(alert, animated: true, completion: nil)
-
-
+        
+        
         
     }
     

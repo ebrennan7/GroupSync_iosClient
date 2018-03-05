@@ -17,6 +17,8 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection_cell", for: indexPath) as! GroupCollectionViewCell
         
+
+        
         if(GroupViewController.GI.getIds().count>=1)
         {
             cell.groupNameLabel.text! = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
@@ -212,6 +214,8 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         
     }
+    
+
     override func viewDidAppear(_ animated: Bool) {
         self.GroupCollectionView.delegate=self
         self.GroupCollectionView.dataSource = self
