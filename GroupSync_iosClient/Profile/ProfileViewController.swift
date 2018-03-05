@@ -247,41 +247,90 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         profilePictureView.layer.cornerRadius = profilePictureView.frame.size.width/2
         profilePictureView.clipsToBounds = true
-//        let userInfo = UserDefaults.standard
-//        let fileName = (userInfo.object(forKey: "userID") as? String)
-//        let userId = (userInfo.object(forKey: "fileName") as? String)
-//
-        DispatchQueue.main.async {
-            
-            let url = URL(string: "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/images/missing.png" )
-            let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-                
-                if(error != nil)
-                {
-                    print ("ERROR")
-                }
-                else{
-                    var documentsDirectory:String?
-                    var paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-                    
-                    if(paths.count > 0)
-                    {
-                        documentsDirectory=paths[0]
-                        
-                        let savePath = documentsDirectory! + "/profile.jpg"
-                        
-                        
-                        
-                        
-                        FileManager.default.createFile(atPath: savePath, contents: data, attributes: nil)
-                        DispatchQueue.main.async {
-                            self.profilePictureView.image = UIImage(named: savePath)
-                        }
-                    }
-                }
+        let fileName = ((userInfo.object(forKey: "fileName")!) as! String).removeCharacters(from: "\"")
+        let userId = (userInfo.object(forKey: "userID")!)
+        var urlString: String = "null"
+        print(userId)
+        print("Begin of code")
+        
+        if(fileName=="null")
+        {
+            urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/images/missing.png"
+        }
+        else{
+            urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/\(userId)/medium_\(fileName)"
+        }
+        print("URL STRING\(urlString)")
+        
+      
+        let url = URL(string: urlString)
+            print("ALOWED")
+        
+            profilePictureView.contentMode = .scaleAspectFit
+                   print(fileName)
+            downloadImage(url: url!)
+        
+        //        if let url = URL(string: "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/1/medium_mmm.gif") {
+        //            print("ALOWED")
+        //            profilePictureView.contentMode = .scaleAspectFit
+        //            downloadImage(url: url)
+        //        }
+//                else{
+//                    print("NO")
+//                }
+        
+        
+        print("End of code. The image will continue downloading in the background and it will be loaded when it ends.")
+        //        DispatchQueue.global(qos: .background).async {
+        //
+        //            let url = URL(string: "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/images/missing.png" )
+        //            let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+        //
+        //                if(error != nil)
+        //                {
+        //                    print ("ERROR")
+        //                }
+        //                else{
+        //                    var documentsDirectory:String?
+        //                    var paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        //
+        //                    if(paths.count > 0)
+        //                    {
+        //                        documentsDirectory=paths[0]
+        //
+        //                        let savePath = documentsDirectory! + "/profile.jpg"
+        //
+        //
+        //
+        //
+        //                        FileManager.default.createFile(atPath: savePath, contents: data, attributes: nil)
+        //                        DispatchQueue.main.async {
+        //                            self.profilePictureView.image = UIImage(named: savePath)
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //            task.resume()
+        //
+        //        }
+    }
+    func getImageFromWeb(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ())
+    {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data,response,error)
+            }.resume()
+        
+    }
+    
+    func downloadImage(url: URL){
+        print("Download Started")
+        getImageFromWeb(url: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() {
+                self.profilePictureView.image = UIImage(data: data)
             }
-            task.resume()
-            
         }
     }
     

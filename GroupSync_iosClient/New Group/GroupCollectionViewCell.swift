@@ -10,7 +10,8 @@ import UIKit
 
 class GroupCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var cellButton: UIButton!
+  
+    @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var groupButton: UIButton!
     @IBOutlet weak var groupNameLabel: UILabel!
     var groupId: String = ""

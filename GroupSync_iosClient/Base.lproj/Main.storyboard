@@ -453,37 +453,34 @@
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncU-NB-KpA">
-                                                    <rect key="frame" x="10" y="0.0" width="160" height="159"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="cellButton"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="ncU-NB-KpA" secondAttribute="height" multiplier="160:159" id="9vt-4d-IUP"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button" image="Groups"/>
-                                                    <connections>
-                                                        <action selector="buttonPressed:" destination="uIa-qc-8U5" eventType="touchUpInside" id="bCL-Zl-ezF"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group_Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhl-XN-XQe">
-                                                    <rect key="frame" x="0.0" y="169" width="180" height="21"/>
+                                                    <rect key="frame" x="0.0" y="169" width="180" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="31" id="85T-RP-TK1"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Groups" translatesAutoresizingMaskIntoConstraints="NO" id="7jU-Hv-sGe">
+                                                    <rect key="frame" x="10" y="7" width="160" height="159"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="7jU-Hv-sGe" secondAttribute="height" multiplier="160:159" id="u7K-zz-vOd"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="ncU-NB-KpA" firstAttribute="top" secondItem="uIa-qc-8U5" secondAttribute="top" id="0NO-HT-54Y"/>
-                                            <constraint firstItem="bhl-XN-XQe" firstAttribute="top" secondItem="ncU-NB-KpA" secondAttribute="bottom" constant="10" id="6iz-4n-i6z"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="bhl-XN-XQe" secondAttribute="trailing" constant="-8" id="CqB-Nx-xl6"/>
-                                            <constraint firstItem="ncU-NB-KpA" firstAttribute="leading" secondItem="uIa-qc-8U5" secondAttribute="leading" constant="10" id="Ue0-Uw-v5O"/>
-                                            <constraint firstAttribute="trailing" secondItem="ncU-NB-KpA" secondAttribute="trailing" constant="10" id="YiP-oJ-gY0"/>
-                                            <constraint firstItem="bhl-XN-XQe" firstAttribute="leading" secondItem="uIa-qc-8U5" secondAttribute="leadingMargin" constant="-8" id="czv-hw-J3P"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="bhl-XN-XQe" secondAttribute="bottom" constant="2" id="fnS-zs-Kxg"/>
+                                            <constraint firstItem="7jU-Hv-sGe" firstAttribute="leading" secondItem="uIa-qc-8U5" secondAttribute="leadingMargin" constant="2" id="EVu-Il-f4R"/>
+                                            <constraint firstItem="bhl-XN-XQe" firstAttribute="leading" secondItem="uIa-qc-8U5" secondAttribute="leading" id="LAD-ua-VRC"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="bhl-XN-XQe" secondAttribute="bottom" constant="-8" id="NE8-Ft-AgF"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="7jU-Hv-sGe" secondAttribute="bottom" constant="26" id="esj-51-KYh"/>
+                                            <constraint firstItem="7jU-Hv-sGe" firstAttribute="centerX" secondItem="bhl-XN-XQe" secondAttribute="centerX" id="kT2-wV-2UU"/>
+                                            <constraint firstItem="7jU-Hv-sGe" firstAttribute="top" secondItem="uIa-qc-8U5" secondAttribute="topMargin" constant="-1" id="pHk-om-9lF"/>
+                                            <constraint firstAttribute="trailing" secondItem="bhl-XN-XQe" secondAttribute="trailing" id="zT0-CD-5p3"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="cellButton" destination="ncU-NB-KpA" id="DJx-lA-RfX"/>
-                                            <outlet property="groupButton" destination="ncU-NB-KpA" id="yh9-aR-HK4"/>
+                                            <outlet property="cellImage" destination="7jU-Hv-sGe" id="dK1-GM-sDW"/>
                                             <outlet property="groupNameLabel" destination="bhl-XN-XQe" id="UUZ-vB-Ixy"/>
                                         </connections>
                                     </collectionViewCell>
@@ -694,6 +691,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="emailTextField" destination="WFR-N9-PlP" id="2CL-Pa-Fmx"/>
+                        <outlet property="settingsView" destination="8aY-Ny-aBd" id="QNS-Fy-qck"/>
                         <outlet property="usersCollectionView" destination="JVo-Bw-Q4F" id="WDh-i4-z4s"/>
                         <segue destination="FqR-Fh-eAa" kind="show" identifier="backToGroups" id="ayb-5y-vFX"/>
                     </connections>
@@ -1623,6 +1621,7 @@
         <image name="SettingsIcon" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="7u3-yi-cB3"/>
         <segue reference="PRm-b8-YjW"/>
         <segue reference="ayb-5y-vFX"/>
         <segue reference="NMq-sU-Add"/>

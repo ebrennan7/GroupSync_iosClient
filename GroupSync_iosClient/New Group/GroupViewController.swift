@@ -24,7 +24,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
             cell.groupNameLabel.text! = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
             cell.groupId = GroupViewController.GI.getIds()[indexPath.row]
             cell.groupName = GroupViewController.GN.getNames()[indexPath.row].removeCharacters(from: "\"")
-            cell.cellButton.tag = indexPath.row
+            cell.cellImage.tag = indexPath.row
             
             
         }

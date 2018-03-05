@@ -11,9 +11,73 @@ import Foundation
 class GroupSettingsModel{
     
     
-    func addUsersPost(email: String)
+    func addUsersPost(group_id: String, email: String, completion: @escaping (_ success: Bool) -> ())
     {
-        print("WORKED")
+        
+        var success: Bool = false
+        let userInfo = UserDefaults.standard
+        
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "74678695-bbf6-0dd3-540f-e40c6f5dcf56"
+        ]
+        let parameters = [
+            "authToken": KeychainService.loadPassword()!,
+            "user_id": userInfo.object(forKey: "userID")!,
+            "group_id": group_id,
+            "email": email
+            ] as [String : Any]
+        
+        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        guard postData != nil else {
+            return
+        }
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/add_user_to_group")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error!)
+            } else {
+                do {
+                    if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
+                    {
+                        print(resultJson)
+                        if let nestedDictionary = resultJson["success"] as? Int
+                        {
+                            
+                            if(nestedDictionary==1)
+                            {
+                                
+                                success=true
+                            }
+                            
+                        }
+                        else{
+                            success=false
+                        }
+                        
+                        
+                    }
+                    
+                    
+                }
+                catch{
+                    print(error)
+                }
+            }
+            print(success)
+               completion(success)
+        })
+        
+        dataTask.resume()
     }
     
     func deleteGroupPost(group_id: String, completion: @escaping (_ success: Bool) -> ())
@@ -54,32 +118,32 @@ class GroupSettingsModel{
                             
                         {
                             
-                         
+                            
+                            
+                            
+                            let dictionary = resultJson
+                            if let nestedDictionary = dictionary["success"] as? Int
+                            {
                                 
-                                
-                                let dictionary = resultJson
-                                if let nestedDictionary = dictionary["success"] as? Int
+                                if(nestedDictionary==1)
                                 {
-                   
-                                    if(nestedDictionary==1)
-                                    {
-                          
-                                        success=true
-                                    }
-
-                                }
-                                else{
-                                    print("DIDNT WORK")
-                                    success=false
+                                    
+                                    success=true
                                 }
                                 
-                                
-                                
-                                
-                                
-                                
-                                
-                                
+                            }
+                            else{
+                                print("DIDNT WORK")
+                                success=false
+                            }
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                             
                             
                         }

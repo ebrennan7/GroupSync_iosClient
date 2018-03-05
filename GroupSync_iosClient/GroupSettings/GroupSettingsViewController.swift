@@ -8,8 +8,9 @@
 
 import UIKit
 
-class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
     
+    @IBOutlet var settingsView: UIView!
     var userNames = [String]()
     var groupId: String!
     let groupSettingsModel = GroupSettingsModel()
@@ -30,12 +31,11 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
             
         })
         
+        
     }
+    
     @IBAction func emailToAdd(_ sender: UITextField) {
-        if((emailTextField.text!).isValidEmail())
-        {
-            
-        }
+        
     }
     func alertHandler(success: Bool)
     {
@@ -99,7 +99,7 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        emailTextField.delegate=self
         let getGroupUsers = GetGroupUsers()
         
         (getGroupUsers.getUserDetails(group_id: groupId)
@@ -117,6 +117,33 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if((emailTextField.text!).isValidEmail())
+        {
+            groupSettingsModel.addUsersPost(group_id: groupId, email: emailTextField.text!, completion:  {success in
+                
+                if(success)
+                {
+                    self.updateDisplay()
+                }
+                else{
+                    print("FAILURE")
+                }
+                
+                
+            })
+        }
+        return true
+    }
+    
+    func updateDisplay()
+    {
+        DispatchQueue.main.async {
+       
+        self.view.setNeedsDisplay()
+        }
     }
     
     
