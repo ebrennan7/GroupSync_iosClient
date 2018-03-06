@@ -10,6 +10,7 @@ import UIKit
 
 class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
     
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet var settingsView: UIView!
     var userNames = [String]()
     var groupId: String!
@@ -93,12 +94,15 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "groupMembers_cell", for: indexPath) as! UsersCollectionViewCell
         
         cell.userName.text = userNames[indexPath.row]
+        loading.hidesWhenStopped=true
+        loading.stopAnimating()
         return cell
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loading.startAnimating()
         emailTextField.delegate=self
         let getGroupUsers = GetGroupUsers()
         
@@ -107,6 +111,8 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
         {(returnValue)
             in self.userNames = (returnValue)
         })
+ 
+
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {

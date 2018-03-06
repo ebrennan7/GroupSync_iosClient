@@ -22,7 +22,7 @@ class HomeView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var pop = GetGroupUsers()
+       var pop = GetGroupUsers()
 //       pop.getUserDetails()
         
         

@@ -492,6 +492,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3Vl-2C-AZ5">
+                                <rect key="frame" x="177.5" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -502,12 +505,15 @@
                             <constraint firstItem="p9l-1c-KrM" firstAttribute="top" secondItem="Zw1-to-cbW" secondAttribute="top" constant="57" id="b0J-nT-7K6"/>
                             <constraint firstItem="p9l-1c-KrM" firstAttribute="bottom" secondItem="Zw1-to-cbW" secondAttribute="bottom" id="dQq-cz-vm5"/>
                             <constraint firstItem="p9l-1c-KrM" firstAttribute="leading" secondItem="Zw1-to-cbW" secondAttribute="leading" id="dkF-NB-EEa"/>
+                            <constraint firstItem="3Vl-2C-AZ5" firstAttribute="centerX" secondItem="ALi-JB-BMP" secondAttribute="centerX" id="kcn-Ne-5ws"/>
                             <constraint firstItem="p9l-1c-KrM" firstAttribute="trailing" secondItem="Zw1-to-cbW" secondAttribute="trailing" id="svM-3m-KIQ"/>
+                            <constraint firstItem="3Vl-2C-AZ5" firstAttribute="centerY" secondItem="ALi-JB-BMP" secondAttribute="centerY" id="xzB-8I-KRp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zw1-to-cbW"/>
                     </view>
                     <connections>
                         <outlet property="GroupCollectionView" destination="p9l-1c-KrM" id="zVo-pq-PqF"/>
+                        <outlet property="loading" destination="3Vl-2C-AZ5" id="UhP-Rm-0DQ"/>
                         <segue destination="veL-QG-cCS" kind="show" identifier="showMap" id="7u3-yi-cB3"/>
                     </connections>
                 </viewController>
@@ -666,6 +672,9 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="e3A-2F-hZF">
+                                <rect key="frame" x="177" y="382" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -677,10 +686,12 @@
                             <constraint firstItem="JVo-Bw-Q4F" firstAttribute="trailing" secondItem="m3C-Uk-VXX" secondAttribute="trailing" id="DvL-4a-NB5"/>
                             <constraint firstItem="WFR-N9-PlP" firstAttribute="centerX" secondItem="JVo-Bw-Q4F" secondAttribute="centerX" id="End-0t-bS2"/>
                             <constraint firstItem="JVo-Bw-Q4F" firstAttribute="trailing" secondItem="92e-Oi-Cr4" secondAttribute="trailing" id="Fqu-qJ-4zU"/>
+                            <constraint firstItem="e3A-2F-hZF" firstAttribute="centerX" secondItem="m3C-Uk-VXX" secondAttribute="centerX" id="K8Z-YE-CM1"/>
                             <constraint firstItem="7pp-1e-XOf" firstAttribute="trailing" secondItem="WFR-N9-PlP" secondAttribute="trailing" id="Qa1-Mc-paJ"/>
                             <constraint firstItem="7pp-1e-XOf" firstAttribute="leading" secondItem="WFR-N9-PlP" secondAttribute="leading" id="Qeg-SV-ASD"/>
                             <constraint firstItem="7pp-1e-XOf" firstAttribute="top" secondItem="y3n-jF-6vy" secondAttribute="bottom" constant="18" id="WeR-Wz-FA3"/>
                             <constraint firstItem="m3C-Uk-VXX" firstAttribute="bottom" secondItem="92e-Oi-Cr4" secondAttribute="bottom" id="WyC-wq-l9J"/>
+                            <constraint firstAttribute="bottom" secondItem="e3A-2F-hZF" secondAttribute="bottom" constant="265" id="acB-UR-PYE"/>
                             <constraint firstItem="WFR-N9-PlP" firstAttribute="top" secondItem="7pp-1e-XOf" secondAttribute="bottom" constant="21" id="dJx-bU-2gI"/>
                             <constraint firstItem="y3n-jF-6vy" firstAttribute="leading" secondItem="7pp-1e-XOf" secondAttribute="leading" id="e1d-ua-PNI"/>
                             <constraint firstItem="92e-Oi-Cr4" firstAttribute="bottom" secondItem="JVo-Bw-Q4F" secondAttribute="bottom" constant="90" id="gSn-5B-9kB"/>
@@ -691,6 +702,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="emailTextField" destination="WFR-N9-PlP" id="2CL-Pa-Fmx"/>
+                        <outlet property="loading" destination="e3A-2F-hZF" id="QTA-1h-ZOK"/>
                         <outlet property="settingsView" destination="8aY-Ny-aBd" id="QNS-Fy-qck"/>
                         <outlet property="usersCollectionView" destination="JVo-Bw-Q4F" id="WDh-i4-z4s"/>
                         <segue destination="FqR-Fh-eAa" kind="show" identifier="backToGroups" id="ayb-5y-vFX"/>
@@ -1621,7 +1633,6 @@
         <image name="SettingsIcon" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7u3-yi-cB3"/>
         <segue reference="PRm-b8-YjW"/>
         <segue reference="ayb-5y-vFX"/>
         <segue reference="NMq-sU-Add"/>

@@ -12,12 +12,13 @@ import Foundation
 
 class GroupViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection_cell", for: indexPath) as! GroupCollectionViewCell
         
-
+        
         
         if(GroupViewController.GI.getIds().count>=1)
         {
@@ -28,6 +29,8 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
             
             
         }
+        loading.hidesWhenStopped=true
+        loading.stopAnimating()
         return cell
         
     }
@@ -72,7 +75,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     
     
-   
+    
     
     
     
@@ -127,7 +130,6 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
                                     var result = self.getObjects(groupId: self.getGroupIds(groups: groups), groupName: self.getGroupNames(groups: groups), groupImage: #imageLiteral(resourceName: "Groups"))
                                     
                                     
-                                                                        print(groups)
                                     
                                     
                                     
@@ -215,7 +217,7 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
         
     }
     
-
+    
     override func viewDidAppear(_ animated: Bool) {
         self.GroupCollectionView.delegate=self
         self.GroupCollectionView.dataSource = self
@@ -225,12 +227,13 @@ class GroupViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loading.startAnimating()
         getGroups()
         
         
         
         sendLocation.determineCurrentLocation()
-
+        
         
         
         

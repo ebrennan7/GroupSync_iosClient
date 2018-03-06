@@ -100,6 +100,11 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
             }
             
         }
+        else if (!CLLocationManager.locationServicesEnabled())
+        {
+            print("You need to enable location services to use this app")
+           
+        }
         
 
         
