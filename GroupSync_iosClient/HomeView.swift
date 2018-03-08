@@ -10,6 +10,8 @@ import UIKit
 
 class HomeView: UIViewController {
 
+
+    
     @IBAction func groupsButton(_ sender: UIButton) {
         if let key = KeychainService.loadPassword()
         {
@@ -19,6 +21,9 @@ class HomeView: UIViewController {
             print("Error with Keychain")
         }
     }
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +33,7 @@ class HomeView: UIViewController {
         
        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: true)

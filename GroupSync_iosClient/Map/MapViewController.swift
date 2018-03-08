@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     var group_id: String?
@@ -22,7 +23,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    var locationManager:CLLocationManager!
     
     
     

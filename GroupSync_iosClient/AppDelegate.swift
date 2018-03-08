@@ -26,15 +26,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
-    
-    
+ 
+//    func application(_ application: UIApplication,
+//                              performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+//    {
+//        sendLocation.determineCurrentLocation()
+//    }
+//
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         return true
     }
     func applicationDidEnterBackground(_ application: UIApplication) {
-       
+     
+        print("entered Background")
+        sendPost()
+//        var updateTimer = Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: "sendLocation:", userInfo: nil, repeats: true)
+   
+    }
+    func sendPost()
+    {
+        print("sendPost")
         sendLocation.determineCurrentLocation()
     }
 
@@ -48,6 +60,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
+//    
+//    func startReceivingSignificantLocationChanges() {
+//        let authorizationStatus = CLLocationManager.authorizationStatus()
+//        if authorizationStatus != .authorizedAlways {
+//            // User has not authorized access to location information.
+//            return
+//        }
+//        
+//        if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
+//            // The service is not available.
+//            return
+//        }
+//        locationManager.delegate = self
+//        locationManager.startMonitoringSignificantLocationChanges()
+//    }
+//    
+//    if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
+//    // The service is not available.
+//    return
+//    }
+//    locationManager.delegate = self
+//    locationManager.startMonitoringSignificantLocationChanges()
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.

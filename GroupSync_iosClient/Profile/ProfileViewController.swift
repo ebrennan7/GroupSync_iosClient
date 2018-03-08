@@ -26,6 +26,45 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     
     
+    @IBAction func logOutButtonPressed()
+    {
+        createAlert(title: "Are you sure you want to log out?", message: "")
+    }
+    
+    
+    func createAlert(title:String, message: String)
+    {
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            
+            //log out happens
+            
+            
+            self.clearUserDefaults()
+            
+            if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView") as? ViewController {
+                self.present(loginView, animated: true, completion: nil)
+            }
+            
+            
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    func clearUserDefaults()
+    {
+        let userInfo = UserDefaults.standard
+        userInfo.removeObject(forKey: "userSignedIn")
+        userInfo.synchronize()
+    }
     
     @IBOutlet weak var middlePositionPopUp: NSLayoutConstraint!
     

@@ -8,67 +8,125 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
-
-    @IBOutlet weak var logOutButton: UIButton!
-
-    @IBAction func logOutButtonPressed()
-    {
-        createAlert(title: "Are you sure you want to log out?", message: "")
+class SettingsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    var requestTuples:[(invite_id: Int, group_id: Int, inviter_id: Int, timeOfInvite: String)] = []
+    
+    @IBOutlet var invitesView: UIView!
+    @IBOutlet weak var inviteCollectionView: UICollectionView!
+    let requestModel = RequestModel()
+    var idOfCell: Int?
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return requestTuples.count
     }
     
-    @IBAction func `switch`(_ sender: UISwitch) {
-//        if(sender.isOn == true)
-//        {
-//            indicatorLabel.text = "On"
-//            indicatorLabel.textColor = UIColor.green
-//        }
-//        else{
-//            indicatorLabel.text = "Off"
-//            indicatorLabel.textColor = UIColor.red
-//
-//        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "invite_cell", for: indexPath) as! InvitesCollectionViewCell
+        
+        
+        cell.userNameCellLabel.text = "User \(requestTuples[indexPath.row].inviter_id)"
+        cell.groupNameCellLabel.text = "Group \( requestTuples[indexPath.row].group_id)"
+        
+        
+        
+        
+        return cell
     }
-    func createAlert(title:String, message: String)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        idOfCell = (requestTuples[indexPath.row].group_id)
+        
+        createInviteAlert(title: "Do you want to join this group?", message: "", group_id: idOfCell!, index: indexPath.row)
+        
+    }
+    
+    
+    
+    
+    func createInviteAlert(title:String, message: String, group_id: Int, index: Int)
     {
         let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
             
-            //log out happens
+            self.acceptInvite(group_id: group_id, index: index)
             
-            
-            self.clearUserDefaults()
-            
-            if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView") as? ViewController {
-                  self.present(loginView, animated: true, completion: nil)
-            }
-            
-//            self.performSegue(withIdentifier: "unwindToViewController", sender: self)
             
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
             
-            
+            self.declineInvite(group_id: group_id, index: index)
         }))
         
         self.present(alert, animated: true, completion: nil)
         
     }
     
-    func clearUserDefaults()
+    
+    func getRequestsFromModel()
     {
-        let userInfo = UserDefaults.standard
-        userInfo.removeObject(forKey: "userSignedIn")
-        userInfo.synchronize()
+        
+        (requestModel.getRequests()
+            {(returnValue)
+                in self.requestTuples = (returnValue)
+                
+        })
+        print(requestTuples)
     }
     
     override func viewDidLoad() {
         
-
-        logOutButton.layer.cornerRadius = logOutButton.frame.size.width/24
-//        logOutButton.clipsToBounds = true
+        getRequestsFromModel()
+        
+        
+        
+        //        logOutButton.clipsToBounds = true
+    }
+    
+    func acceptInvite(group_id: Int, index: Int)
+    {
+        requestModel.joinGroup(group_id: group_id, completion: { success in
+            if(success)
+            {
+                DispatchQueue.main.async {
+                    
+                    print(index)
+                    self.requestTuples.remove(at: index)
+                    self.inviteCollectionView.reloadData()
+                }
+            }
+            else{
+                print("wasn't succesful")
+            }
+        })
+    }
+    func declineInvite(group_id: Int, index: Int)
+    {
+        
+        requestModel.deleteRequest(group_id: group_id, completion: { success in
+            if(success)
+            {
+                DispatchQueue.main.async {
+                    
+                    print(index)
+                    self.requestTuples.remove(at: index)
+                    self.inviteCollectionView.reloadData()
+            
+                }
+                
+            }
+            else{
+                print("Failed deleting group")
+            }
+            
+        })
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        self.inviteCollectionView.delegate=self
+        self.inviteCollectionView.dataSource = self
     }
     
 }

@@ -59,14 +59,15 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
-                DispatchQueue.main.async {
+         
                     print(error!)
-                }
+                
             }
             do {
 
                 
                 if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]{
+                    print("Location Sent")
 //                    print(resultJson)
 
                 }
@@ -89,14 +90,14 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
         locationManager.delegate = self
         locationManager.allowsBackgroundLocationUpdates=true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startMonitoringSignificantLocationChanges()
         locationManager.requestAlwaysAuthorization()
 
       
         if CLLocationManager.locationServicesEnabled(){
             DispatchQueue.main.async {
                 
-                print("test1") // This prints fine from background
-                self.locationManager.requestLocation()
+                self.locationManager.startUpdatingLocation()
             }
             
         }
@@ -120,10 +121,6 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
         
         print(userLocation?.coordinate.latitude)
         print(userLocation?.coordinate.longitude)
-
-//        print(locationStruct.latitude=userLocation?.coordinate.latitude)
-//        print(locationStruct.longitude=userLocation?.coordinate.longitude)
-        print("test2") // This never gets printed from backgrounf
 
         sendLocationPost()
         
