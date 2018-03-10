@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 
-class SignUpView: UIViewController {
+class SignUpView: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var signUpProgress: UIProgressView!
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -167,46 +167,57 @@ class SignUpView: UIViewController {
         changeTextViewShapes()
    
         
-        self.addDoneButton()
+        
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        self.firstNameTextField.delegate = self
+        self.lastNameTextField.delegate = self
+        self.verifyPasswordTextField.delegate = self
+//
+//        self.addDoneButton()
         
         
         // Do any additional setup after loading the view.
     }
     
-    func addDoneButton()
-    {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-        doneToolbar.barStyle       = UIBarStyle.default
-        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
-        
-        var items = [UIBarButtonItem]()
-        items.append(flexSpace)
-        items.append(done)
-        
-        doneToolbar.items = items
-        doneToolbar.sizeToFit()
-        
-        self.passwordTextField?.inputAccessoryView = doneToolbar
-        self.emailTextField?.inputAccessoryView = doneToolbar
-        self.lastNameTextField?.inputAccessoryView = doneToolbar
-        self.firstNameTextField?.inputAccessoryView = doneToolbar
-        self.verifyPasswordTextField?.inputAccessoryView = doneToolbar
-        
-        
-        
-        
-    }
+//    func addDoneButton()
+//    {
+//        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+//        doneToolbar.barStyle       = UIBarStyle.default
+//        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+//        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
+//
+//        var items = [UIBarButtonItem]()
+//        items.append(flexSpace)
+//        items.append(done)
+//
+////        doneToolbar.items = items
+////        doneToolbar.sizeToFit()
+//        
+//        self.passwordTextField?.inputAccessoryView = doneToolbar
+//        self.emailTextField?.inputAccessoryView = doneToolbar
+//        self.lastNameTextField?.inputAccessoryView = doneToolbar
+//        self.firstNameTextField?.inputAccessoryView = doneToolbar
+//        self.verifyPasswordTextField?.inputAccessoryView = doneToolbar
+//
+//
+//
+//
+//    }
     
-    @objc func doneButtonAction()
-    {
-        self.passwordTextField?.resignFirstResponder()
-        self.verifyPasswordTextField?.resignFirstResponder()
-        self.lastNameTextField?.resignFirstResponder()
-        self.firstNameTextField?.resignFirstResponder()
-        self.emailTextField?.resignFirstResponder()
-    }
+//    @objc func doneButtonAction()
+//    {
+//        self.passwordTextField?.resignFirstResponder()
+//        self.verifyPasswordTextField?.resignFirstResponder()
+//        self.lastNameTextField?.resignFirstResponder()
+//        self.firstNameTextField?.resignFirstResponder()
+//        self.emailTextField?.resignFirstResponder()
+//    }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
     func changeLabelShapes()
     {

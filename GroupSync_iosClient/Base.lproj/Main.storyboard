@@ -972,7 +972,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                                                 <connections>
                                                     <action selector="editingFirstNameFinished:" destination="z8a-w6-bGJ" eventType="editingDidEnd" id="JDz-Ui-Qya"/>
                                                     <action selector="firstNameTextField:" destination="y7K-6D-Pu7" eventType="editingDidEnd" id="FFW-zb-IRv"/>
@@ -985,7 +985,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                                                 <connections>
                                                     <action selector="editingLastNameFinished:" destination="z8a-w6-bGJ" eventType="editingDidEnd" id="Lmh-fN-vba"/>
                                                 </connections>
@@ -1431,7 +1431,6 @@
         <image name="Settings" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4bE-lr-5vb"/>
         <segue reference="PRm-b8-YjW"/>
         <segue reference="KRb-d7-GwD"/>
         <segue reference="NMq-sU-Add"/>

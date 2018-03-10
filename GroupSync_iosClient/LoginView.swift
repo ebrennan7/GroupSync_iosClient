@@ -13,7 +13,7 @@ import Security
 
 
 
-class LoginView: UIViewController {
+class LoginView: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailLabel: UILabel!
     
@@ -174,6 +174,12 @@ class LoginView: UIViewController {
     }
     
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    
     func successfulLogin(token: String, user_id: Int)
     {
         
@@ -215,6 +221,9 @@ class LoginView: UIViewController {
         changeLabelShapes()
         
         
+        self.passwordTextField.delegate=self
+        self.emailTextField.delegate=self
+    
         
         
         // Do any additional setup after loading the view.
