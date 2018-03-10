@@ -20,6 +20,7 @@
 		9229EA1A202F67A5001FC6A7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229EA19202F67A5001FC6A7 /* MapViewController.swift */; };
 		922C9A232022202100539837 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922C9A222022202100539837 /* AlertModel.swift */; };
 		922C9A2520222BF000539837 /* ActiveTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922C9A2420222BF000539837 /* ActiveTimeModel.swift */; };
+		9233E520205440C000146C37 /* JoinPublicGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233E51F205440C000146C37 /* JoinPublicGroupViewController.swift */; };
 		923794772054203E0085C1F5 /* PublicGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923794762054203E0085C1F5 /* PublicGroupViewController.swift */; };
 		923794792054204F0085C1F5 /* PublicGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923794782054204F0085C1F5 /* PublicGroupCollectionViewCell.swift */; };
 		9237947B205420CB0085C1F5 /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237947A205420CB0085C1F5 /* GroupModel.swift */; };
@@ -83,6 +84,7 @@
 		9229EA19202F67A5001FC6A7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		922C9A222022202100539837 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		922C9A2420222BF000539837 /* ActiveTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimeModel.swift; sourceTree = "<group>"; };
+		9233E51F205440C000146C37 /* JoinPublicGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPublicGroupViewController.swift; sourceTree = "<group>"; };
 		923794762054203E0085C1F5 /* PublicGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupViewController.swift; sourceTree = "<group>"; };
 		923794782054204F0085C1F5 /* PublicGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		9237947A205420CB0085C1F5 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */,
 				9205CDE01FCDB0B2008F6466 /* ViewController.swift */,
 				9205CDE21FCDB0B2008F6466 /* Main.storyboard */,
+				9233E51F205440C000146C37 /* JoinPublicGroupViewController.swift */,
 				9249E37C204F0B090007FFC4 /* RequestModel.swift */,
 				9267FAC7204EF94400C58BB1 /* InvitesCollectionCell.swift */,
 				92627D9220445C16006F4AC7 /* GroupSettings */,
@@ -411,6 +414,7 @@
 				92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */,
 				9249E37D204F0B090007FFC4 /* RequestModel.swift in Sources */,
 				92EAA6ED204489EE0097AFA3 /* GroupSettingsModel.swift in Sources */,
+				9233E520205440C000146C37 /* JoinPublicGroupViewController.swift in Sources */,
 				92D19E392020F63C00BB24EA /* CreateGroupModel.swift in Sources */,
 				922C9A2520222BF000539837 /* ActiveTimeModel.swift in Sources */,
 				92D185B120334416005D209E /* SendLocation.swift in Sources */,

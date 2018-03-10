@@ -490,11 +490,42 @@
                     <tabBarItem key="tabBarItem" title="Public" image="publicTabIcon" id="8px-ZS-Sid"/>
                     <connections>
                         <outlet property="publicGroupCollectionView" destination="JmX-zi-UYC" id="6aQ-f6-ztA"/>
+                        <segue destination="OXw-L6-zDf" kind="show" identifier="joinPageSegue" id="itz-Bx-KqP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQt-YM-jP6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3135" y="-2479"/>
+        </scene>
+        <!--Join Public Group View Controller-->
+        <scene sceneID="2V1-UT-xXs">
+            <objects>
+                <viewController id="OXw-L6-zDf" customClass="JoinPublicGroupViewController" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M2v-ow-fag">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sj-dy-eSe">
+                                <rect key="frame" x="139" y="274" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3sj-dy-eSe" firstAttribute="centerX" secondItem="M2v-ow-fag" secondAttribute="centerX" id="KpZ-8C-023"/>
+                            <constraint firstItem="3sj-dy-eSe" firstAttribute="centerY" secondItem="M2v-ow-fag" secondAttribute="centerY" id="cW1-wS-xVH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="B84-oa-4do"/>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="3sj-dy-eSe" id="Dx2-wB-I60"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="06W-4f-RqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4140" y="-2479"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rmT-lE-6Lg">

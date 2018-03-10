@@ -15,7 +15,7 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var publicGroupCollectionView: UICollectionView!
     let groupModel = GroupModel()
     var publicGroupTuples:[(group_id: Int, name: String)] = []
-    
+    var idOfCell: String?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -29,6 +29,25 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+       idOfCell = String(publicGroupTuples[indexPath.row].group_id)
+        
+        self.performSegue(withIdentifier: "joinPageSegue", sender: nil)
+        
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var joinController = segue.destination as! JoinPublicGroupViewController
+        joinController.cellID = idOfCell
+    }
+    
+    
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "publicCollection_cell", for: indexPath) as! PublicGroupCollectionViewCell
         
@@ -37,6 +56,8 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
         
         return cell
     }
+    
+    
 
 
     override func viewDidLoad() {
