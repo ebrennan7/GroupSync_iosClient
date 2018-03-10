@@ -47,7 +47,7 @@ class GetGroupUsers{
                     if let nestedDictionary = dictionary["data"] as? [String:Any]
                     {
                         
-                        if var usersJSON = nestedDictionary["users"] as? String
+                        if let usersJSON = nestedDictionary["users"] as? String
                         {
                         
 //                            usersJSON = usersJSON.trimmingCharacters(in: ["[", "]"])

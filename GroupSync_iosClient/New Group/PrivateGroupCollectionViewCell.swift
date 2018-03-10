@@ -8,21 +8,14 @@
 
 import UIKit
 
-class GroupCollectionViewCell: UICollectionViewCell {
+class PrivateGroupCollectionViewCell: UICollectionViewCell {
     
   
     @IBOutlet weak var cellImage: UIImageView!
-    @IBOutlet weak var groupButton: UIButton!
     @IBOutlet weak var groupNameLabel: UILabel!
     var groupId: String = ""
     var groupName: String = ""
     
-    
-    @IBAction func buttonPressed(_ sender: UIButton) {
-//        print(self.groupId)
-//        print(self.groupName)
-        
-        
-    }
+
     
 }

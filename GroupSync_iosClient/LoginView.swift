@@ -216,7 +216,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         //            presentAuthUIViewController()
         //        }
         
-        self.addDoneButton()
+//        self.addDoneButton()
         
         changeLabelShapes()
         
