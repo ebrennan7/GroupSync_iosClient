@@ -21,6 +21,7 @@
 		922C9A232022202100539837 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922C9A222022202100539837 /* AlertModel.swift */; };
 		922C9A2520222BF000539837 /* ActiveTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922C9A2420222BF000539837 /* ActiveTimeModel.swift */; };
 		9233E520205440C000146C37 /* JoinPublicGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233E51F205440C000146C37 /* JoinPublicGroupViewController.swift */; };
+		9233E5222054762A00146C37 /* GroupInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233E5212054762A00146C37 /* GroupInformationModel.swift */; };
 		923794772054203E0085C1F5 /* PublicGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923794762054203E0085C1F5 /* PublicGroupViewController.swift */; };
 		923794792054204F0085C1F5 /* PublicGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923794782054204F0085C1F5 /* PublicGroupCollectionViewCell.swift */; };
 		9237947B205420CB0085C1F5 /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237947A205420CB0085C1F5 /* GroupModel.swift */; };
@@ -85,6 +86,7 @@
 		922C9A222022202100539837 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		922C9A2420222BF000539837 /* ActiveTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimeModel.swift; sourceTree = "<group>"; };
 		9233E51F205440C000146C37 /* JoinPublicGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPublicGroupViewController.swift; sourceTree = "<group>"; };
+		9233E5212054762A00146C37 /* GroupInformationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupInformationModel.swift; path = /College/Year4/FYP/GroupSync_iosClient/GroupSync_iosClient/GroupInformationModel.swift; sourceTree = "<absolute>"; };
 		923794762054203E0085C1F5 /* PublicGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupViewController.swift; sourceTree = "<group>"; };
 		923794782054204F0085C1F5 /* PublicGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		9237947A205420CB0085C1F5 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				922C9A2420222BF000539837 /* ActiveTimeModel.swift */,
 				92F75C4C200FD85500116C55 /* awsconfiguration.json */,
 				92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */,
+				9233E5212054762A00146C37 /* GroupInformationModel.swift */,
 				92B1A00C1FD5BA9A0009E316 /* HomeView.swift */,
 				921BEE991FCE0A1F00EE9A78 /* SignUpView.swift */,
 				9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */,
@@ -406,6 +409,7 @@
 				92627D9120445BC7006F4AC7 /* GroupSettingsViewController.swift in Sources */,
 				92D19E31201E3D6F00BB24EA /* PrivateGroupViewController.swift in Sources */,
 				920CD5EA1FCDC7BE00349451 /* LoginView.swift in Sources */,
+				9233E5222054762A00146C37 /* GroupInformationModel.swift in Sources */,
 				92627D9420445C3D006F4AC7 /* UsersCollectionViewCell.swift in Sources */,
 				9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */,
 				92D19E372020F62B00BB24EA /* CreateGroupViewController.swift in Sources */,

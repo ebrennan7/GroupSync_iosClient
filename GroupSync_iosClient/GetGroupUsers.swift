@@ -75,19 +75,13 @@ class GetGroupUsers{
                                     print(self.names)
                                     
                                 }
-                                else{
-                                    print("inner data didnt work")
-                                }
+                    
                     
                         }
-                        else{
-                            print("FAIL AT TOP LEVEL")
-                        }
+             
                         
                     }
-                    else{
-                        print("Can't do array thing")
-                    }
+       
                     
                     
                     
