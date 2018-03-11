@@ -54,7 +54,7 @@ class SignUpView: UIViewController, UITextFieldDelegate {
             "Postman-Token": "14769248-607a-fc94-d01e-86ab7e51e49a"
         ]
         let parameters = [
-            "email": emailTextField.text! ,
+            "email": emailTextField.text!.lowercased() ,
             "name": firstNameTextField.text!,
             "surname": lastNameTextField.text!,
             "password": passwordTextField.text!,

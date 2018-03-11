@@ -26,7 +26,7 @@ class GroupSettingsModel{
             "authToken": KeychainService.loadPassword()!,
             "user_id": userInfo.object(forKey: "userID")!,
             "group_id": group_id,
-            "email": email
+            "email": email.lowercased()
             ] as [String : Any]
         
         let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])

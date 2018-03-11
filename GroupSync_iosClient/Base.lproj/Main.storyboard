@@ -491,6 +491,7 @@
                     <connections>
                         <outlet property="publicGroupCollectionView" destination="JmX-zi-UYC" id="6aQ-f6-ztA"/>
                         <segue destination="OXw-L6-zDf" kind="show" identifier="joinPageSegue" id="itz-Bx-KqP"/>
+                        <segue destination="veL-QG-cCS" kind="show" identifier="skipToMap" id="Lqc-Ca-Qh2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQt-YM-jP6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -700,7 +701,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p9l-1c-KrM">
-                                <rect key="frame" x="0.0" y="77" width="320" height="442"/>
+                                <rect key="frame" x="0.0" y="77" width="320" height="491"/>
                                 <color key="backgroundColor" red="0.9290760159" green="0.9371982217" blue="0.94539719820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I9l-DJ-kdt">
                                     <size key="itemSize" width="180" height="200"/>
@@ -794,51 +795,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="N67-6G-WpV">
-                                <rect key="frame" x="0.0" y="50" width="320" height="518"/>
+                                <rect key="frame" x="0.0" y="73" width="320" height="495"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGt-FM-M5w">
+                                <rect key="frame" x="126" y="32" width="69" height="33"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkC-Dz-Qad">
-                                <rect key="frame" x="274" y="12" width="30" height="30"/>
+                                <rect key="frame" x="274" y="35" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="42T-Pm-HSR"/>
+                                    <constraint firstAttribute="height" constant="30" id="Typ-Za-CM7"/>
                                 </constraints>
                                 <state key="normal" title="Settings" image="Settings"/>
                                 <connections>
                                     <action selector="mapSettingsButton:" destination="veL-QG-cCS" eventType="touchUpInside" id="hke-a0-H61"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGt-FM-M5w">
-                                <rect key="frame" x="125" y="9" width="69" height="33"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92907601594924927" green="0.9371982216835022" blue="0.94539719820022583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YGt-FM-M5w" firstAttribute="centerX" secondItem="N67-6G-WpV" secondAttribute="centerX" id="BTl-wB-JXw"/>
-                            <constraint firstItem="N67-6G-WpV" firstAttribute="leading" secondItem="eHZ-JE-N1C" secondAttribute="leading" id="F89-Bx-6XH"/>
-                            <constraint firstItem="YGt-FM-M5w" firstAttribute="leading" secondItem="PN5-C0-WKk" secondAttribute="leading" constant="125" id="GDA-df-V4J"/>
-                            <constraint firstItem="N67-6G-WpV" firstAttribute="top" secondItem="YGt-FM-M5w" secondAttribute="bottom" constant="8" symbolic="YES" id="Sik-RV-0sg"/>
-                            <constraint firstItem="YGt-FM-M5w" firstAttribute="top" secondItem="eHZ-JE-N1C" secondAttribute="topMargin" constant="-11" id="Xn5-eu-qAR"/>
-                            <constraint firstItem="HkC-Dz-Qad" firstAttribute="top" secondItem="eHZ-JE-N1C" secondAttribute="topMargin" constant="-8" id="ZXo-ld-Qgq"/>
-                            <constraint firstItem="HkC-Dz-Qad" firstAttribute="trailing" secondItem="eHZ-JE-N1C" secondAttribute="trailingMargin" id="aeS-JH-FWz"/>
-                            <constraint firstAttribute="trailing" secondItem="N67-6G-WpV" secondAttribute="trailing" id="eYs-Jf-3Cb"/>
-                            <constraint firstItem="N67-6G-WpV" firstAttribute="top" secondItem="HkC-Dz-Qad" secondAttribute="bottom" constant="8" symbolic="YES" id="pDd-BT-vOn"/>
-                            <constraint firstItem="N67-6G-WpV" firstAttribute="bottom" secondItem="PN5-C0-WKk" secondAttribute="bottom" id="pni-bL-03L"/>
-                            <constraint firstItem="HkC-Dz-Qad" firstAttribute="leading" secondItem="YGt-FM-M5w" secondAttribute="trailing" constant="80" id="v8A-fL-bvY"/>
+                            <constraint firstItem="N67-6G-WpV" firstAttribute="top" secondItem="YGt-FM-M5w" secondAttribute="bottom" constant="8" symbolic="YES" id="7sv-7M-BSG"/>
+                            <constraint firstItem="HkC-Dz-Qad" firstAttribute="top" secondItem="PN5-C0-WKk" secondAttribute="top" constant="15" id="8MA-5Y-Fkt"/>
+                            <constraint firstItem="HkC-Dz-Qad" firstAttribute="trailing" secondItem="eHZ-JE-N1C" secondAttribute="trailingMargin" id="E5G-j1-39Y"/>
+                            <constraint firstItem="YGt-FM-M5w" firstAttribute="centerX" secondItem="N67-6G-WpV" secondAttribute="centerX" id="Qj6-Pz-eKD"/>
+                            <constraint firstItem="N67-6G-WpV" firstAttribute="leading" secondItem="eHZ-JE-N1C" secondAttribute="leading" id="TRd-fl-XgQ"/>
+                            <constraint firstItem="N67-6G-WpV" firstAttribute="bottom" secondItem="PN5-C0-WKk" secondAttribute="bottom" id="Xqx-r4-20P"/>
+                            <constraint firstItem="HkC-Dz-Qad" firstAttribute="leading" secondItem="YGt-FM-M5w" secondAttribute="trailing" constant="79" id="Zl8-u8-JMl"/>
+                            <constraint firstItem="YGt-FM-M5w" firstAttribute="leading" secondItem="PN5-C0-WKk" secondAttribute="leading" constant="126" id="pTK-uG-rHU"/>
+                            <constraint firstItem="YGt-FM-M5w" firstAttribute="top" secondItem="PN5-C0-WKk" secondAttribute="top" constant="12" id="pqU-GH-TdF"/>
+                            <constraint firstAttribute="trailing" secondItem="N67-6G-WpV" secondAttribute="trailing" id="rIV-10-34J"/>
+                            <constraint firstItem="N67-6G-WpV" firstAttribute="top" secondItem="HkC-Dz-Qad" secondAttribute="bottom" constant="8" symbolic="YES" id="whV-8u-WiD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PN5-C0-WKk"/>
                     </view>
                     <connections>
+                        <outlet property="activeStatusLabel" destination="YGt-FM-M5w" id="V8g-vr-wbM"/>
                         <outlet property="mapView" destination="N67-6G-WpV" id="dIy-rc-WGc"/>
                         <segue destination="esU-W8-QBr" kind="show" identifier="showSettings" id="v8b-9W-sNZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0A-D9-D01" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4141.6000000000004" y="-1524.2878560719641"/>
+            <point key="canvasLocation" x="4140" y="-1524.2957746478874"/>
         </scene>
         <!--Group Settings View Controller-->
         <scene sceneID="3pX-Ec-jXE">
@@ -1724,8 +1726,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PRm-b8-YjW"/>
-        <segue reference="CnW-Jj-uty"/>
-        <segue reference="SWl-Mc-AD1"/>
+        <segue reference="Lqc-Ca-Qh2"/>
+        <segue reference="ayb-5y-vFX"/>
         <segue reference="bAK-Pf-KiS"/>
         <segue reference="NMq-sU-Add"/>
     </inferredMetricsTieBreakers>

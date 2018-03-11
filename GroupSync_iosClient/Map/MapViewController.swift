@@ -17,9 +17,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var currentGroupId: String! //group ID
     var userLocation: CLLocation?
     var locationTuples: [(name: String, longitude: String, latitude: String, updated: DateComponents)]?
-  
+    let groupInfoModel = GroupInformationModel()
+    let mapModel = MapViewModel()
     var annotation = MKPointAnnotation()
-
+    var activeStatus: Bool?
+    var admin: Bool?
+    
+    @IBOutlet weak var activeStatusLabel: UILabel!
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -33,6 +37,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let groupSettingsController = segue.destination as! GroupSettingsViewController
@@ -55,15 +60,56 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
         })
         
-
+        getActiveStatus()
+        
+        
+        checkIfAdmin()
         
     }
-    func populateMap(){
-
+    func checkIfAdmin()
+    {
+     
+        let groupUsers = GetGroupUsers()
+  
+        mapModel.getUserDetails(group_id: currentGroupId, completionBlock: {admin in
+            
+            print(admin)
+        })
+    }
+    func getActiveStatus()
+    {
+        groupInfoModel.getGroupActiveTimes(group_id: currentGroupId, completion: {activeTimesTuple in
+            
+            if(activeTimesTuple.count>0)
+            {
+                
+                self.activeStatus=self.mapModel.checkIfActive(start: activeTimesTuple[0].start, end: activeTimesTuple[0].end)
+            }
+            else{
+                self.activeStatus=false
+            }
+            
+            self.updateActivityLabel()
+            
+        })
+    }
+    func updateActivityLabel()
+    {
         DispatchQueue.main.async {
             
-  
+            if(!self.activeStatus!)
+            {
+                self.activeStatusLabel.text = "Not Active"
+                self.activeStatusLabel.backgroundColor = UIColor.red
+            }
+        }
+    }
+    func populateMap(){
         
+        DispatchQueue.main.async {
+            
+            
+            
             
             for location in self.locationTuples! {
                 let annotation = MKPointAnnotation()
@@ -88,10 +134,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
-  
+        
         
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
         print("Error \(error)")

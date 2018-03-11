@@ -69,7 +69,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
             "Postman-Token": "b5468cec-292a-6c60-d195-6e270909e54b"
         ]
         let parameters = [
-            "email": emailTextField.text!,
+            "email": emailTextField.text!.lowercased(),
             "password": passwordTextField.text!
             ] as [String : Any]
         

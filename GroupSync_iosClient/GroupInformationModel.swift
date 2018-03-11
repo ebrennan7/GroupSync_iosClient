@@ -159,6 +159,7 @@ class GroupInformationModel{
         dataTask.resume()
         
     }
+   
     func getGroupActiveTimes(group_id: String, completion: @escaping ([(start: String, end: String)]) -> Void) -> Void{
         
         var activeTimeTuples: [(start: String, end: String)] = []

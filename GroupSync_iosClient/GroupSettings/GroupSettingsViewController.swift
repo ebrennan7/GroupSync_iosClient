@@ -82,6 +82,35 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
         
     }
     
+    func alertAddHandler(success: Bool)
+    {
+        if(success)
+        {
+            createAddAlert(title: "User Invite Successul", message: "")
+        }
+        else{
+            createAddAlert(title: "User Invite Failed", message: "")
+        }
+    }
+    
+    
+    
+    
+    func createAddAlert(title:String, message:String)
+    {
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default
+            
+            
+        ))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     @IBOutlet weak var usersCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -111,8 +140,8 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
         {(returnValue)
             in self.userNames = (returnValue)
         })
- 
-
+        
+        
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -132,9 +161,12 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
                 
                 if(success)
                 {
-                    self.updateDisplay()
+                    self.alertAddHandler(success: success)
+                    
+                    self.resetEmailTextField()
                 }
                 else{
+                    self.alertAddHandler(success: success)
                     print("FAILURE")
                 }
                 
@@ -144,11 +176,17 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
         return true
     }
     
+    func resetEmailTextField()
+    {
+        DispatchQueue.main.async {
+            self.emailTextField.text! = ""
+        }
+    }
     func updateDisplay()
     {
         DispatchQueue.main.async {
-       
-        self.view.setNeedsDisplay()
+            
+            self.view.setNeedsDisplay()
         }
     }
     

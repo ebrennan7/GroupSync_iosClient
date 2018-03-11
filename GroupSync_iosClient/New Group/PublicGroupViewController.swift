@@ -16,6 +16,7 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
     let groupModel = GroupModel()
     var publicGroupTuples:[(group_id: Int, name: String)] = []
     var idOfCell: String?
+    var memberOfGroup: Bool?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -31,18 +32,48 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-       idOfCell = String(publicGroupTuples[indexPath.row].group_id)
+        idOfCell = String(publicGroupTuples[indexPath.row].group_id)
         
-        self.performSegue(withIdentifier: "joinPageSegue", sender: nil)
+        groupModel.checkIfMember(group_id: idOfCell!, completionBlock: {member in
+            
+            
+            self.memberOfGroup=member
+            
+            
+            DispatchQueue.main.async {
+                
+                if(!self.memberOfGroup!){
+                    print("joining")
+                    
+                    self.performSegue(withIdentifier: "joinPageSegue", sender: nil)
+                    
+                }
+                else{
+                    print("skipping")
+                    self.performSegue(withIdentifier: "skipToMap", sender: nil)
+                }
+            }
+        })
         
         
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var joinController = segue.destination as! JoinPublicGroupViewController
-        joinController.cellID = idOfCell
-    }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    
+            if(!memberOfGroup!)
+                {
+                    let joinController = segue.destination as! JoinPublicGroupViewController
+                    joinController.cellID = self.idOfCell
+                }
+                else{
+                let mapController = segue.destination as! MapViewController
+                    mapController.currentGroupId = self.idOfCell
+                }
+    
+    
+        }
     
     
     
@@ -58,16 +89,16 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      getPublicGroups()
-
+        getPublicGroups()
+        
         // Do any additional setup after loading the view.
     }
-
+    
     func getPublicGroups()
     {
         groupModel.getPublicGroups(completionBlock: { publicTuples in
@@ -87,15 +118,15 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
         self.publicGroupCollectionView.dataSource = self
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
