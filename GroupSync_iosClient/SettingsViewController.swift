@@ -16,7 +16,8 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var inviteCollectionView: UICollectionView!
     let requestModel = RequestModel()
     var idOfCell: Int?
-    
+    var admin: Bool?
+    let groupInfo = GroupInformationModel()
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return requestTuples.count
     }
@@ -25,9 +26,80 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "invite_cell", for: indexPath) as! InvitesCollectionViewCell
         
+        changeInviteShapes(cell: cell)
+        
+        requestModel.getTimeOfRequest(group_id: requestTuples[indexPath.row].group_id, completion: { time_since_invite in
+            
+            var calendar: Calendar = Calendar.current
+            let dateFormatter = DateFormatter()
+            //            dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss Z"
+            dateFormatter.dateFormat = "MM dd,yyyy hh:mma"
+            
+            let currentDate = Date()
+            let unitFlags = Set<Calendar.Component>([.day, .hour, .minute])
+            calendar.timeZone = TimeZone(identifier: "UTC")!
+            //
+            //
+            //            let timeSince = (calendar.dateComponents(unitFlags,  dateFormatter.date(from: time_since_invite[indexPath.row], to: currentDate)))
+            //
+            //
+            
+            let timeSinceInvite = calendar.dateComponents(unitFlags, from: dateFormatter.date(from: time_since_invite[indexPath.row])!, to: currentDate)
+            
+            
+            print("INVITE\(dateFormatter.date(from: time_since_invite[indexPath.row]))")
+            print(currentDate)
+            
+            DispatchQueue.main.async {
+                
+                if(timeSinceInvite.minute==1)
+                {
+                    cell.userNameCellLabel.text = "\(timeSinceInvite.minute!) minute ago"
+
+                }
+                else{
+                    cell.userNameCellLabel.text = "\(timeSinceInvite.minute!) minutes ago"
+
+                }
+                if(timeSinceInvite.hour!>0)
+                {
+                    
+                    
+                    if(timeSinceInvite.hour==1)
+                    {
+                        cell.userNameCellLabel.text = "\(timeSinceInvite.hour!) hour ago"
+                        
+                    }
+                    else{
+                        cell.userNameCellLabel.text = "\(timeSinceInvite.hour!) hours ago"
+                    }
+           
+                }
+                if(timeSinceInvite.day!>0)
+                {
+                    if(timeSinceInvite.day==1)
+                    {
+                        cell.userNameCellLabel.text = "\(timeSinceInvite.day!) day ago"
+                        
+                    }
+                    else{
+                        cell.userNameCellLabel.text = "\(timeSinceInvite.day!) days ago"
+                    }
+                }
+            }
+            
+            
+        })
+        
         
         cell.userNameCellLabel.text = "User \(requestTuples[indexPath.row].inviter_id)"
-        cell.groupNameCellLabel.text = "Group \( requestTuples[indexPath.row].group_id)"
+        
+        groupInfo.getGroupName(group_id: String(requestTuples[indexPath.row].group_id), completion: { group_name in
+            DispatchQueue.main.async {
+                cell.groupNameCellLabel.text = group_name
+            }
+            
+        })
         
         
         
@@ -52,6 +124,9 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
             
             self.acceptInvite(group_id: group_id, index: index)
+            
+            
+            
             
             
         }))
@@ -82,8 +157,13 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
         getRequestsFromModel()
         
         
-        
         //        logOutButton.clipsToBounds = true
+    }
+    func changeInviteShapes(cell: UICollectionViewCell)
+    {
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = cell.frame.size.width/24
+        
     }
     
     func acceptInvite(group_id: Int, index: Int)
@@ -96,12 +176,18 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
                     print(index)
                     self.requestTuples.remove(at: index)
                     self.inviteCollectionView.reloadData()
+                    self.performSegue(withIdentifier: "privateInvite", sender: nil)
                 }
             }
             else{
                 print("wasn't succesful")
             }
         })
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let joinController = segue.destination as! JoinPublicGroupViewController
+        joinController.cellID = String(idOfCell!)
+        
     }
     func declineInvite(group_id: Int, index: Int)
     {
@@ -114,7 +200,7 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
                     print(index)
                     self.requestTuples.remove(at: index)
                     self.inviteCollectionView.reloadData()
-            
+                    
                 }
                 
             }

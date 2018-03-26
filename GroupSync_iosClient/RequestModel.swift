@@ -13,6 +13,97 @@ class RequestModel{
     let userInfo = UserDefaults.standard
     
     var requestTuples:[(invite_id: Int, group_id: Int, inviter_id: Int, timeOfInvite: String)] = []
+    func getTimeOfRequest(group_id: Int, completion: @escaping (_ time: [String]) -> ())
+    {
+        var times = [String]()
+
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "e32bdaae-a4c0-cadd-d1bc-8d3038deee8b"
+        ]
+        let parameters = [
+            "authToken": KeychainService.loadPassword()!,
+            "user_id": userInfo.object(forKey: "userID")!
+            ] as [String : Any]
+        
+        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        guard postData != nil else{
+            return
+        }
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/get_requests")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error!)
+            } else {
+                do {
+                    if let resultJson = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
+                    {
+                        if let nestedDictionary = resultJson["data"] as? [String:Any]
+                        {
+                            if let requestsJson = nestedDictionary["requests"] as? String
+                            {
+                                let requestsJsonData = requestsJson.data(using: .utf8)
+                                
+                                if let innerRequest = try JSONSerialization.jsonObject(with: requestsJsonData!, options: []) as? [[String:Any]]
+                                {
+                                    for requests in innerRequest
+                                    {
+                                        times.append(self.convertStringToDate(date: requests["created_at"] as! String))
+                                        
+                                    }
+                                    
+                                    completion(times)
+                                    
+                                }
+                            }
+                        }
+                        
+                        
+                        
+                    }
+                    
+                    
+                }
+                catch{
+                    print(error)
+                }
+            }
+        })
+        
+        dataTask.resume()
+    }
+    
+    
+    private func convertStringToDate(date: String) -> String
+    {
+        if let dateSSS = Formatter.iso8601.date(from: date)
+        {
+            let dateFormatterPrint = DateFormatter()
+            dateFormatterPrint.dateFormat = "MMMM dd,yyyy hh:mma"
+            dateFormatterPrint.amSymbol = "AM"
+            dateFormatterPrint.pmSymbol = "PM"
+            let newDate: String? = dateFormatterPrint.string(from: dateSSS)
+            
+            return newDate!
+            
+        }
+        
+        return date
+        
+        
+    }
+
+        
+    
     
     func joinGroup(group_id: Int, completion: @escaping (_ success: Bool) -> ())
     {
@@ -47,8 +138,8 @@ class RequestModel{
                 print(error!)
             } else {
                 do{
-                     if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
-                     {
+                    if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
+                    {
                         if let confirmation = resultJson["success"] as? Int
                         {
                             
@@ -62,7 +153,7 @@ class RequestModel{
                             print("Error with confirmation")
                         }
                     }
-                     else{
+                    else{
                         print("Error with JSON")
                     }
                 }
@@ -71,7 +162,7 @@ class RequestModel{
                 }
             }
             completion(success)
-
+            
         })
         
         dataTask.resume()
@@ -207,4 +298,6 @@ class RequestModel{
         
         dataTask.resume()
     }
+    
 }
+

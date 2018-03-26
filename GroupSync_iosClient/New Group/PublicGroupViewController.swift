@@ -96,6 +96,8 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
         
         getPublicGroups()
         
+        sendLocation.determineCurrentLocation()
+
         // Do any additional setup after loading the view.
     }
     
@@ -105,6 +107,11 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
             
             self.publicGroupTuples=publicTuples
             
+            DispatchQueue.main.async {
+                
+            self.publicGroupCollectionView.delegate = self
+            self.publicGroupCollectionView.dataSource = self
+            }
             print(self.publicGroupTuples)
         })
     }
@@ -114,8 +121,7 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
         // Dispose of any resources that can be recreated.
     }
     override func viewDidAppear(_ animated: Bool) {
-        self.publicGroupCollectionView.delegate = self
-        self.publicGroupCollectionView.dataSource = self
+       
     }
     
     

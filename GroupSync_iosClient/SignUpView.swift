@@ -312,7 +312,7 @@ extension String {
     
     func isValidEmail() -> Bool
     {
-        let emailSpec = "[A-Z0-0a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailSpec = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailCheck = NSPredicate(format: "SELF MATCHES %@", emailSpec)
         return emailCheck.evaluate(with: self)
     }

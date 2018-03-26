@@ -22,6 +22,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var annotation = MKPointAnnotation()
     var activeStatus: Bool?
     var admin: Bool?
+    let getUsers = GetUsers()
+    var activeTimes: [(start: String, end: String)] = []
+
+
     
     @IBOutlet weak var activeStatusLabel: UILabel!
     
@@ -48,33 +52,57 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         super.viewDidLoad()
         
-        
-        print(currentGroupId)
-        let getUsers = GetUsers()
-        //Below calls the completion block and gets a 'return value' for getUsers//
-        (getUsers.getUsersForGroup(group_id: currentGroupId) {(returnValue) in
-            self.locationTuples=returnValue
-            
-            self.populateMap()
-            
-            
-        })
+        activeStatusLabel.layer.masksToBounds=true
+        activeStatusLabel.layer.cornerRadius = activeStatusLabel.frame.size.width/4
         
         getActiveStatus()
+
+        
+        print(currentGroupId)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(MapViewController.tappedLabel))
+       activeStatusLabel.isUserInteractionEnabled=true
+        activeStatusLabel.addGestureRecognizer(tap)
+        
+        //Below calls the completion block and gets a 'return value' for getUsers//
+   
         
         
-        checkIfAdmin()
+       
         
     }
-    func checkIfAdmin()
+    @objc func tappedLabel(sender: UITapGestureRecognizer)
     {
-     
-        let groupUsers = GetGroupUsers()
-  
-        mapModel.getUserDetails(group_id: currentGroupId, completionBlock: {admin in
+        alertHandler()
+    }
+    
+    func alertHandler()
+    {
+        
+        groupInfoModel.getGroupActiveTimes(group_id: currentGroupId, completion: { activeTimesTuple in
             
-            print(admin)
+            self.activeTimes = activeTimesTuple
+            
+            self.createAlert(title: "Group Active Times", message: "\nFrom:\n \(activeTimesTuple[0].start)\n\n To:\n \(activeTimesTuple[0].end)")
+
         })
+        
+        
+    
+    }
+    func createAlert(title:String, message:String)
+    {
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default
+            
+            
+        ))
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
     func getActiveStatus()
     {
@@ -90,6 +118,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             }
             
             self.updateActivityLabel()
+            
+            
+            
+            if self.activeStatus!
+            {
+                (self.getUsers.getUsersForGroup(group_id: self.currentGroupId) {(returnValue) in
+                    self.locationTuples=returnValue
+                    
+                    self.populateMap()
+                    
+                    
+                })
+                
+            }
             
         })
     }

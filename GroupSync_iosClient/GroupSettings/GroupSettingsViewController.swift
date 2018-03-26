@@ -16,22 +16,37 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
     var groupId: String!
     let groupSettingsModel = GroupSettingsModel()
     var success: Bool?
+    var admin: Bool?
+    
+    @IBOutlet weak var redButton: UIButton!
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBAction func deleteGroup(_ sender: UIButton) {
         
-        groupSettingsModel.deleteGroupPost(group_id: groupId, completion: { success in
+        if(admin!)
+        {
             
-            
-            DispatchQueue.main.async {
+            groupSettingsModel.deleteGroupPost(group_id: groupId, completion: { success in
                 
                 
-                self.alertHandler(success: success)            }
-            
-            
-            
-            
-        })
-        
+                DispatchQueue.main.async {
+                    
+                    
+                    self.alertHandler(success: success)
+                    
+                }
+                
+                
+                
+                
+            })
+        }
+        else{
+            groupSettingsModel.leaveGroupPost(group_id: groupId, completion: {success in
+                
+                self.alertLeaveHandler(success: success)
+            })
+        }
         
     }
     
@@ -57,7 +72,11 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
         
         
         
-        alert.addAction(UIAlertAction(title:"Ok", style: .default, handler: {action in self.performSegue(withIdentifier: "backToGroups", sender: self)}
+        
+        //        alert.addAction(UIAlertAction(title:"Ok", style: .default, handler: {action in self.performSegue(withIdentifier: "backToGroups", sender: self)}
+        
+        alert.addAction(UIAlertAction(title:"Ok", style: .default, handler: {action in self.navigationController?.popToRootViewController(animated: true)}
+            
             
         ))
         
@@ -81,20 +100,54 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
         self.present(alert, animated: true, completion: nil)
         
     }
+    func alertLeaveHandler(success: Bool)
+    {
+        if(success)
+        {
+            createSuccessfulAlert(title: "You have the left the group", message: "")
+        }
+        else{
+            createUnsuccessfulAlert(title: "Leave group failed", message: "")
+        }
+    }
+    
+    
+    
     
     func alertAddHandler(success: Bool)
     {
         if(success)
         {
-            createAddAlert(title: "User Invite Successul", message: "")
+            createAddAlert(title: "User Invite Successful", message: "")
         }
         else{
             createAddAlert(title: "User Invite Failed", message: "")
         }
     }
     
+    func checkIfAdmin()
+    {
+        
+        groupSettingsModel.checkAdmin(group_id: groupId, completionBlock: {admin in
+            
+            self.admin=admin
+            self.updateRedButton()
+            
+        })
+    }
     
-    
+    func updateRedButton()
+    {
+        DispatchQueue.main.async {
+            
+            if(!self.admin!){
+                self.redButton.titleLabel?.text! = "Leave Group?"
+            }
+            else{
+                self.redButton.titleLabel?.text! = "Delete Group?"
+            }
+        }
+    }
     
     func createAddAlert(title:String, message:String)
     {
@@ -139,14 +192,22 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
             
         {(returnValue)
             in self.userNames = (returnValue)
+            
+            
+            DispatchQueue.main.async {
+                
+                self.usersCollectionView.delegate=self
+                self.usersCollectionView.dataSource = self
+            }
         })
+        
+        checkIfAdmin()
         
         
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
-        self.usersCollectionView.delegate=self
-        self.usersCollectionView.dataSource = self
+        
     }
     
     override func didReceiveMemoryWarning() {

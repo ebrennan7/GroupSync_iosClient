@@ -36,8 +36,7 @@ class PrivateGroupViewController: UIViewController, UICollectionViewDelegate, UI
         //
         //
         //        }
-        loading.hidesWhenStopped=true
-        loading.stopAnimating()
+       
         return cell
         
     }
@@ -45,7 +44,7 @@ class PrivateGroupViewController: UIViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         idOfCell = String(privateGroupTuples[indexPath.row].group_id)
-        
+        print(idOfCell)
         self.performSegue(withIdentifier: "showMap", sender: nil)
         
         
@@ -65,10 +64,10 @@ class PrivateGroupViewController: UIViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         
-        
+        loading.hidesWhenStopped=true
+        loading.stopAnimating()
         if(privateGroupTuples.count<1)
         {
-            print("UH OH")
             return 0
         }
         else{
@@ -100,145 +99,143 @@ class PrivateGroupViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var GroupCollectionView: UICollectionView!
     
     var idOfCell: String?
-//    static var GI = GroupIds()
-//    static var GN = GroupNames()
-//
-//
-//
+    //    static var GI = GroupIds()
+    //    static var GN = GroupNames()
+    //
+    //
+    //
     
-//    func getGroups()
-//    {
-//        let userInfo = UserDefaults.standard
-//        let headers = [
-//            "Content-Type": "application/json",
-//            "Cache-Control": "no-cache",
-//            "Postman-Token": "54b3a185-141b-a74b-dcf1-5073dcd82fc0"
-//        ]
-//        let parameters = [
-//            "authToken": KeychainService.loadPassword()!,
-//            "user_id": userInfo.object(forKey: "userID")!
-//            ] as [String : Any]
-//
-//        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
-//        guard postData != nil else {
-//            return
-//        }
-//
-//        let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/get_groups")! as URL,
-//                                          cachePolicy: .useProtocolCachePolicy,
-//                                          timeoutInterval: 10.0)
-//        request.httpMethod = "POST"
-//        request.allHTTPHeaderFields = headers
-//        request.httpBody = postData
-//
-//        let session = URLSession.shared
-//        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-//            if (error != nil) {
-//                print(error!)
-//            } else {
-//
-//                do {
-//                    let resultJson = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
-//
-//                    DispatchQueue.main.async {
-//
-//                        if let dictionary = resultJson {
-//                            if let nestedDictionary = dictionary["data"] as? [String: Any]{
-//                                if let groups = nestedDictionary["groups"] as? String{
-//                                    var result = self.getObjects(groupId: self.getGroupIds(groups: groups), groupName: self.getGroupNames(groups: groups), groupImage: #imageLiteral(resourceName: "Groups"))
-//
-//
-//
-//
-//
-//
-//                                    PrivateGroupViewController.GI = GroupIds()
-//                                    PrivateGroupViewController.GI.setId(groups: self.getGroupIds(groups: groups))
-//
-//                                    PrivateGroupViewController.GN = GroupNames()
-//                                    PrivateGroupViewController.GN.setNames(groups: self.getGroupNames(groups: groups))
-//
-//
-//
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//                catch {
-//                    print("Error -> \(error)")
-//                }
-//            }
-//        })
-//
-//        dataTask.resume()
-//    }
-//    func getObjects(groupId: [String], groupName: [String], groupImage: UIImage?) -> [GroupObject]
-//    {
-//        var groupList = [GroupObject]()
-//        print(groupId.count)
-//        if(groupId.count>1)
-//        {
-//            for f in 0..<groupId.count{
-//                groupList.append(GroupObject.init(groupId: groupId[f], groupName: groupName[f], groupImage: #imageLiteral(resourceName: "Groups")))
-//            }
-//        }
-//
-//        return groupList
-//    }
+    //    func getGroups()
+    //    {
+    //        let userInfo = UserDefaults.standard
+    //        let headers = [
+    //            "Content-Type": "application/json",
+    //            "Cache-Control": "no-cache",
+    //            "Postman-Token": "54b3a185-141b-a74b-dcf1-5073dcd82fc0"
+    //        ]
+    //        let parameters = [
+    //            "authToken": KeychainService.loadPassword()!,
+    //            "user_id": userInfo.object(forKey: "userID")!
+    //            ] as [String : Any]
+    //
+    //        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+    //        guard postData != nil else {
+    //            return
+    //        }
+    //
+    //        let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/get_groups")! as URL,
+    //                                          cachePolicy: .useProtocolCachePolicy,
+    //                                          timeoutInterval: 10.0)
+    //        request.httpMethod = "POST"
+    //        request.allHTTPHeaderFields = headers
+    //        request.httpBody = postData
+    //
+    //        let session = URLSession.shared
+    //        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+    //            if (error != nil) {
+    //                print(error!)
+    //            } else {
+    //
+    //                do {
+    //                    let resultJson = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
+    //
+    //                    DispatchQueue.main.async {
+    //
+    //                        if let dictionary = resultJson {
+    //                            if let nestedDictionary = dictionary["data"] as? [String: Any]{
+    //                                if let groups = nestedDictionary["groups"] as? String{
+    //                                    var result = self.getObjects(groupId: self.getGroupIds(groups: groups), groupName: self.getGroupNames(groups: groups), groupImage: #imageLiteral(resourceName: "Groups"))
+    //
+    //
+    //
+    //
+    //
+    //
+    //                                    PrivateGroupViewController.GI = GroupIds()
+    //                                    PrivateGroupViewController.GI.setId(groups: self.getGroupIds(groups: groups))
+    //
+    //                                    PrivateGroupViewController.GN = GroupNames()
+    //                                    PrivateGroupViewController.GN.setNames(groups: self.getGroupNames(groups: groups))
+    //
+    //
+    //
+    //                                }
+    //                            }
+    //                        }
+    //                    }
+    //                }
+    //                catch {
+    //                    print("Error -> \(error)")
+    //                }
+    //            }
+    //        })
+    //
+    //        dataTask.resume()
+    //    }
+    //    func getObjects(groupId: [String], groupName: [String], groupImage: UIImage?) -> [GroupObject]
+    //    {
+    //        var groupList = [GroupObject]()
+    //        print(groupId.count)
+    //        if(groupId.count>1)
+    //        {
+    //            for f in 0..<groupId.count{
+    //                groupList.append(GroupObject.init(groupId: groupId[f], groupName: groupName[f], groupImage: #imageLiteral(resourceName: "Groups")))
+    //            }
+    //        }
+    //
+    //        return groupList
+    //    }
     
-//    func getGroupIds(groups: String) ->  [String]
-//    {
-//
-//        let groups=groups
-//
-//        var groupIds = groups.components(separatedBy: ",")
-//
-//
-//        var groupIdList = [String]()
-//
-//
-//        for f in stride(from: 0, to: groupIds.count, by: 12)
-//        {
-//            groupIdList.append((groupIds[f].removeCharacters(from: CharacterSet.letters).removeCharacters(from: CharacterSet.punctuationCharacters)))
-//
-//        }
-//
-//
-//        return groupIdList
-//
-//    }
-//
-//    func getGroupNames(groups: String) -> [String]
-//    {
-//        let groups=groups
-//        var groupNameList = [String]()
-//        var groupNames = groups.components(separatedBy: ",")
-//
-//        for f in stride(from: 1, to: groupNames.count, by: 12)
-//        {
-//            var token = (groupNames[f].components(separatedBy: ":"))
-//
-//            groupNameList.append(token[1])
-//
-//
-//        }
-//
-//
-//
-//
-//        return groupNameList
-//
-//
-//
-//
-//
-//    }
+    //    func getGroupIds(groups: String) ->  [String]
+    //    {
+    //
+    //        let groups=groups
+    //
+    //        var groupIds = groups.components(separatedBy: ",")
+    //
+    //
+    //        var groupIdList = [String]()
+    //
+    //
+    //        for f in stride(from: 0, to: groupIds.count, by: 12)
+    //        {
+    //            groupIdList.append((groupIds[f].removeCharacters(from: CharacterSet.letters).removeCharacters(from: CharacterSet.punctuationCharacters)))
+    //
+    //        }
+    //
+    //
+    //        return groupIdList
+    //
+    //    }
+    //
+    //    func getGroupNames(groups: String) -> [String]
+    //    {
+    //        let groups=groups
+    //        var groupNameList = [String]()
+    //        var groupNames = groups.components(separatedBy: ",")
+    //
+    //        for f in stride(from: 1, to: groupNames.count, by: 12)
+    //        {
+    //            var token = (groupNames[f].components(separatedBy: ":"))
+    //
+    //            groupNameList.append(token[1])
+    //
+    //
+    //        }
+    //
+    //
+    //
+    //
+    //        return groupNameList
+    //
+    //
+    //
+    //
+    //
+    //    }
     
     
     override func viewDidAppear(_ animated: Bool) {
-        self.GroupCollectionView.delegate=self
-        self.GroupCollectionView.dataSource = self
         
         
     }
@@ -270,6 +267,11 @@ class PrivateGroupViewController: UIViewController, UICollectionViewDelegate, UI
             self.privateGroupTuples=privateTuples
             
             print("Got tuples")
+            DispatchQueue.main.async {
+                
+                self.GroupCollectionView.delegate=self
+                self.GroupCollectionView.dataSource = self
+            }
             self.updateCollectionView()
             
         })
@@ -300,12 +302,12 @@ class PrivateGroupViewController: UIViewController, UICollectionViewDelegate, UI
     
 }
 extension String {
-
+    
     func removeCharacters(from forbiddenChars: CharacterSet) -> String {
         let passed = self.unicodeScalars.filter { !forbiddenChars.contains($0) }
         return String(String.UnicodeScalarView(passed))
     }
-
+    
     func removeCharacters(from: String) -> String {
         return removeCharacters(from: CharacterSet(charactersIn: from))
     }
