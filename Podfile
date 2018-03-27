@@ -2,25 +2,22 @@
 # platform :ios, ’9.0’
 
 
+
 target 'GroupSync_iosClient' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic
-    use_frameworks!
-   pod 'Alamofire', '~> 4.5'
-   
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
 end
 
-pod "PromiseKit/CoreLocation", "~> 6.0"
+# Pods for GroupSync_iosClient
 
-  # Pods for GroupSync_iosClient
-
-  target 'GroupSync_iosClientTests' do
+target 'GroupSync_iosClientTests' do
     inherit! :search_paths
     # Pods for testing
-  end
+end
 
-  target 'GroupSync_iosClientUITests' do
+target 'GroupSync_iosClientUITests' do
     inherit! :search_paths
     # Pods for testing
-  end
+end
 
 
