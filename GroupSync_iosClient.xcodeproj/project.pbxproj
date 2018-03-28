@@ -38,9 +38,8 @@
 		92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeView.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
 		92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */; };
-		92C6098C206BB95E00D97B14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92C6098B206BB95E00D97B14 /* GoogleService-Info.plist */; };
 		92C6098E206BDFD100D97B14 /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6098D206BDFD100D97B14 /* EditProfileModel.swift */; };
-		92C60991206BEEF100D97B14 /* libPods-GroupSync_iosClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92C60992206BEEF100D97B14 /* libPods-GroupSync_iosClientTests.a */; };
+		92C60991206BEEF100D97B14 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		92CC0CE5203F727B00D9ED46 /* GetGroupUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC0CE4203F727A00D9ED46 /* GetGroupUsers.swift */; };
 		92D185AF203343E7005D209E /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D185AE203343E7005D209E /* MapViewModel.swift */; };
 		92D185B120334416005D209E /* SendLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D185B020334416005D209E /* SendLocation.swift */; };
@@ -51,6 +50,7 @@
 		92D19E392020F63C00BB24EA /* CreateGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D19E382020F63C00BB24EA /* CreateGroupModel.swift */; };
 		92E8D896201BBAC2004A4F94 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8D895201BBAC2004A4F94 /* KeyChain.swift */; };
 		92EAA6ED204489EE0097AFA3 /* GroupSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EAA6EC204489EE0097AFA3 /* GroupSettingsModel.swift */; };
+		92F622E4206C223600A96845 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F622E3206C223600A96845 /* GoogleService-Info.plist */; };
 		92F75C4D200FD85500116C55 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 92F75C4C200FD85500116C55 /* awsconfiguration.json */; };
 		FCAC881F656753921E218BC9 /* Pods_GroupSync_iosClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E839148F03B004B2BA6DE58F /* Pods_GroupSync_iosClientTests.framework */; };
 /* End PBXBuildFile section */
@@ -118,7 +118,6 @@
 		92B1A00C1FD5BA9A0009E316 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		92C6098B206BB95E00D97B14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92C6098D206BDFD100D97B14 /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		92CC0CE4203F727A00D9ED46 /* GetGroupUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroupUsers.swift; sourceTree = "<group>"; };
 		92D185AE203343E7005D209E /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -130,6 +129,8 @@
 		92D19E382020F63C00BB24EA /* CreateGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupModel.swift; sourceTree = "<group>"; };
 		92E8D895201BBAC2004A4F94 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		92EAA6EC204489EE0097AFA3 /* GroupSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSettingsModel.swift; sourceTree = "<group>"; };
+		92F622E3206C223600A96845 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		92F622E5206C29B300A96845 /* GroupSync_iosClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GroupSync_iosClient.entitlements; sourceTree = "<group>"; };
 		92F75C4C200FD85500116C55 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		CA8484784013A69C8BECB29E /* Pods-GroupSync_iosClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientUITests/Pods-GroupSync_iosClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E839148F03B004B2BA6DE58F /* Pods_GroupSync_iosClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupSync_iosClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,7 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92C60991206BEEF100D97B14 /* libPods-GroupSync_iosClientTests.a in Frameworks */,
+				92C60991206BEEF100D97B14 /* (null) in Frameworks */,
 				6293886DA52E2B540FB3EEC2 /* Pods_GroupSync_iosClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +220,7 @@
 		9205CDDD1FCDB0B2008F6466 /* GroupSync_iosClient */ = {
 			isa = PBXGroup;
 			children = (
+				92F622E5206C29B300A96845 /* GroupSync_iosClient.entitlements */,
 				92D185AC203342E0005D209E /* Groups */,
 				922C9A2420222BF000539837 /* ActiveTimeModel.swift */,
 				92F75C4C200FD85500116C55 /* awsconfiguration.json */,
@@ -244,7 +246,7 @@
 				9205CDE51FCDB0B2008F6466 /* Assets.xcassets */,
 				9205CDE71FCDB0B2008F6466 /* LaunchScreen.storyboard */,
 				9205CDEA1FCDB0B2008F6466 /* Info.plist */,
-				92C6098B206BB95E00D97B14 /* GoogleService-Info.plist */,
+				92F622E3206C223600A96845 /* GoogleService-Info.plist */,
 				92B1A0141FD6FD900009E316 /* Profile */,
 				921DCE02200FA91100C01260 /* GroupSync_iosClient-Bridging-Header.h */,
 				92C6098D206BDFD100D97B14 /* EditProfileModel.swift */,
@@ -399,6 +401,11 @@
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					9205CDEE1FCDB0B2008F6466 = {
 						CreatedOnToolsVersion = 9.0;
@@ -438,7 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				925C7159205C015A002BBDAA /* Other_Dublin_Location.gpx in Resources */,
-				92C6098C206BB95E00D97B14 /* GoogleService-Info.plist in Resources */,
+				92F622E4206C223600A96845 /* GoogleService-Info.plist in Resources */,
 				92F75C4D200FD85500116C55 /* awsconfiguration.json in Resources */,
 				9205CDE91FCDB0B2008F6466 /* LaunchScreen.storyboard in Resources */,
 				92541ACD203091B900ED873E /* UCD_ComputerScience.gpx in Resources */,
@@ -835,6 +842,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GroupSync_iosClient/GroupSync_iosClient.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -860,6 +868,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GroupSync_iosClient/GroupSync_iosClient.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;

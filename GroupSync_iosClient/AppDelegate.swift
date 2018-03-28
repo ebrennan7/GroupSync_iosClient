@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
     //        sendLocation.determineCurrentLocation()
     //    }
     //
+
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
     
@@ -47,6 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
         let configuration = AWSServiceConfiguration(region: AWSRegionType.EUWest1, credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
        
+        
+        
+        
+        registerForPushNotifications()
+        
         if #available(iOS 10.0, *)
         {
             // For iOS 10 display notification (sent via APNS)
@@ -82,12 +89,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
         Messaging.messaging().appDidReceiveMessage(userInfo)
     }
     
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
-    {
-
-        Messaging.messaging().apnsToken = deviceToken
-
-    }
+//    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+//    {
+//
+//        Messaging.messaging().apnsToken = deviceToken
+//
+//    }
     
     @objc func tokenRefreshNotification(notification: NSNotification)
     {
@@ -186,6 +193,42 @@ extension AppDelegate : MessagingDelegate {
         print("Received data message: (remoteMessage.appData)")
 }
 }
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+            
+            
+            guard granted else {return}
+            self.getNotificationSettings()
+        }
+    }
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else {return}
+            DispatchQueue.main.async {
+            
+            UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data -> String in
+            return String(format: "%02.2hhx", data)
+        }
+        
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+        
+        Messaging.messaging().apnsToken = deviceToken
+    }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
 }
 //
 //@available(iOS 10, *)
