@@ -15,6 +15,8 @@ import Security
 
 class LoginView: UIViewController, UITextFieldDelegate {
     
+    let userInfo = UserDefaults.standard
+
     @IBOutlet weak var emailLabel: UILabel!
     
     @IBOutlet weak var passwordLabel: UILabel!
@@ -185,10 +187,13 @@ class LoginView: UIViewController, UITextFieldDelegate {
         
         let token = token as NSString
         KeychainService.savePassword(token: token)
+        
+        //Not ideal to have password saved in userdefaults for security reasons but it is to get around a restricting feature of the web application
+        userInfo.set(passwordTextField.text!, forKey: "password")
         //Below keeps user logged in if they have been authorised//
-        let userInfo = UserDefaults.standard
         userInfo.set("loggedIn", forKey: "userSignedIn")
         userInfo.set(user_id, forKey: "userID")
+    
         userInfo.synchronize()
         
         
@@ -288,30 +293,30 @@ class LoginView: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func addDoneButton()
-    {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-        doneToolbar.barStyle       = UIBarStyle.default
-        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
-        
-        var items = [UIBarButtonItem]()
-        items.append(flexSpace)
-        items.append(done)
-        
-        doneToolbar.items = items
-        doneToolbar.sizeToFit()
-        
-        self.passwordTextField?.inputAccessoryView = doneToolbar
-        self.emailTextField?.inputAccessoryView = doneToolbar
-    }
-    
-    @objc func doneButtonAction()
-    {
-        self.passwordTextField?.resignFirstResponder()
-        self.emailTextField?.resignFirstResponder()
-    }
+//
+//    func addDoneButton()
+//    {
+//        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+//        doneToolbar.barStyle       = UIBarStyle.default
+//        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+//        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
+//
+//        var items = [UIBarButtonItem]()
+//        items.append(flexSpace)
+//        items.append(done)
+//
+//        doneToolbar.items = items
+//        doneToolbar.sizeToFit()
+//
+//        self.passwordTextField?.inputAccessoryView = doneToolbar
+//        self.emailTextField?.inputAccessoryView = doneToolbar
+//    }
+//
+//    @objc func doneButtonAction()
+//    {
+//        self.passwordTextField?.resignFirstResponder()
+//        self.emailTextField?.resignFirstResponder()
+//    }
     
 }
 

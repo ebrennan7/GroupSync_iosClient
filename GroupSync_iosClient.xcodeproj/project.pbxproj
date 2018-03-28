@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		035277AC82F50A906E7389FF /* libPods-GroupSync_iosClientUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD0618757DB3700CCBE58D7 /* libPods-GroupSync_iosClientUITests.a */; };
-		4D63E75E477BA27CEB2B7A34 /* libPods-GroupSync_iosClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 483D9C1145E9BBA19FCFEBB6 /* libPods-GroupSync_iosClient.a */; };
+		548F3BDDAFEA6969108889E6 /* Pods_GroupSync_iosClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429084AC844FD074C6BDE1A1 /* Pods_GroupSync_iosClientUITests.framework */; };
+		6293886DA52E2B540FB3EEC2 /* Pods_GroupSync_iosClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9E7669806F15552E8FBD17 /* Pods_GroupSync_iosClient.framework */; };
 		6DC4D55FC331B18A70EF9076 /* libPods-GroupSync_iosClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41728BA6BB54A103E92E51FA /* libPods-GroupSync_iosClientTests.a */; };
 		9205CDDF1FCDB0B2008F6466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */; };
 		9205CDE11FCDB0B2008F6466 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDE01FCDB0B2008F6466 /* ViewController.swift */; };
@@ -38,7 +38,9 @@
 		92B1A00D1FD5BA9A0009E316 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeView.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
 		92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */; };
-		92C6098A206AE05000D97B14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92C60989206AE05000D97B14 /* GoogleService-Info.plist */; };
+		92C6098C206BB95E00D97B14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92C6098B206BB95E00D97B14 /* GoogleService-Info.plist */; };
+		92C6098E206BDFD100D97B14 /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6098D206BDFD100D97B14 /* EditProfileModel.swift */; };
+		92C60991206BEEF100D97B14 /* libPods-GroupSync_iosClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92C60992206BEEF100D97B14 /* libPods-GroupSync_iosClientTests.a */; };
 		92CC0CE5203F727B00D9ED46 /* GetGroupUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC0CE4203F727A00D9ED46 /* GetGroupUsers.swift */; };
 		92D185AF203343E7005D209E /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D185AE203343E7005D209E /* MapViewModel.swift */; };
 		92D185B120334416005D209E /* SendLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D185B020334416005D209E /* SendLocation.swift */; };
@@ -50,6 +52,7 @@
 		92E8D896201BBAC2004A4F94 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8D895201BBAC2004A4F94 /* KeyChain.swift */; };
 		92EAA6ED204489EE0097AFA3 /* GroupSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EAA6EC204489EE0097AFA3 /* GroupSettingsModel.swift */; };
 		92F75C4D200FD85500116C55 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 92F75C4C200FD85500116C55 /* awsconfiguration.json */; };
+		FCAC881F656753921E218BC9 /* Pods_GroupSync_iosClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E839148F03B004B2BA6DE58F /* Pods_GroupSync_iosClientTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,10 +76,11 @@
 		0CD3E934C2AD50631A648FD7 /* Pods-GroupSync_iosClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClient/Pods-GroupSync_iosClient.release.xcconfig"; sourceTree = "<group>"; };
 		1DFCAC01D2C1923192414476 /* Pods-GroupSync_iosClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClient/Pods-GroupSync_iosClient.debug.xcconfig"; sourceTree = "<group>"; };
 		280931C6A9A3FFA46C090A1A /* Pods-GroupSync_iosClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientUITests/Pods-GroupSync_iosClientUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3DD0618757DB3700CCBE58D7 /* libPods-GroupSync_iosClientUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroupSync_iosClientUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41728BA6BB54A103E92E51FA /* libPods-GroupSync_iosClientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroupSync_iosClientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		429084AC844FD074C6BDE1A1 /* Pods_GroupSync_iosClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupSync_iosClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		483D9C1145E9BBA19FCFEBB6 /* libPods-GroupSync_iosClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroupSync_iosClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		590429D7B9115A58997B023C /* Pods-GroupSync_iosClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C9E7669806F15552E8FBD17 /* Pods_GroupSync_iosClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupSync_iosClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDF5E05D87183945EEC4C9F /* Pods-GroupSync_iosClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		9205CDDB1FCDB0B2008F6466 /* GroupSync_iosClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupSync_iosClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +118,8 @@
 		92B1A00C1FD5BA9A0009E316 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		92C60989206AE05000D97B14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		92C6098B206BB95E00D97B14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		92C6098D206BDFD100D97B14 /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		92CC0CE4203F727A00D9ED46 /* GetGroupUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroupUsers.swift; sourceTree = "<group>"; };
 		92D185AE203343E7005D209E /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		92D185B020334416005D209E /* SendLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendLocation.swift; path = GroupSync_iosClient/SendLocation.swift; sourceTree = SOURCE_ROOT; };
@@ -127,6 +132,7 @@
 		92EAA6EC204489EE0097AFA3 /* GroupSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSettingsModel.swift; sourceTree = "<group>"; };
 		92F75C4C200FD85500116C55 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		CA8484784013A69C8BECB29E /* Pods-GroupSync_iosClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientUITests/Pods-GroupSync_iosClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E839148F03B004B2BA6DE58F /* Pods_GroupSync_iosClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupSync_iosClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +140,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D63E75E477BA27CEB2B7A34 /* libPods-GroupSync_iosClient.a in Frameworks */,
+				92C60991206BEEF100D97B14 /* libPods-GroupSync_iosClientTests.a in Frameworks */,
+				6293886DA52E2B540FB3EEC2 /* Pods_GroupSync_iosClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DC4D55FC331B18A70EF9076 /* libPods-GroupSync_iosClientTests.a in Frameworks */,
+				FCAC881F656753921E218BC9 /* Pods_GroupSync_iosClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				035277AC82F50A906E7389FF /* libPods-GroupSync_iosClientUITests.a in Frameworks */,
+				548F3BDDAFEA6969108889E6 /* Pods_GroupSync_iosClientUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,8 +182,10 @@
 			isa = PBXGroup;
 			children = (
 				41728BA6BB54A103E92E51FA /* libPods-GroupSync_iosClientTests.a */,
-				3DD0618757DB3700CCBE58D7 /* libPods-GroupSync_iosClientUITests.a */,
 				483D9C1145E9BBA19FCFEBB6 /* libPods-GroupSync_iosClient.a */,
+				5C9E7669806F15552E8FBD17 /* Pods_GroupSync_iosClient.framework */,
+				E839148F03B004B2BA6DE58F /* Pods_GroupSync_iosClientTests.framework */,
+				429084AC844FD074C6BDE1A1 /* Pods_GroupSync_iosClientUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -233,10 +243,11 @@
 				92E8D895201BBAC2004A4F94 /* KeyChain.swift */,
 				9205CDE51FCDB0B2008F6466 /* Assets.xcassets */,
 				9205CDE71FCDB0B2008F6466 /* LaunchScreen.storyboard */,
-				92C60989206AE05000D97B14 /* GoogleService-Info.plist */,
 				9205CDEA1FCDB0B2008F6466 /* Info.plist */,
+				92C6098B206BB95E00D97B14 /* GoogleService-Info.plist */,
 				92B1A0141FD6FD900009E316 /* Profile */,
 				921DCE02200FA91100C01260 /* GroupSync_iosClient-Bridging-Header.h */,
+				92C6098D206BDFD100D97B14 /* EditProfileModel.swift */,
 			);
 			path = GroupSync_iosClient;
 			sourceTree = "<group>";
@@ -427,8 +438,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				925C7159205C015A002BBDAA /* Other_Dublin_Location.gpx in Resources */,
+				92C6098C206BB95E00D97B14 /* GoogleService-Info.plist in Resources */,
 				92F75C4D200FD85500116C55 /* awsconfiguration.json in Resources */,
-				92C6098A206AE05000D97B14 /* GoogleService-Info.plist in Resources */,
 				9205CDE91FCDB0B2008F6466 /* LaunchScreen.storyboard in Resources */,
 				92541ACD203091B900ED873E /* UCD_ComputerScience.gpx in Resources */,
 				925C715B205C03AB002BBDAA /* 3rd_Location.gpx in Resources */,
@@ -542,16 +553,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GroupSync_iosClient/Pods-GroupSync_iosClient-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,6 +649,7 @@
 				9249E37D204F0B090007FFC4 /* RequestModel.swift in Sources */,
 				92EAA6ED204489EE0097AFA3 /* GroupSettingsModel.swift in Sources */,
 				9233E520205440C000146C37 /* JoinPublicGroupViewController.swift in Sources */,
+				92C6098E206BDFD100D97B14 /* EditProfileModel.swift in Sources */,
 				92D19E392020F63C00BB24EA /* CreateGroupModel.swift in Sources */,
 				922C9A2520222BF000539837 /* ActiveTimeModel.swift in Sources */,
 				92D185B120334416005D209E /* SendLocation.swift in Sources */,

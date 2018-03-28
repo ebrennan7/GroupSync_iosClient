@@ -9,6 +9,8 @@
 import UIKit
 import Foundation
 
+var changedPicture: Bool = false
+
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     
@@ -19,6 +21,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var nameEdit: UITextField!
     @IBOutlet weak var emailEdit: UITextField!
     @IBOutlet weak var middlePositionEditPopUp: NSLayoutConstraint!
+    let editProfileModel = EditProfileModel()
     var nameString: String!
     var emailString: String?
     
@@ -82,24 +85,24 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         emailString = (userInfo.object(forKey: "email") as? String)?.removeCharacters(from: "\"")
     }
     
-    func addDoneButton()
-    {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-        doneToolbar.barStyle       = UIBarStyle.default
-        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
-        
-        var items = [UIBarButtonItem]()
-        items.append(flexSpace)
-        items.append(done)
-        
-        doneToolbar.items = items
-        doneToolbar.sizeToFit()
-        
-        self.nameEdit?.inputAccessoryView = doneToolbar
-        self.emailEdit?.inputAccessoryView = doneToolbar
-    }
-    
+//    func addDoneButton()
+//    {
+//        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+//        doneToolbar.barStyle       = UIBarStyle.default
+//        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+//        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
+//
+//        var items = [UIBarButtonItem]()
+//        items.append(flexSpace)
+//        items.append(done)
+//
+//        doneToolbar.items = items
+//        doneToolbar.sizeToFit()
+//
+//        self.nameEdit?.inputAccessoryView = doneToolbar
+//        self.emailEdit?.inputAccessoryView = doneToolbar
+//    }
+//
     @objc func doneButtonAction()
     {
         self.nameEdit?.resignFirstResponder()
@@ -126,7 +129,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             self.dismiss(animated: true, completion: {() -> Void in
                 
             })
-            profilePictureView.image = image
+            
             
             
         }
@@ -148,6 +151,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         nameField.text = nameEdit.text
         emailField.text = emailEdit.text
+        
+        if((emailField.text?.isValidEmail())!&&nameField.text! != ""){
+            editProfileModel.editDetails(name: nameField.text!, email: emailField.text!)
+        }
         
         middlePositionEditPopUp.constant = 1200 * -1
         cancelPopUp()
@@ -200,7 +207,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
-            profilePictureView.image = image
+            editProfileModel.changeProfilePhoto(image: image)
         }
         else
         {
@@ -278,7 +285,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         nameField.text = nameString
         emailField.text = emailString
         
-        self.addDoneButton()
+//        self.addDoneButton()
         popUpView.layer.masksToBounds = true;
         popUpView.layer.cornerRadius = 10;
         
@@ -292,66 +299,26 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         print(userId)
         print("Begin of code")
         
-        if(fileName=="null")
+        
+        if(!userInfo.bool(forKey: "profilePictureChanged"))
         {
-            urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/images/missing.png"
+                     urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/\(userId)/profilePhoto.jpg"
+
         }
         else{
-            urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/\(userId)/medium_\(fileName)"
+               urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/images/missing.png"
         }
         print("URL STRING\(urlString)")
         
-      
+        
         let url = URL(string: urlString)
-            print("ALOWED")
+        print("ALOWED")
         
-            profilePictureView.contentMode = .scaleAspectFit
-                   print(fileName)
-            downloadImage(url: url!)
+        profilePictureView.contentMode = .scaleAspectFit
+        print(fileName)
+        downloadImage(url: url!)
         
-        //        if let url = URL(string: "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/1/medium_mmm.gif") {
-        //            print("ALOWED")
-        //            profilePictureView.contentMode = .scaleAspectFit
-        //            downloadImage(url: url)
-        //        }
-//                else{
-//                    print("NO")
-//                }
-        
-        
-        print("End of code. The image will continue downloading in the background and it will be loaded when it ends.")
-        //        DispatchQueue.global(qos: .background).async {
-        //
-        //            let url = URL(string: "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/images/missing.png" )
-        //            let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-        //
-        //                if(error != nil)
-        //                {
-        //                    print ("ERROR")
-        //                }
-        //                else{
-        //                    var documentsDirectory:String?
-        //                    var paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        //
-        //                    if(paths.count > 0)
-        //                    {
-        //                        documentsDirectory=paths[0]
-        //
-        //                        let savePath = documentsDirectory! + "/profile.jpg"
-        //
-        //
-        //
-        //
-        //                        FileManager.default.createFile(atPath: savePath, contents: data, attributes: nil)
-        //                        DispatchQueue.main.async {
-        //                            self.profilePictureView.image = UIImage(named: savePath)
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //            task.resume()
-        //
-        //        }
+       
     }
     func getImageFromWeb(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ())
     {
@@ -391,5 +358,5 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     //    }
     
     
-    
 }
+

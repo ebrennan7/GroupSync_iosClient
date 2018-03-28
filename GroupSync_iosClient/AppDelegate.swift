@@ -9,13 +9,14 @@
 import UIKit
 import Firebase
 import UserNotifications
-//import AWSCore
+import AWSCore
+import AWSS3
 //import AWSMobileClient
 
 let sendLocation = SendLocation()
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenterDelegate {
     var window: UIWindow?
     
 
@@ -38,8 +39,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     //
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+    
         
-        
+        let accessKey = "AKIAIHFI54OFAWCCER2A"
+        let secretKey = "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"
+        let credentialsProvider = AWSStaticCredentialsProvider(accessKey: accessKey, secretKey: secretKey)
+        let configuration = AWSServiceConfiguration(region: AWSRegionType.EUWest1, credentialsProvider: credentialsProvider)
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
        
         if #available(iOS 10.0, *)
         {
@@ -170,6 +176,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     }
     
     
+}
+extension AppDelegate : MessagingDelegate {
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        print("Firebase registration token: (fcmToken)")
+    
+    Messaging.messaging().shouldEstablishDirectChannel = true
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print("Received data message: (remoteMessage.appData)")
+}
+}
 }
 //
 //@available(iOS 10, *)
