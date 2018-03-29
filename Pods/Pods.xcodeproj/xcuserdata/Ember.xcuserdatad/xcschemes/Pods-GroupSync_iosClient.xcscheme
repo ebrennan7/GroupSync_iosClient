@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "37D3D04814C601151A3D24957E7B7142"
+               BlueprintIdentifier = "D2A2B78F9EF140D1FDAA7AF391396F2C"
                BuildableName = "Pods_GroupSync_iosClient.framework"
                BlueprintName = "Pods-GroupSync_iosClient"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "37D3D04814C601151A3D24957E7B7142"
+            BlueprintIdentifier = "D2A2B78F9EF140D1FDAA7AF391396F2C"
             BuildableName = "Pods_GroupSync_iosClient.framework"
             BlueprintName = "Pods-GroupSync_iosClient"
             ReferencedContainer = "container:Pods.xcodeproj">

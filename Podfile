@@ -6,18 +6,24 @@ use_frameworks!
 target 'GroupSync_iosClient' do
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
-      pod 'AWSS3'
+    pod 'AWSS3'
 end
 
 # Pods for GroupSync_iosClient
 
 target 'GroupSync_iosClientTests' do
-    inherit! :search_paths
+    #    inherit! :search_paths
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
+    pod 'AWSS3'
     # Pods for testing
 end
 
 target 'GroupSync_iosClientUITests' do
-    inherit! :search_paths
+    #    inherit! :search_paths
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
+    pod 'AWSS3'
     # Pods for testing
 end
 

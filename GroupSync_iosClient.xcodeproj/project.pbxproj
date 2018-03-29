@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		548F3BDDAFEA6969108889E6 /* Pods_GroupSync_iosClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429084AC844FD074C6BDE1A1 /* Pods_GroupSync_iosClientUITests.framework */; };
 		6293886DA52E2B540FB3EEC2 /* Pods_GroupSync_iosClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9E7669806F15552E8FBD17 /* Pods_GroupSync_iosClient.framework */; };
-		6DC4D55FC331B18A70EF9076 /* libPods-GroupSync_iosClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41728BA6BB54A103E92E51FA /* libPods-GroupSync_iosClientTests.a */; };
 		9205CDDF1FCDB0B2008F6466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9205CDDE1FCDB0B2008F6466 /* AppDelegate.swift */; };
 		9205CDE41FCDB0B2008F6466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9205CDE21FCDB0B2008F6466 /* Main.storyboard */; };
 		9205CDE61FCDB0B2008F6466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9205CDE51FCDB0B2008F6466 /* Assets.xcassets */; };
@@ -20,7 +19,6 @@
 		921BEE9A1FCE0A1F00EE9A78 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921BEE991FCE0A1F00EE9A78 /* SignUpViewController.swift */; };
 		921C4FDE1FD8AC3D00C8A79C /* PopUpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */; };
 		9221428E206D73ED003AA27D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221428D206D73ED003AA27D /* LoginModel.swift */; };
-		92214290206D7CCB003AA27D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221428F206D7CCB003AA27D /* ViewController.swift */; };
 		92214292206D7F3E003AA27D /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92214291206D7F3E003AA27D /* SignUpModel.swift */; };
 		9229EA1A202F67A5001FC6A7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229EA19202F67A5001FC6A7 /* MapViewController.swift */; };
 		922C9A232022202100539837 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922C9A222022202100539837 /* AlertModel.swift */; };
@@ -34,6 +32,7 @@
 		92627D9120445BC7006F4AC7 /* GroupSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92627D9020445BC6006F4AC7 /* GroupSettingsViewController.swift */; };
 		92627D9420445C3D006F4AC7 /* UsersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92627D9320445C3D006F4AC7 /* UsersCollectionViewCell.swift */; };
 		9267FAC8204EF94400C58BB1 /* InvitesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9267FAC7204EF94400C58BB1 /* InvitesCollectionCell.swift */; };
+		92709486206D8C6B00D5DB02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92709485206D8C6B00D5DB02 /* ViewController.swift */; };
 		92B1A00D1FD5BA9A0009E316 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeViewController.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
 		92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */; };
@@ -74,9 +73,7 @@
 		0CD3E934C2AD50631A648FD7 /* Pods-GroupSync_iosClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClient/Pods-GroupSync_iosClient.release.xcconfig"; sourceTree = "<group>"; };
 		1DFCAC01D2C1923192414476 /* Pods-GroupSync_iosClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClient/Pods-GroupSync_iosClient.debug.xcconfig"; sourceTree = "<group>"; };
 		280931C6A9A3FFA46C090A1A /* Pods-GroupSync_iosClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientUITests/Pods-GroupSync_iosClientUITests.release.xcconfig"; sourceTree = "<group>"; };
-		41728BA6BB54A103E92E51FA /* libPods-GroupSync_iosClientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroupSync_iosClientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		429084AC844FD074C6BDE1A1 /* Pods_GroupSync_iosClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupSync_iosClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		483D9C1145E9BBA19FCFEBB6 /* libPods-GroupSync_iosClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroupSync_iosClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		590429D7B9115A58997B023C /* Pods-GroupSync_iosClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C9E7669806F15552E8FBD17 /* Pods_GroupSync_iosClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupSync_iosClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDF5E05D87183945EEC4C9F /* Pods-GroupSync_iosClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupSync_iosClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,7 +93,6 @@
 		921BEE991FCE0A1F00EE9A78 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		921C4FDD1FD8AC3D00C8A79C /* PopUpSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpSettings.swift; sourceTree = "<group>"; };
 		9221428D206D73ED003AA27D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		9221428F206D7CCB003AA27D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../../../../Users/Ember/.Trash/ViewController.swift; sourceTree = "<group>"; };
 		92214291206D7F3E003AA27D /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		9229EA19202F67A5001FC6A7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		922C9A222022202100539837 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
@@ -110,6 +106,7 @@
 		92627D9020445BC6006F4AC7 /* GroupSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSettingsViewController.swift; sourceTree = "<group>"; };
 		92627D9320445C3D006F4AC7 /* UsersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCollectionViewCell.swift; sourceTree = "<group>"; };
 		9267FAC7204EF94400C58BB1 /* InvitesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesCollectionCell.swift; sourceTree = "<group>"; };
+		92709485206D8C6B00D5DB02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		92B1A00C1FD5BA9A0009E316 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +141,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DC4D55FC331B18A70EF9076 /* libPods-GroupSync_iosClientTests.a in Frameworks */,
 				FCAC881F656753921E218BC9 /* Pods_GroupSync_iosClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,8 +172,6 @@
 		4C0B775288C4037BC0503D70 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				41728BA6BB54A103E92E51FA /* libPods-GroupSync_iosClientTests.a */,
-				483D9C1145E9BBA19FCFEBB6 /* libPods-GroupSync_iosClient.a */,
 				5C9E7669806F15552E8FBD17 /* Pods_GroupSync_iosClient.framework */,
 				E839148F03B004B2BA6DE58F /* Pods_GroupSync_iosClientTests.framework */,
 				429084AC844FD074C6BDE1A1 /* Pods_GroupSync_iosClientUITests.framework */,
@@ -276,7 +270,7 @@
 		92E6B11A206D6A4800C4D0EE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9221428F206D7CCB003AA27D /* ViewController.swift */,
+				92709485206D8C6B00D5DB02 /* ViewController.swift */,
 				920CD5E91FCDC7BE00349451 /* LoginViewController.swift */,
 				923794762054203E0085C1F5 /* PublicGroupViewController.swift */,
 				92D19E362020F62B00BB24EA /* CreateGroupViewController.swift */,
@@ -463,9 +457,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GroupSync_iosClientTests/Pods-GroupSync_iosClientTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore-iOS11.0/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3-iOS11.0/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS11.0/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.0/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.0/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -545,11 +550,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GroupSync_iosClient/Pods-GroupSync_iosClient-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore-iOS10.3/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3-iOS10.3/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS10.3/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS10.3/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS10.3/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -570,9 +575,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GroupSync_iosClientUITests/Pods-GroupSync_iosClientUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore-iOS11.0/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3-iOS11.0/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS11.0/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.0/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.0/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -633,8 +649,8 @@
 				920CD5EA1FCDC7BE00349451 /* LoginViewController.swift in Sources */,
 				9233E5222054762A00146C37 /* GroupInformationModel.swift in Sources */,
 				92627D9420445C3D006F4AC7 /* UsersCollectionViewCell.swift in Sources */,
-				92214290206D7CCB003AA27D /* ViewController.swift in Sources */,
 				92D19E372020F62B00BB24EA /* CreateGroupViewController.swift in Sources */,
+				92709486206D8C6B00D5DB02 /* ViewController.swift in Sources */,
 				923794772054203E0085C1F5 /* PublicGroupViewController.swift in Sources */,
 				92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */,
 				92B1A00D1FD5BA9A0009E316 /* HomeViewController.swift in Sources */,
@@ -882,6 +898,12 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = EKF3UTYQR8;
+				HEADER_SEARCH_PATHS = (
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+				);
 				INFOPLIST_FILE = GroupSync_iosClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ember.GroupSync-iosClientTests";
@@ -900,6 +922,12 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = EKF3UTYQR8;
+				HEADER_SEARCH_PATHS = (
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+				);
 				INFOPLIST_FILE = GroupSync_iosClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ember.GroupSync-iosClientTests";
