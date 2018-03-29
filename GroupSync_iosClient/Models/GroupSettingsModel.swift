@@ -39,7 +39,7 @@ class GroupSettingsModel{
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
-                print(error)
+                print(error!)
             }
             do{
                 
@@ -64,8 +64,7 @@ class GroupSettingsModel{
                             
                             if let innerUser = try JSONSerialization.jsonObject(with: usersJSONData!, options: []) as? [[String:Any]]
                             {
-                                
-                                print(innerUser[0]["id"])
+                         
                                 
                                 if(innerUser[0]["id"] as? Int == userInfo.object(forKey: "userID") as? Int)
                                 {

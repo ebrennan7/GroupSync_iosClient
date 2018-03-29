@@ -1,38 +1,36 @@
 //
-//  GroupModel.swift
-//  GroupSync_iosClient
+//  GroupInformationModel.swift
+//  
 //
 //  Created by Ember Brennan on 10/03/2018.
-//  Copyright © 2018 EmberBrennan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class GroupModel{
+class GroupInformationModel{
     
-    func getPublicGroups(completionBlock: @escaping ([(group_id: Int, name: String)]) ->Void) -> Void{
+    let userInfo = UserDefaults.standard
+    
+    
+    func getGroupName(group_id: String, completion: @escaping (_ group_name: String) -> Void) -> Void{
         
-        var publicTuples:[(group_id: Int, name: String)] = []
-        
-        let userInfo = UserDefaults.standard
-        
+        var group_name: String?
         
         let headers = [
             "Content-Type": "application/json",
             "Cache-Control": "no-cache",
-            "Postman-Token": "44b19ed6-9b10-18c4-4e3f-9e13e9a047cc"
+            "Postman-Token": "f76a14d7-1e18-867c-72e4-e705a4472d52"
         ]
         let parameters = [
             "authToken": KeychainService.loadPassword()!,
-            "user_id": userInfo.object(forKey: "userID")!
+            "group_id": group_id
             ] as [String : Any]
         
-        let postData =  try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         guard postData != nil else{
             return
         }
-        
-        let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/get_public_groups")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/get_group")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "POST"
@@ -45,25 +43,27 @@ class GroupModel{
                 print(error!)
             } else {
                 do{
-                    if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
-                    {
-                        if let data = resultJson["data"] as? [String:Any]
-                        {
-                            if let groups = data["groups"] as? String {
-                                let groupsJSONData = groups.data(using: .utf8)
+                    if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject] {
+                        if let dataJson = resultJson["data"] as? [String:Any]{
+                            if let groupInfo = dataJson["group"] as? String {
                                 
-                                if let publicGroups = try JSONSerialization.jsonObject(with: groupsJSONData!, options: []) as? [[String:Any]]
+                                let groupInfoData = groupInfo.data(using: .utf8)
+                                
+                                if let names = try JSONSerialization.jsonObject(with: groupInfoData!, options: []) as? [String:Any]
                                 {
-                                    for group in publicGroups
-                                    {
-                                        publicTuples.append((group_id: group["id"] as! Int, name: group["name"] as! String))
-                                        
-                                    }
+                                    
+                                    
+                                    group_name = names["name"] as? String
+                                    
+                                    
+                                    
+                                    
+                                    
                                 }
+                                completion(group_name!)
+                                
                             }
                         }
-                        print(publicTuples)
-                        completionBlock(publicTuples)
                     }
                 }
                 catch{
@@ -75,12 +75,11 @@ class GroupModel{
         dataTask.resume()
     }
     
-    func checkIfMember(group_id: String, completionBlock: @escaping (_ member: Bool) ->Void) -> Void{
+    
+    
+    func getNumberOfUsers(group_id: String, completionBlock: @escaping (_ users: Int) ->Void) -> Void{
         
-        let userInfo = UserDefaults.standard
-        
-        var member: Bool = false
-        var user_id = userInfo.object(forKey: "userID")
+        var users: Int = 0
         
         let headers = [
             "Content-Type": "application/json",
@@ -128,17 +127,15 @@ class GroupModel{
                             
                             if let innerUser = try JSONSerialization.jsonObject(with: usersJSONData!, options: []) as? [[String:Any]]
                             {
-                                for user in innerUser
+                                for _ in innerUser
                                 {
-    
-                                    if((user_id as! Int) == user["id"] as? Int)
-                                    {
-                                        member=true
-                                    }
+                                    users+=1
                                 }
                                 
-                                completionBlock(member)
-                                
+                                completionBlock(users)
+                                //                                    for name in innerUserData{
+                                //                                        names.append(innerUserData["name"])
+                                //                                    }
                                 
                             }
                             
@@ -162,30 +159,27 @@ class GroupModel{
         dataTask.resume()
         
     }
-    
-    func getPrivateGroups(completionBlock: @escaping ([(group_id: Int, name: String)]) ->Void) -> Void
-    {
-        var privateTuples:[(group_id: Int, name: String)] = []
+   
+    func getGroupActiveTimes(group_id: String, completion: @escaping ([(start: String, end: String)]) -> Void) -> Void{
         
-        let userInfo = UserDefaults.standard
-        
+        var activeTimeTuples: [(start: String, end: String)] = []
         
         let headers = [
             "Content-Type": "application/json",
             "Cache-Control": "no-cache",
-            "Postman-Token": "44b19ed6-9b10-18c4-4e3f-9e13e9a047cc"
+            "Postman-Token": "cc2a0c93-3204-7724-882f-9ad11562c483"
         ]
         let parameters = [
             "authToken": KeychainService.loadPassword()!,
-            "user_id": userInfo.object(forKey: "userID")!
+            "group_id": group_id
             ] as [String : Any]
         
-        let postData =  try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         guard postData != nil else{
             return
         }
         
-        let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/get_groups")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/get_active_times")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "POST"
@@ -200,33 +194,37 @@ class GroupModel{
                 do{
                     if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
                     {
-                        if let data = resultJson["data"] as? [String:Any]
+                        print(resultJson)
+                        
+                        
+                        if let dataJson = resultJson["data"] as? [String:Any]
                         {
-                            if let groups = data["groups"] as? String {
-                                let groupsJSONData = groups.data(using: .utf8)
+                            print(dataJson)
+                            if let activeTimesArray = dataJson["active_times"] as? String
+                            {
+                                let activeTimesData = activeTimesArray.data(using: .utf8)
                                 
-                                if let privateGroups = try JSONSerialization.jsonObject(with: groupsJSONData!, options: []) as? [[String:Any]]
+                                if let times = try JSONSerialization.jsonObject(with: activeTimesData!, options: []) as? [[String:Any]]
                                 {
                                     
-                                    for group in privateGroups
+                                    
+                                    for time in times
                                     {
-                                        if let publicStatus = group["public"] as? Bool{
-                                            if(publicStatus==false)
-                                            {
-                                                privateTuples.append((group_id: group["id"] as! Int, name: group["name"] as! String))
-                                            }
-                                            else{
-                                                print(publicStatus)
-                                            }
-                                        }
+                                        activeTimeTuples.append((start: self.convertStringToDate(date: time["start"]! as! String), end: self.convertStringToDate(date: time["end"]! as! String)))
+                                        
+                                        
                                     }
-                      
+                                    
+                                    
                                 }
+                                completion(activeTimeTuples)
                             }
+                            
                         }
-                        completionBlock(privateTuples)
-
+                        
                     }
+                    
+                    
                 }
                 catch{
                     print(error)
@@ -236,4 +234,35 @@ class GroupModel{
         
         dataTask.resume()
     }
+    
+    private func convertStringToDate(date: String) -> String
+    {
+        if let dateSSS = Formatter.iso8601.date(from: date)
+        {
+            let dateFormatterPrint = DateFormatter()
+            dateFormatterPrint.dateFormat = "MMMM dd,yyyy hh:mma"
+            dateFormatterPrint.amSymbol = "AM"
+            dateFormatterPrint.pmSymbol = "PM"
+            let newDate: String? = dateFormatterPrint.string(from: dateSSS)
+            
+            return newDate!
+            
+        }
+        
+        return date
+        
+        
+    }
+}
+
+extension Formatter {
+    static let iso8601: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        if #available(iOS 11.0, *) {
+            formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        } else {
+            // Fallback on earlier versions
+        }
+        return formatter
+    }()
 }

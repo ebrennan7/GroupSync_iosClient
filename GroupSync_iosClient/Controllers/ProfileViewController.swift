@@ -11,7 +11,7 @@ import Foundation
 
 var changedPicture: Bool = false
 
-class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
     
     
@@ -24,6 +24,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     let editProfileModel = EditProfileModel()
     var nameString: String!
     var emailString: String?
+    let defaultURLString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/images/missing.png"
+
     
     let userInfo = UserDefaults.standard
     
@@ -31,14 +33,18 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBAction func logOutButtonPressed()
     {
-        createAlert(title: "Are you sure you want to log out?", message: "")
+        createAlert(title: "Are you sure you want to log out?", message: "",option: true)
     }
     
     
-    func createAlert(title:String, message: String)
+    func createAlert(title:String, message: String, option: Bool)
     {
         let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
+        
+        
+        if(option)
+        {
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
             
             //log out happens
@@ -46,19 +52,27 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             
             self.clearUserDefaults()
             
-            if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView") as? ViewController {
+            if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView"){
                 self.present(loginView, animated: true, completion: nil)
             }
             
             
             
+            
+            
         }))
+        
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
             
             
         }))
         
+        }
+        else{
+             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+        }
+             ))}
         self.present(alert, animated: true, completion: nil)
         
     }
@@ -66,7 +80,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     {
         let userInfo = UserDefaults.standard
         userInfo.removeObject(forKey: "userSignedIn")
-        userInfo.removeObject(forKey: "deviceToken")
+//        userInfo.removeObject(forKey: "deviceToken")
         userInfo.synchronize()
     }
     
@@ -118,7 +132,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         {
             print("BTN")
             
-            imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum
             imagePicker.allowsEditing = false
             self.present(imagePicker,animated: true,completion: nil)
@@ -156,6 +170,9 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         if((emailField.text?.isValidEmail())!&&nameField.text! != ""){
             editProfileModel.editDetails(name: nameField.text!, email: emailField.text!)
+        }
+        else{
+            createAlert(title: "Invalid Name or Email", message: "",option: false)
         }
         
         middlePositionEditPopUp.constant = 1200 * -1
@@ -209,7 +226,20 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
-            editProfileModel.changeProfilePhoto(image: image)
+            editProfileModel.changeProfilePhoto(image: image, completion: {
+                
+                success in
+                
+                if success {
+                    let url = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/\(self.userInfo.object(forKey: "userID")!)/profilePhoto.jpg)"
+                    self.downloadImage(url: URL(string: url)!)
+                    self.view.setNeedsLayout()
+                    self.view.layoutIfNeeded()
+                }
+                
+                
+                
+            })
         }
         else
         {
@@ -217,6 +247,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         }
         
         self.dismiss(animated: true, completion: nil)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     
@@ -281,6 +315,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     override func viewDidLoad() {
         
+        URLCache.shared.removeAllCachedResponses()
+
+        self.nameEdit.delegate=self
+        self.emailEdit.delegate=self
         super.viewDidLoad()
         setUserDetails()
         
@@ -302,16 +340,15 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         print("Begin of code")
         
         
-        if(!userInfo.bool(forKey: "profilePictureChanged"))
-        {
-            
-            print("Downloading custom pic")
-                     urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/\(userId)/profilePhoto.jpg"
-
-        }
-        else{
-               urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/images/missing.png"
-        }
+//        if(!userInfo.bool(forKey: "profilePictureChanged"))
+//        {
+//
+//            print("Downloading custom pic")
+        
+//        }
+//        else{
+               urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/\(userId)/profilePhoto.jpg"
+//        }
         print("URL STRING\(urlString)")
         
         
@@ -338,6 +375,22 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             guard let data = data, error == nil else { return }
             print(response?.suggestedFilename ?? url.lastPathComponent)
             print("Download Finished")
+            print("image data\(data.description)")
+            if(data.description == "305 bytes") // No custom picture uploaded
+            {
+                self.downloadImage(url: URL(string: self.defaultURLString)!) // download default pic
+            }
+//            else if(data.description == "306 bytes") // S3 needs another call
+//            {
+//                print(url)
+//                self.downloadImage(url: url)
+//            }
+
+            DispatchQueue.main.async {
+                
+            self.view.setNeedsLayout()
+            self.view.layoutIfNeeded()
+            }
             DispatchQueue.main.async() {
                 self.profilePictureView.image = UIImage(data: data)
             }

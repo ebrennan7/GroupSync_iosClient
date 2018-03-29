@@ -32,7 +32,6 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             var calendar: Calendar = Calendar.current
             let dateFormatter = DateFormatter()
-            //            dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss Z"
             dateFormatter.dateFormat = "MM dd,yyyy hh:mma"
             
             let currentDate = Date()
@@ -40,18 +39,11 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
             calendar.timeZone = TimeZone(identifier: "UCT")!
             dateFormatter.locale = Locale(identifier: "en_US_POSIX")
 
-            //
-            //
-            //            let timeSince = (calendar.dateComponents(unitFlags,  dateFormatter.date(from: time_since_invite[indexPath.row], to: currentDate)))
-            //
-            //
-            
-            
+ 
             let timeSinceInvite = calendar.dateComponents(unitFlags, from: dateFormatter.date(from: time_since_invite[indexPath.row])!, to: currentDate)
             
             
-            print("INVITE\(dateFormatter.date(from: time_since_invite[indexPath.row]))")
-            print(currentDate)
+          
             
             DispatchQueue.main.async {
                 

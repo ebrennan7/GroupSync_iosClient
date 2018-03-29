@@ -147,7 +147,7 @@ class JoinPublicGroupViewController: UIViewController {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var mapController = segue.destination as! MapViewController
+        let mapController = segue.destination as! MapViewController
         mapController.currentGroupId = cellID!
     }
     func createUnsuccessfulAlert(title:String, message:String)

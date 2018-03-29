@@ -125,7 +125,7 @@ class CreateGroupModel {
         
         
         
-        let userInfo = UserDefaults.standard
+//        let userInfo = UserDefaults.standard
         
         let headers = [
             "Content-Type": "application/json",

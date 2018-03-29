@@ -44,7 +44,7 @@ class PrivateGroupViewController: UIViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         idOfCell = String(privateGroupTuples[indexPath.row].group_id)
-        print(idOfCell)
+   
         self.performSegue(withIdentifier: "showMap", sender: nil)
         
         
@@ -52,7 +52,7 @@ class PrivateGroupViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var mapController = segue.destination as! MapViewController
+        let mapController = segue.destination as! MapViewController
         mapController.currentGroupId = idOfCell
     }
     

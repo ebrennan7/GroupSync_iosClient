@@ -89,50 +89,55 @@ class EditProfileModel{
     }
 
     
-    func changeProfilePhoto(image: UIImage!)
+    func changeProfilePhoto(image: UIImage!, completion: @escaping (_ success: Bool) -> () )
     {
         self.image = image.squared
-        uploadImage()
+//        uploadImage()
+        var success: Bool = false
+        
+        let user_id = userInfo.object(forKey: "userID")!
+        let fileManager = FileManager.default
+        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("test3.jpeg")
+        let imageData = UIImageJPEGRepresentation(self.image!, 0)
+        fileManager.createFile(atPath: path as String, contents: imageData, attributes: nil)
+        
+        let fileUrl = NSURL(fileURLWithPath: path)
+        let uploadRequest = AWSS3TransferManagerUploadRequest()
+        uploadRequest?.bucket = "groupsync-eu-images"
+        uploadRequest?.key = "public/avatars/\(user_id)/profilePhoto.jpg"
+        uploadRequest?.contentType = "image/jpeg"
+        uploadRequest?.body = fileUrl as URL!
+        
+        uploadRequest?.uploadProgress = { (bytesSent, totalBytesSent, totalBytesExpectedToSend) -> Void in
+            DispatchQueue.main.async(execute: {
+                print("totalBytesSent",totalBytesSent)
+                print("totalBytesExpectedToSend",totalBytesExpectedToSend)
+                
+            })
+        }
+        
+        let transferManager = AWSS3TransferManager.default()
+        transferManager.upload(uploadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
+            if task.error != nil {
+                // Error.
+                print("error")
+            } else {
+                // Do something with your result.
+                print("No Error , Upload Done")
+                success = true
+                self.userInfo.set(false, forKey: "profilePictureChanged")
+                self.userInfo.synchronize()
+            }
+            
+            completion(success)
+            return nil
+        })
     }
     
     private func uploadImage() {
     
         print("Hello")
 
-        let user_id = userInfo.object(forKey: "userID")!
-            let fileManager = FileManager.default
-            let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("test3.jpeg")
-        let imageData = UIImageJPEGRepresentation(image!, 0)
-            fileManager.createFile(atPath: path as String, contents: imageData, attributes: nil)
-        
-            let fileUrl = NSURL(fileURLWithPath: path)
-            let uploadRequest = AWSS3TransferManagerUploadRequest()
-            uploadRequest?.bucket = "groupsync-eu-images"
-        uploadRequest?.key = "public/avatars/\(user_id)/profilePhoto.jpg"
-            uploadRequest?.contentType = "image/jpeg"
-            uploadRequest?.body = fileUrl as URL!
-        
-            uploadRequest?.uploadProgress = { (bytesSent, totalBytesSent, totalBytesExpectedToSend) -> Void in
-                DispatchQueue.main.async(execute: {
-                                        print("totalBytesSent",totalBytesSent)
-                                        print("totalBytesExpectedToSend",totalBytesExpectedToSend)
-                    
-                })
-            }
-        
-            let transferManager = AWSS3TransferManager.default()
-            transferManager.upload(uploadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
-                if task.error != nil {
-                    // Error.
-                    print("error")
-                } else {
-                    // Do something with your result.
-                    print("No Error , Upload Done")
-                    self.userInfo.set(false, forKey: "profilePictureChanged")
-                    self.userInfo.synchronize()
-                }
-                return nil
-            })
         }
     
     

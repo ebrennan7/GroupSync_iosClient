@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeView: UIViewController {
+class HomeViewController: UIViewController {
 
 
     
@@ -26,9 +26,6 @@ class HomeView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       var pop = GetGroupUsers()
-//       pop.getUserDetails()
         
         
        

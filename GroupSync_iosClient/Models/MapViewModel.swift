@@ -29,8 +29,6 @@ class MapViewModel{
         let dateStart = dateFormatterPrint.date(from: start)
         let dateEnd = dateFormatterPrint.date(from: end)
         
-        print("start time string\(start)") // This print March 19,2018 08:33PM
-        print("start date\(dateStart)") // This is nil some devices, however works fine on others
         
     
             

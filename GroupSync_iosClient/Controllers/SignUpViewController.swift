@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 
-class SignUpView: UIViewController, UITextFieldDelegate {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var signUpProgress: UIProgressView!
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -29,6 +29,8 @@ class SignUpView: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var verifyPasswordTextField: UITextField!
     
+    let signUpModel = SignUpModel()
+    
     @IBAction func signUpButton(_ sender: UIButton) {
         if firstNameTextField.text!.isEmpty||lastNameTextField.text!.isEmpty||emailTextField.text!.isEmpty||passwordTextField.text!.isEmpty||verifyPasswordTextField.text!.isEmpty
         {
@@ -43,75 +45,21 @@ class SignUpView: UIViewController, UITextFieldDelegate {
                 createAlert(title: "Email is not valid", message: "")
             }
         else{
-            signUpPostRequest()
+            signUpModel.signUpPostRequest(email: emailTextField.text!.lowercased(), name: firstNameTextField.text!, surname: lastNameTextField.text!, password: passwordTextField.text!, password_re_enter: verifyPasswordTextField.text!, completion: { success in
+                
+                if(success)
+                {
+                    self.createLoginAlert(title: "Signup successful", message: "")
+                }
+                else{
+                    self.createAlert(title: "Signup Unsuccessful", message: "")
+                }
+                
+                
+            })
         }
     }
-    func signUpPostRequest()
-    {
-        let headers = [
-            "Content-Type": "application/json",
-            "Cache-Control": "no-cache",
-            "Postman-Token": "14769248-607a-fc94-d01e-86ab7e51e49a"
-        ]
-        let parameters = [
-            "email": emailTextField.text!.lowercased() ,
-            "name": firstNameTextField.text!,
-            "surname": lastNameTextField.text!,
-            "password": passwordTextField.text!,
-            "password_re_enter": verifyPasswordTextField.text!
-            ] as [String : Any]
-
-        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
-        guard postData != nil else{
-            return
-        }
-        
-        let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/signup_post")! as URL,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = headers
-        request.httpBody = postData
-        
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                print(error!)
-            }
-            do {
-                let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
-                
-                DispatchQueue.main.async {
-                    
-                    print(resultJson!)
-                    
-                    if let dictionary = resultJson {
-                        if let nestedDictionary = dictionary["data"] as? [String: Any]
-                        {
-                            //A valid email is only returned if the request was successful
-                            
-                            if (nestedDictionary["user_email"] as? String) != nil
-                            
-                            {
-                              self.createLoginAlert(title: "Signup Successful", message: "")
-
-                            }
-                        }
-                            else
-                            {
-                                self.createAlert(title: "Account already exists with that email", message: "")
-                            }
-                        }
-                    }
-                
-            } catch {
-                print("Error -> \(error)")
-            }
-        })
-        
-        dataTask.resume()
-        
-    }
+  
     func createAlert(title:String, message: String)
     {
         let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -179,41 +127,7 @@ class SignUpView: UIViewController, UITextFieldDelegate {
         
         // Do any additional setup after loading the view.
     }
-    
-//    func addDoneButton()
-//    {
-//        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-//        doneToolbar.barStyle       = UIBarStyle.default
-//        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-//        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
-//
-//        var items = [UIBarButtonItem]()
-//        items.append(flexSpace)
-//        items.append(done)
-//
-////        doneToolbar.items = items
-////        doneToolbar.sizeToFit()
-//        
-//        self.passwordTextField?.inputAccessoryView = doneToolbar
-//        self.emailTextField?.inputAccessoryView = doneToolbar
-//        self.lastNameTextField?.inputAccessoryView = doneToolbar
-//        self.firstNameTextField?.inputAccessoryView = doneToolbar
-//        self.verifyPasswordTextField?.inputAccessoryView = doneToolbar
-//
-//
-//
-//
-//    }
-    
-//    @objc func doneButtonAction()
-//    {
-//        self.passwordTextField?.resignFirstResponder()
-//        self.verifyPasswordTextField?.resignFirstResponder()
-//        self.lastNameTextField?.resignFirstResponder()
-//        self.firstNameTextField?.resignFirstResponder()
-//        self.emailTextField?.resignFirstResponder()
-//    }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false

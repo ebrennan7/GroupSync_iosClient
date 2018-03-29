@@ -15,7 +15,7 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
     
     
     var locationManager:CLLocationManager = CLLocationManager()
-  
+    
     
     struct LocationStruct{
         var latitude:CLLocationDegrees?, longitude:CLLocationDegrees?
@@ -59,27 +59,13 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
-         
-                    print(error!)
+                
+                print(error!)
                 
             }
-            do {
-
-                
-                if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]{
-                    print("Location Sent")
-//                    print(resultJson)
-
-                }
-                else{
-                    print("Error with JSON")
-                }
-                
-            }
-            catch{
-                print("Error -> \(error)")
-            }
-        })
+        }
+            
+        )
         
         dataTask.resume()
     }
@@ -92,8 +78,8 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startMonitoringSignificantLocationChanges()
         locationManager.requestAlwaysAuthorization()
-
-      
+        
+        
         if CLLocationManager.locationServicesEnabled(){
             DispatchQueue.main.async {
                 
@@ -104,10 +90,10 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
         else if (!CLLocationManager.locationServicesEnabled())
         {
             print("You need to enable location services to use this app")
-           
+            
         }
         
-
+        
         
         
     }
@@ -119,9 +105,7 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
         
         
         
-        print(userLocation?.coordinate.latitude)
-        print(userLocation?.coordinate.longitude)
-
+        
         sendLocationPost()
         
         

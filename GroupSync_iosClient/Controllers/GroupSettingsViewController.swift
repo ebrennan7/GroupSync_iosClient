@@ -190,10 +190,8 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
         
         (getGroupUsers.getUserDetails(group_id: groupId)
             
-        {(returnValue)
-            in self.userNames = (returnValue)
-            
-            
+        {returnValue in self.userNames = (returnValue)
+        
             DispatchQueue.main.async {
                 
                 self.usersCollectionView.delegate=self

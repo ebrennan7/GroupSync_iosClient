@@ -18,10 +18,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Login View-->
+        <!--Login View Controller-->
         <scene sceneID="cHs-mR-vyR">
             <objects>
-                <viewController storyboardIdentifier="loginPage" id="Otf-ci-7Ye" customClass="LoginView" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginPage" id="Otf-ci-7Ye" customClass="LoginViewController" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bVo-fT-ptk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -299,7 +299,7 @@
                                         <rect key="frame" x="22" y="68" width="201" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xj1-WQ-leH">
                                         <rect key="frame" x="80" y="31" width="84" height="21"/>
@@ -324,7 +324,7 @@
                                         <rect key="frame" x="22" y="174" width="201" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFI-pc-yNJ">
                                         <rect key="frame" x="82" y="127" width="80" height="21"/>
@@ -979,10 +979,10 @@
             </objects>
             <point key="canvasLocation" x="5333.6000000000004" y="-1524.2878560719641"/>
         </scene>
-        <!--Home View-->
+        <!--Home View Controller-->
         <scene sceneID="Qlg-iv-VhQ">
             <objects>
-                <viewController storyboardIdentifier="homeView" id="Kum-Vd-vso" customClass="HomeView" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeView" id="Kum-Vd-vso" customClass="HomeViewController" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fBI-8X-nCh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1196,7 +1196,7 @@
         <!--Sign Up-->
         <scene sceneID="feJ-wS-AF8">
             <objects>
-                <viewController title="Sign Up" id="z8a-w6-bGJ" customClass="SignUpView" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Sign Up" id="z8a-w6-bGJ" customClass="SignUpViewController" customModule="GroupSync_iosClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3OC-gl-n5i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

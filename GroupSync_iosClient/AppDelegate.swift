@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
    
     
     //Receive Remote Notification on Background
-   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
+   private func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
     {
         Messaging.messaging().appDidReceiveMessage(userInfo)
     }
