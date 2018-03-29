@@ -65,6 +65,13 @@ class LoginView: UIViewController, UITextFieldDelegate {
     
     func loginPost()
     {
+        
+        var fcmDeviceToken: String = ""
+        
+        if let deviceToken = userInfo.object(forKey: "deviceToken")
+        {
+            fcmDeviceToken = deviceToken as! String
+        }
         let headers = [
             "Content-Type": "application/json",
             "Cache-Control": "no-cache",
@@ -72,7 +79,10 @@ class LoginView: UIViewController, UITextFieldDelegate {
         ]
         let parameters = [
             "email": emailTextField.text!.lowercased(),
-            "password": passwordTextField.text!
+            "password": passwordTextField.text!,
+            "token": fcmDeviceToken
+
+          
             ] as [String : Any]
         
         let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
@@ -80,6 +90,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
             return
         }
         
+        print(fcmDeviceToken)
         let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/login_post")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)

@@ -37,12 +37,15 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             let currentDate = Date()
             let unitFlags = Set<Calendar.Component>([.day, .hour, .minute])
-            calendar.timeZone = TimeZone(identifier: "UTC")!
+            calendar.timeZone = TimeZone(identifier: "UCT")!
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+
             //
             //
             //            let timeSince = (calendar.dateComponents(unitFlags,  dateFormatter.date(from: time_since_invite[indexPath.row], to: currentDate)))
             //
             //
+            
             
             let timeSinceInvite = calendar.dateComponents(unitFlags, from: dateFormatter.date(from: time_since_invite[indexPath.row])!, to: currentDate)
             

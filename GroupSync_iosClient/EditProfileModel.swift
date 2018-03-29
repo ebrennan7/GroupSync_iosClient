@@ -114,11 +114,9 @@ class EditProfileModel{
         
             uploadRequest?.uploadProgress = { (bytesSent, totalBytesSent, totalBytesExpectedToSend) -> Void in
                 DispatchQueue.main.async(execute: {
-                    //                    print("totalBytesSent",totalBytesSent)
-                    //                    print("totalBytesExpectedToSend",totalBytesExpectedToSend)
+                                        print("totalBytesSent",totalBytesSent)
+                                        print("totalBytesExpectedToSend",totalBytesExpectedToSend)
                     
-                    //                    self.amountUploaded = totalBytesSent // To show the updating data status in label.
-                    //                    self.fileSize = totalBytesExpectedToSend
                 })
             }
         
@@ -129,8 +127,9 @@ class EditProfileModel{
                     print("error")
                 } else {
                     // Do something with your result.
-                    print("No error Upload Done")
+                    print("No Error , Upload Done")
                     self.userInfo.set(false, forKey: "profilePictureChanged")
+                    self.userInfo.synchronize()
                 }
                 return nil
             })

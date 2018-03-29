@@ -66,6 +66,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     {
         let userInfo = UserDefaults.standard
         userInfo.removeObject(forKey: "userSignedIn")
+        userInfo.removeObject(forKey: "deviceToken")
         userInfo.synchronize()
     }
     
@@ -112,6 +113,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBAction func editPhoto()
     {
+   
         if(UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum))
         {
             print("BTN")
@@ -123,15 +125,15 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             
             
         }
-        
+
         func imagePickerController(picker: UIImagePickerController!, didFinishPicking image: UIImage!, editingInfo: NSDictionary!)
         {
             self.dismiss(animated: true, completion: {() -> Void in
-                
+
             })
-            
-            
-            
+
+
+
         }
         cancelPopUp()
     }
@@ -302,6 +304,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         if(!userInfo.bool(forKey: "profilePictureChanged"))
         {
+            
+            print("Downloading custom pic")
                      urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/\(userId)/profilePhoto.jpg"
 
         }

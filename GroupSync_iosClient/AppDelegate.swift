@@ -19,6 +19,7 @@ let sendLocation = SendLocation()
 class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenterDelegate {
     var window: UIWindow?
     
+    let userInfo = UserDefaults.standard
 
     func application(_ application: UIApplication, open url: URL,
                      sourceApplication: String?, annotation: Any) -> Bool {
@@ -221,6 +222,9 @@ extension AppDelegate : MessagingDelegate {
         
         let token = tokenParts.joined()
         print("Device Token: \(token)")
+        
+        userInfo.set(token, forKey: "deviceToken")
+        userInfo.synchronize()
         
         Messaging.messaging().apnsToken = deviceToken
     }

@@ -52,7 +52,7 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>This app needs to know your location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Upload Safe</string>
+	<string>You can select photos to upload</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
