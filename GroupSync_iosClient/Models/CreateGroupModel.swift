@@ -26,11 +26,20 @@ class CreateGroupModel {
             self.open="false"
         }
         
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
+        dateFormatter.locale = Locale(identifier: "en_GB_POSIX")
         
+        
+    
         self.startTime = dateFormatter.string(from: startTime)
         self.endTime = dateFormatter.string(from: endTime)
+        
+
+        
+        print(startTime)
+        print(endTime)
         
     }
     
@@ -125,7 +134,6 @@ class CreateGroupModel {
         
         
         
-//        let userInfo = UserDefaults.standard
         
         let headers = [
             "Content-Type": "application/json",
@@ -158,21 +166,12 @@ class CreateGroupModel {
                     
                     print(error!)
                 }
-//            } else {
-//                do{
-//
                 
-//                let resultJson = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
-//                    print(resultJson)
-//                print(self.startTime)
-//                print(self.endTime)
-//                print(self.group_id!)
-//                print(KeychainService.loadPassword()!)
-//                print(self.group_id!)
-//                }
-//                catch{
-//                    print("ERROR")
-//                }
+
+            }
+            else{
+                print(self.startTime)
+                print(self.endTime)
             }
         })
         

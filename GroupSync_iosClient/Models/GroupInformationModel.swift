@@ -210,6 +210,7 @@ class GroupInformationModel{
                                     
                                     for time in times
                                     {
+                                        
                                         activeTimeTuples.append((start: self.convertStringToDate(date: time["start"]! as! String), end: self.convertStringToDate(date: time["end"]! as! String)))
                                         
                                         
@@ -244,6 +245,7 @@ class GroupInformationModel{
             dateFormatterPrint.amSymbol = "AM"
             dateFormatterPrint.pmSymbol = "PM"
             let newDate: String? = dateFormatterPrint.string(from: dateSSS)
+      
             
             return newDate!
             

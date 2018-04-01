@@ -24,7 +24,7 @@ class MapViewModel{
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "MMMM dd,yyyy hh:mma"
 
-        dateFormatterPrint.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatterPrint.locale = Locale(identifier: "en_GB")
         
         let dateStart = dateFormatterPrint.date(from: start)
         let dateEnd = dateFormatterPrint.date(from: end)

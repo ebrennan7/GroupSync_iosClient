@@ -117,7 +117,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
         connectToFcm()
     }
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
+        print("Firebase registration token first time: \(fcmToken)")
+        
+        userInfo.set(fcmToken, forKey: "fcmToken")
+        userInfo.synchronize()
         
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
@@ -187,7 +190,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
 }
 extension AppDelegate : MessagingDelegate {
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
-        print("Firebase registration token: (fcmToken)")
+        print("Firebase registration token refreshed: (fcmToken)")
     
     Messaging.messaging().shouldEstablishDirectChannel = true
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {

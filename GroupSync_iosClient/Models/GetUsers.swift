@@ -82,7 +82,7 @@ class GetUsers{
         dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss Z"
         let currentDate = Date()
          let unitFlags = Set<Calendar.Component>([.hour, .minute])
-        calendar.timeZone = TimeZone(identifier: "UTC")!
+        calendar.timeZone = TimeZone(identifier: "GMT")!
 
 
 

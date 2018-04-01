@@ -18,7 +18,7 @@ class LoginModel{
         var success: Bool = false
         var fcmDeviceToken: String = ""
         
-        if let deviceToken = userInfo.object(forKey: "deviceToken")
+        if let deviceToken = userInfo.object(forKey: "fcmToken")
         {
             fcmDeviceToken = deviceToken as! String
         }
@@ -35,6 +35,7 @@ class LoginModel{
             
             ] as [String : Any]
         
+        print("Uploaded this token\(fcmDeviceToken)")
         let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         guard postData != nil else {
             return

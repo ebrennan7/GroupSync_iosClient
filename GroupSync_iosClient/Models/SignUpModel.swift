@@ -19,7 +19,7 @@ class SignUpModel{
         var fcmDeviceToken: String = ""
         
         var success: Bool = false
-        if let deviceToken = userInfo.object(forKey: "deviceToken")
+        if let deviceToken = userInfo.object(forKey: "fcmToken")
         {
             fcmDeviceToken = deviceToken as! String
         }
