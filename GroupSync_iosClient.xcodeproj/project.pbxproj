@@ -98,7 +98,7 @@
 		922C9A222022202100539837 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		922C9A2420222BF000539837 /* ActiveTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimeModel.swift; sourceTree = "<group>"; };
 		9233E51F205440C000146C37 /* JoinPublicGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPublicGroupViewController.swift; sourceTree = "<group>"; };
-		9233E5212054762A00146C37 /* GroupInformationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupInformationModel.swift; path = /College/Year4/FYP/GroupSync_iosClient/GroupSync_iosClient/Models/GroupInformationModel.swift; sourceTree = "<absolute>"; };
+		9233E5212054762A00146C37 /* GroupInformationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupInformationModel.swift; path = GroupSync_iosClient/Models/GroupInformationModel.swift; sourceTree = SOURCE_ROOT; };
 		923794762054203E0085C1F5 /* PublicGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupViewController.swift; sourceTree = "<group>"; };
 		923794782054204F0085C1F5 /* PublicGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		9237947A205420CB0085C1F5 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		92D185AE203343E7005D209E /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		92D185B020334416005D209E /* SendLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendLocation.swift; path = GroupSync_iosClient/Models/SendLocation.swift; sourceTree = SOURCE_ROOT; };
 		92D185B220348A05005D209E /* GetUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsers.swift; sourceTree = "<group>"; };
-		92D19E30201E3D6F00BB24EA /* PrivateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivateGroupViewController.swift; path = /College/Year4/FYP/GroupSync_iosClient/GroupSync_iosClient/Controllers/PrivateGroupViewController.swift; sourceTree = "<absolute>"; };
+		92D19E30201E3D6F00BB24EA /* PrivateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivateGroupViewController.swift; path = GroupSync_iosClient/Controllers/PrivateGroupViewController.swift; sourceTree = SOURCE_ROOT; };
 		92D19E32201E43D800BB24EA /* PrivateGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		92D19E362020F62B00BB24EA /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		92D19E382020F63C00BB24EA /* CreateGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupModel.swift; sourceTree = "<group>"; };

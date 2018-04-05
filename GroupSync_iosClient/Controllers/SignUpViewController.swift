@@ -173,7 +173,7 @@ changeViewShapes()
     
     @IBAction func editingEmailFinished(_ sender: UITextField) {
         
-        if(emailTextField.text?.isValidEmail() && signUpProgress.progress == 0.40)
+        if((emailTextField.text?.isValidEmail())! && signUpProgress.progress == 0.40)
         {
             signUpProgress.progress=0.60
         }
