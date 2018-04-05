@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
     
         

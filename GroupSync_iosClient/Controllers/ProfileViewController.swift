@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     var nameString: String!
     var emailString: String?
     let defaultURLString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/images/missing.png"
-
+    private var imageNeedsReload:Bool  = false
     
     let userInfo = UserDefaults.standard
     
@@ -45,34 +45,34 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         if(option)
         {
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
-            
-            //log out happens
-            
-            
-            self.clearUserDefaults()
-            
-            if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView"){
-                self.present(loginView, animated: true, completion: nil)
-            }
-            
-            
-            
-            
-            
-        }))
-        
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+                
+                //log out happens
+                
+                
+                self.clearUserDefaults()
+                
+                if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView"){
+                    self.present(loginView, animated: true, completion: nil)
+                }
+                
+                
+                
+                
+                
+            }))
             
             
-        }))
-        
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+                
+                
+            }))
+            
         }
         else{
-             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
-        }
-             ))}
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            }
+            ))}
         self.present(alert, animated: true, completion: nil)
         
     }
@@ -80,7 +80,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     {
         let userInfo = UserDefaults.standard
         userInfo.removeObject(forKey: "userSignedIn")
-//        userInfo.removeObject(forKey: "deviceToken")
+        //        userInfo.removeObject(forKey: "deviceToken")
         userInfo.synchronize()
     }
     
@@ -100,24 +100,24 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         emailString = (userInfo.object(forKey: "email") as? String)?.removeCharacters(from: "\"")
     }
     
-//    func addDoneButton()
-//    {
-//        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-//        doneToolbar.barStyle       = UIBarStyle.default
-//        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-//        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
-//
-//        var items = [UIBarButtonItem]()
-//        items.append(flexSpace)
-//        items.append(done)
-//
-//        doneToolbar.items = items
-//        doneToolbar.sizeToFit()
-//
-//        self.nameEdit?.inputAccessoryView = doneToolbar
-//        self.emailEdit?.inputAccessoryView = doneToolbar
-//    }
-//
+    //    func addDoneButton()
+    //    {
+    //        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+    //        doneToolbar.barStyle       = UIBarStyle.default
+    //        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+    //        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
+    //
+    //        var items = [UIBarButtonItem]()
+    //        items.append(flexSpace)
+    //        items.append(done)
+    //
+    //        doneToolbar.items = items
+    //        doneToolbar.sizeToFit()
+    //
+    //        self.nameEdit?.inputAccessoryView = doneToolbar
+    //        self.emailEdit?.inputAccessoryView = doneToolbar
+    //    }
+    //
     @objc func doneButtonAction()
     {
         self.nameEdit?.resignFirstResponder()
@@ -127,7 +127,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBAction func editPhoto()
     {
-   
+        
         if(UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum))
         {
             print("BTN")
@@ -139,15 +139,15 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             
             
         }
-
+        
         func imagePickerController(picker: UIImagePickerController!, didFinishPicking image: UIImage!, editingInfo: NSDictionary!)
         {
             self.dismiss(animated: true, completion: {() -> Void in
-
+                
             })
-
-
-
+            
+            
+            
         }
         cancelPopUp()
     }
@@ -233,8 +233,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                 if success {
                     let url = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/\(self.userInfo.object(forKey: "userID")!)/profilePhoto.jpg)"
                     self.downloadImage(url: URL(string: url)!)
-                    self.view.setNeedsLayout()
-                    self.view.layoutIfNeeded()
+                    self.imageNeedsReload=true
+                    
                 }
                 
                 
@@ -315,8 +315,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     override func viewDidLoad() {
         
-        URLCache.shared.removeAllCachedResponses()
-
+        URLCache.shared.removeAllCachedResponses() //In case of new profile picture upload , delete the old cached image
+        
         self.nameEdit.delegate=self
         self.emailEdit.delegate=self
         super.viewDidLoad()
@@ -325,7 +325,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         nameField.text = nameString
         emailField.text = emailString
         
-//        self.addDoneButton()
         popUpView.layer.masksToBounds = true;
         popUpView.layer.cornerRadius = 10;
         
@@ -340,15 +339,15 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         print("Begin of code")
         
         
-//        if(!userInfo.bool(forKey: "profilePictureChanged"))
-//        {
-//
-//            print("Downloading custom pic")
+        //        if(!userInfo.bool(forKey: "profilePictureChanged"))
+        //        {
+        //
+        //            print("Downloading custom pic")
         
-//        }
-//        else{
-               urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/\(userId)/profilePhoto.jpg"
-//        }
+        //        }
+        //        else{
+        urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/\(userId)/profilePhoto.jpg"
+        //        }
         print("URL STRING\(urlString)")
         
         
@@ -359,7 +358,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         print(fileName)
         downloadImage(url: url!)
         
-       
+        
     }
     func getImageFromWeb(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ())
     {
@@ -376,24 +375,26 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             print(response?.suggestedFilename ?? url.lastPathComponent)
             print("Download Finished")
             print("image data\(data.description)")
-            if(data.description == "305 bytes") // No custom picture uploaded
+            if(data.description == "306 bytes") // S3 needs another call
             {
-                self.downloadImage(url: URL(string: self.defaultURLString)!) // download default pic
+                print(url)
+                self.downloadImage(url: url)
             }
-//            else if(data.description == "306 bytes") // S3 needs another call
-//            {
-//                print(url)
-//                self.downloadImage(url: url)
-//            }
-
-            DispatchQueue.main.async {
-                
-            self.view.setNeedsLayout()
-            self.view.layoutIfNeeded()
-            }
+            
+            
             DispatchQueue.main.async() {
                 self.profilePictureView.image = UIImage(data: data)
+                
+                
+                
+                if(self.imageNeedsReload)
+                {
+                    self.imageNeedsReload=false
+                    self.viewDidLoad()
+                }
+                
             }
+     
         }
     }
     

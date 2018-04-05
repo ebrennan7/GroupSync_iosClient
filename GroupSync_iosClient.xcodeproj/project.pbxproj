@@ -35,7 +35,7 @@
 		92709486206D8C6B00D5DB02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92709485206D8C6B00D5DB02 /* ViewController.swift */; };
 		92B1A00D1FD5BA9A0009E316 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A00C1FD5BA9A0009E316 /* HomeViewController.swift */; };
 		92B1A0111FD5C38B0009E316 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */; };
-		92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */; };
+		92B1A01C1FD70A7D0009E316 /* InvitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1A01B1FD70A7D0009E316 /* InvitesViewController.swift */; };
 		92C6098E206BDFD100D97B14 /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6098D206BDFD100D97B14 /* EditProfileModel.swift */; };
 		92C60991206BEEF100D97B14 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		92CC0CE5203F727B00D9ED46 /* GetGroupUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC0CE4203F727A00D9ED46 /* GetGroupUsers.swift */; };
@@ -109,7 +109,7 @@
 		92709485206D8C6B00D5DB02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		92B1A00C1FD5BA9A0009E316 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		92B1A01B1FD70A7D0009E316 /* InvitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesViewController.swift; sourceTree = "<group>"; };
 		92C6098D206BDFD100D97B14 /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		92CC0CE4203F727A00D9ED46 /* GetGroupUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroupUsers.swift; sourceTree = "<group>"; };
 		92D185AE203343E7005D209E /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 				921BEE991FCE0A1F00EE9A78 /* SignUpViewController.swift */,
 				92B1A00C1FD5BA9A0009E316 /* HomeViewController.swift */,
 				92D19E30201E3D6F00BB24EA /* PrivateGroupViewController.swift */,
-				92B1A01B1FD70A7D0009E316 /* SettingsViewController.swift */,
+				92B1A01B1FD70A7D0009E316 /* InvitesViewController.swift */,
 				92B1A0101FD5C38B0009E316 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
@@ -666,7 +666,7 @@
 				92D185AF203343E7005D209E /* MapViewModel.swift in Sources */,
 				922C9A232022202100539837 /* AlertModel.swift in Sources */,
 				92214292206D7F3E003AA27D /* SignUpModel.swift in Sources */,
-				92B1A01C1FD70A7D0009E316 /* SettingsViewController.swift in Sources */,
+				92B1A01C1FD70A7D0009E316 /* InvitesViewController.swift in Sources */,
 				9229EA1A202F67A5001FC6A7 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

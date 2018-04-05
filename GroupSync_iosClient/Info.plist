@@ -50,7 +50,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This app needs your location</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>This app needs to know your location</string>
+	<string>GroupSync works best when you select Always Allow</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>You can select photos to upload</string>
 	<key>UISupportedInterfaceOrientations</key>

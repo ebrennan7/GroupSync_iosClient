@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class InvitesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var requestTuples:[(invite_id: Int, group_id: Int, inviter_id: Int, timeOfInvite: String)] = []
     

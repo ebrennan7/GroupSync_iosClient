@@ -13,8 +13,8 @@ class LoginModel{
     
     func loginPost(email: String, password: String, completion: @escaping (_ token: String, _ success: Bool, _ user_id: Any) -> Void) -> Void
     {
-        var tokenReturn: String?
-        var id_return: Any?
+//        var tokenReturn: String?
+//        var id_return: Any?
         var success: Bool = false
         var fcmDeviceToken: String = ""
         
