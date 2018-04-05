@@ -18,7 +18,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let userInfo = UserDefaults.standard
     let loginModel = LoginModel()
     @IBOutlet weak var emailLabel: UILabel!
-    
+
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -93,11 +93,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
    
         
         changeLabelShapes()
-        
-        
-        self.passwordTextField.delegate=self
+
+                self.passwordTextField.delegate=self
         self.emailTextField.delegate=self
-    
+
         
         
     }
@@ -125,16 +124,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func changeLabelShapes()
     {
-        emailLabel.layer.masksToBounds = true;
-        passwordLabel.layer.masksToBounds = true;
-        passwordTextField.layer.masksToBounds = true;
-        emailTextField.layer.masksToBounds = true;
-        
-        
-        emailLabel.layer.cornerRadius = emailLabel.frame.size.width/24
-        passwordLabel.layer.cornerRadius = passwordLabel.frame.size.width/24
-        emailTextField.layer.cornerRadius = emailTextField.frame.size.width/24
-        passwordTextField.layer.cornerRadius = passwordTextField.frame.size.width/24
+        emailLabel.roundLabelEdges()
+        passwordLabel.roundLabelEdges()
+        passwordTextField.roundTextFieldEdges()
+        emailTextField.roundTextFieldEdges()
         
     }
     
@@ -143,5 +136,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+}
+extension UILabel{
+    func roundLabelEdges()
+    {
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = self.frame.size.width/24
+    }
+}
+extension UITextField{
+    func roundTextFieldEdges(){
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = self.frame.size.width/24
+    }
 }
 

@@ -71,7 +71,7 @@ class GetUsers{
         dataTask.resume()
     }
     
-    func parseLocations(locations: String, users: String) -> [(name: String, longitude: String, latitude: String, updated: DateComponents)]{
+    private func parseLocations(locations: String, users: String) -> [(name: String, longitude: String, latitude: String, updated: DateComponents)]{
         
         var calendar: Calendar = Calendar.current
         var splitNames = users.components(separatedBy: "{")
@@ -99,8 +99,19 @@ class GetUsers{
         
         for f in stride(from: 1, to: splitLocations.count, by: 1)
         {
-            stuff.append((name: splitNames[f].components(separatedBy: ":")[2
-                ].components(separatedBy: ",")[0], longitude: (splitLocations[f].components(separatedBy: ":")[1].components(separatedBy: ",")[0]), latitude: (splitLocations[f].components(separatedBy: ":")[2].components(separatedBy: ",")[0]), updated: dates[f-1]))
+            
+            if var firstName = splitNames[f].components(separatedBy: ":")[2
+                ].components(separatedBy: ",")[0] as? String
+            {
+                
+                let lastName = (splitNames[f].components(separatedBy: ":")[3].components(separatedBy: ",")[0])
+                firstName.append(" \(lastName)")
+
+
+                stuff.append((name: firstName.removeCharacters(from: "\""), longitude: (splitLocations[f].components(separatedBy: ":")[1].components(separatedBy: ",")[0]), latitude: (splitLocations[f].components(separatedBy: ":")[2].components(separatedBy: ",")[0]), updated: dates[f-1]))
+            }
+  
+     
 
         }
         

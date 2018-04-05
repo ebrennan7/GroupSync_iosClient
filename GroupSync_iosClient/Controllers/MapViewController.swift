@@ -17,12 +17,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var currentGroupId: String! //group ID
     var userLocation: CLLocation?
     var locationTuples: [(name: String, longitude: String, latitude: String, updated: DateComponents)]?
+
     let groupInfoModel = GroupInformationModel()
     let mapModel = MapViewModel()
     var annotation = MKPointAnnotation()
     var activeStatus: Bool?
     var admin: Bool?
     let getUsers = GetUsers()
+
     var activeTimes: [(start: String, end: String)] = []
 
 
@@ -53,7 +55,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         activeStatusLabel.layer.masksToBounds=true
-        activeStatusLabel.layer.cornerRadius = activeStatusLabel.frame.size.width/4
+        activeStatusLabel.layer.cornerRadius = view.frame.size.width/24
+      
         
         getActiveStatus()
 
@@ -130,6 +133,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                     
                     
                 })
+                
+            
                 
             }
             

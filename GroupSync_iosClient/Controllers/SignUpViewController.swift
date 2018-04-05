@@ -110,9 +110,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        changeLabelShapes()
-        
-        changeTextViewShapes()
+        signUpProgress.progress=0
+changeViewShapes()
+//        changeTextViewShapes()
    
         
         
@@ -133,33 +133,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    func changeLabelShapes()
+   
+    func changeViewShapes()
     {
-        emailLabel.layer.masksToBounds = true;
-        passwordLabel.layer.masksToBounds = true;
-        verifyPasswordLabel.layer.masksToBounds = true;
-        firstNameLabel.layer.masksToBounds = true;
-        lastNameLabel.layer.masksToBounds = true;
-        emailLabel.layer.cornerRadius = emailLabel.frame.size.width/24
-        verifyPasswordLabel.layer.cornerRadius = verifyPasswordLabel.frame.size.width/24
-        firstNameLabel.layer.cornerRadius = firstNameLabel.frame.size.width/24
-        passwordLabel.layer.cornerRadius = passwordLabel.frame.size.width/24
-        lastNameLabel.layer.cornerRadius = lastNameLabel.frame.size.width/24
-        
-    }
-    func changeTextViewShapes()
-    {
-        
-        emailTextField.layer.masksToBounds = true;
-        passwordTextField.layer.masksToBounds = true;
-        verifyPasswordTextField.layer.masksToBounds = true;
-        firstNameTextField.layer.masksToBounds = true;
-        lastNameTextField.layer.masksToBounds = true;
-        emailTextField.layer.cornerRadius = emailTextField.frame.size.width/24
-        verifyPasswordTextField.layer.cornerRadius = verifyPasswordTextField.frame.size.width/24
-        firstNameTextField.layer.cornerRadius = firstNameTextField.frame.size.width/24
-        passwordTextField.layer.cornerRadius = passwordTextField.frame.size.width/24
-        lastNameTextField.layer.cornerRadius = lastNameTextField.frame.size.width/24
+        emailTextField.roundTextFieldEdges()
+        emailLabel.roundLabelEdges()
+        passwordLabel.roundLabelEdges()
+        passwordTextField.roundTextFieldEdges()
+        firstNameLabel.roundLabelEdges()
+        firstNameTextField.roundTextFieldEdges()
+        lastNameLabel.roundLabelEdges()
+        lastNameTextField.roundTextFieldEdges()
+        verifyPasswordTextField.roundTextFieldEdges()
+        verifyPasswordLabel.roundLabelEdges()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -170,7 +156,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBAction func editingFirstNameFinished(_ sender: UITextField) {
         if(firstNameTextField.text != "")
         {
-            signUpProgress.progress=0.20
+            signUpProgress.progress = signUpProgress.progress + 0.20
         }
     }
     
@@ -187,7 +173,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func editingEmailFinished(_ sender: UITextField) {
         
-        if(emailTextField.text != "" && signUpProgress.progress == 0.40)
+        if(emailTextField.text?.isValidEmail() && signUpProgress.progress == 0.40)
         {
             signUpProgress.progress=0.60
         }
