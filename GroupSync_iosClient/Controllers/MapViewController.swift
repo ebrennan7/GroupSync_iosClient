@@ -84,7 +84,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         groupInfoModel.getGroupActiveTimes(group_id: currentGroupId, completion: { activeTimesTuple in
             
             self.activeTimes = activeTimesTuple
-            print("Active times\(activeTimesTuple)")
             self.createAlert(title: "Group Active Times", message: "\nFrom:\n \(activeTimesTuple[0].start)\n\n To:\n \(activeTimesTuple[0].end)")
 
         })

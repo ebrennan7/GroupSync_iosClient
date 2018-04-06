@@ -32,7 +32,6 @@ class PrivateGroupViewController: UIViewController, UICollectionViewDelegate, UI
         
         idOfCell = String(privateGroupTuples[indexPath.row].group_id)
    
-        print(idOfCell)
         self.performSegue(withIdentifier: "showMap", sender: nil)
         
         

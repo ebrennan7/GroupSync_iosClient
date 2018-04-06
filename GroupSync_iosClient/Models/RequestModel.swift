@@ -208,7 +208,6 @@ class RequestModel{
                     if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
                         
                     {
-                        print(resultJson)
                         if let info = resultJson["info"] as? String
                         {
                             if(info=="Success")
