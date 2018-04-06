@@ -51,12 +51,7 @@ class GroupSettingsModel{
                         
                         if let usersJSON = nestedDictionary["users"] as? String
                         {
-                            
-                            //                            usersJSON = usersJSON.trimmingCharacters(in: ["[", "]"])
-                            //
-                            //                            print(usersJSON)
-                            
-                            
+         
                             
                             let usersJSONData = usersJSON.data(using: .utf8)
                             
@@ -157,7 +152,6 @@ class GroupSettingsModel{
                     print(error)
                 }
             }
-            print(success)
             completion(success)
         })
         
@@ -217,7 +211,6 @@ class GroupSettingsModel{
                                 
                             }
                             else{
-                                print("DIDNT WORK")
                                 success=false
                             }
                             
@@ -300,7 +293,6 @@ class GroupSettingsModel{
                                 
                             }
                             else{
-                                print("DIDNT WORK")
                                 success=false
                             }
                         }

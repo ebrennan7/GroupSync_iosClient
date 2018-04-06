@@ -50,10 +50,7 @@ class GetGroupUsers{
                         if let usersJSON = nestedDictionary["users"] as? String
                         {
                         
-//                            usersJSON = usersJSON.trimmingCharacters(in: ["[", "]"])
-//
-//                            print(usersJSON)
-                            
+
                             
                             
                             let usersJSONData = usersJSON.data(using: .utf8)
@@ -69,10 +66,7 @@ class GetGroupUsers{
                                     
                                     let returnValue = self.names
                                     completionBlock(returnValue)
-//                                    for name in innerUserData{
-//                                        names.append(innerUserData["name"])
-//                                    }
-                                    print(self.names)
+
                                     
                                 }
                     

@@ -126,7 +126,8 @@ class JoinPublicGroupViewController: UIViewController {
             createSuccessfulAlert(title: "You have joined the group!", message: "")
         }
         else{
-            createUnsuccessfulAlert(title: "Could not join group", message: "")
+            self.createAlert(title: "Could not join group", message: "")
+//            createUnsuccessfulAlert(title: "Could not join group", message: "")
         }
     }
     
@@ -150,20 +151,7 @@ class JoinPublicGroupViewController: UIViewController {
         let mapController = segue.destination as! MapViewController
         mapController.currentGroupId = cellID!
     }
-    func createUnsuccessfulAlert(title:String, message:String)
-    {
-        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default
-            
-            
-        ))
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+
     /*
     // MARK: - Navigation
 

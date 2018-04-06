@@ -62,7 +62,6 @@ class GroupModel{
                                 }
                             }
                         }
-                        print(publicTuples)
                         completionBlock(publicTuples)
                     }
                 }
@@ -138,19 +137,13 @@ class GroupModel{
                                 }
                                 
                                 completionBlock(member)
-                                
-                                
+
                             }
-                            
-                            
+
                         }
-                        
-                        
+
                     }
-                    
-                    
-                    
-                    
+
                 }
                 
             }
@@ -215,9 +208,7 @@ class GroupModel{
                                             {
                                                 privateTuples.append((group_id: group["id"] as! Int, name: group["name"] as! String))
                                             }
-                                            else{
-                                                print(publicStatus)
-                                            }
+                                   
                                         }
                                     }
                       

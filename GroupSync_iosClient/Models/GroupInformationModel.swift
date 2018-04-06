@@ -133,10 +133,7 @@ class GroupInformationModel{
                                 }
                                 
                                 completionBlock(users)
-                                //                                    for name in innerUserData{
-                                //                                        names.append(innerUserData["name"])
-                                //                                    }
-                                
+                        
                             }
                             
                             
@@ -194,12 +191,10 @@ class GroupInformationModel{
                 do{
                     if let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
                     {
-                        print(resultJson)
                         
                         
                         if let dataJson = resultJson["data"] as? [String:Any]
                         {
-                            print(dataJson)
                             if let activeTimesArray = dataJson["active_times"] as? String
                             {
                                 let activeTimesData = activeTimesArray.data(using: .utf8)

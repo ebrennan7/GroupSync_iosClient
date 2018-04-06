@@ -55,10 +55,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                 if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginView"){
                     self.present(loginView, animated: true, completion: nil)
                 }
-                
-                
-                
-                
+
                 
             }))
             
@@ -80,7 +77,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     {
         let userInfo = UserDefaults.standard
         userInfo.removeObject(forKey: "userSignedIn")
-        //        userInfo.removeObject(forKey: "deviceToken")
         userInfo.synchronize()
     }
     
@@ -100,37 +96,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         emailString = (userInfo.object(forKey: "email") as? String)?.removeCharacters(from: "\"")
     }
     
-    //    func addDoneButton()
-    //    {
-    //        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-    //        doneToolbar.barStyle       = UIBarStyle.default
-    //        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-    //        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(LoginView.doneButtonAction))
-    //
-    //        var items = [UIBarButtonItem]()
-    //        items.append(flexSpace)
-    //        items.append(done)
-    //
-    //        doneToolbar.items = items
-    //        doneToolbar.sizeToFit()
-    //
-    //        self.nameEdit?.inputAccessoryView = doneToolbar
-    //        self.emailEdit?.inputAccessoryView = doneToolbar
-    //    }
-    //
-    @objc func doneButtonAction()
-    {
-        self.nameEdit?.resignFirstResponder()
-        self.emailEdit?.resignFirstResponder()
-    }
-    
-    
     @IBAction func editPhoto()
     {
         
         if(UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum))
         {
-            print("BTN")
             
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum
@@ -169,7 +139,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         emailField.text = emailEdit.text
         
         if((emailField.text?.isValidEmail())!&&nameField.text! != ""){
-            editProfileModel.editDetails(name: nameField.text!, email: emailField.text!)
+            editProfileModel.editDetails(name: nameField.text!, email: emailField.text!.lowercased())
         }
         else{
             createAlert(title: "Invalid Name or Email", message: "",option: false)
@@ -185,43 +155,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     
     let grayView = UIView()
-    
-    //    let collectionView: UICollectionView = {
-    //        let layout = UICollectionViewLayout()
-    //        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-    //        cv.backgroundColor = UIColor.white
-    //        return cv
-    //    }()
-    //    let cellID = "cellID"
+   
     @IBOutlet weak var profilePictureView: UIImageView!
     var imagePicker = UIImagePickerController()
     
-    //    override convenience init( objectId : UIViewController ) {
-    //        self.init()
-    //        collectionView.dataSource = self
-    //        collectionView.delegate = self
-    //
-    //        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
-    //    }
-    
-    
-    //    required init?(coder aDecoder: NSCoder) {
-    //        fatalError("init(coder:) has not been implemented")
-    //    }
-    
-    //    func importImage()
-    //    {
-    //        let image = UIImagePickerController()
-    //        image.delegate = self
-    //
-    //        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
-    //
-    //        image.allowsEditing = false
-    //
-    //        self.present(image, animated: true)
-    //
-    //    }
-    
+ 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
@@ -253,35 +191,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         return false
     }
     
-    
-    //    @IBAction func showSettings()
-    //    {
-    //        let grayView = UIView()
-    //        grayView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-    //
-    //        grayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
-    //
-    //        view.addSubview(grayView)
-    //        view.addSubview(collectionView)
-    //
-    //
-    //        let height: CGFloat = 200
-    //        let y = view.frame.height - height
-    //        collectionView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
-    //        grayView.frame = view.frame
-    //        grayView.alpha = 0
-    //
-    //        UIView.animate(withDuration: 0.5, animations:
-    //            { self.grayView.alpha = 1
-    //
-    //        self.collectionView.frame = CGRect(x: 0, y: y, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
-    //        })
-    //    }
-    //
-    //    @objc func handleDismiss()
-    //    {
-    //        UIView.animate(withDuration: 0.5, animations: {self.grayView.alpha = 0})
-    //    }
+   
     @IBAction func cancelPopUp()
     {
         middlePositionPopUp.constant=1200
@@ -332,30 +242,18 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         profilePictureView.layer.cornerRadius = profilePictureView.frame.size.width/2
         profilePictureView.clipsToBounds = true
-        let fileName = ((userInfo.object(forKey: "fileName")!) as! String).removeCharacters(from: "\"")
+//        let fileName = ((userInfo.object(forKey: "fileName")!) as! String).removeCharacters(from: "\"")
         let userId = (userInfo.object(forKey: "userID")!)
         var urlString: String = "null"
-        print(userId)
-        print("Begin of code")
-        
-        
-        //        if(!userInfo.bool(forKey: "profilePictureChanged"))
-        //        {
-        //
-        //            print("Downloading custom pic")
-        
-        //        }
-        //        else{
+
+   
         urlString = "https://s3-eu-west-1.amazonaws.com/groupsync-eu-images/public/avatars/\(userId)/profilePhoto.jpg"
-        //        }
-        print("URL STRING\(urlString)")
-        
+
         
         let url = URL(string: urlString)
-        print("ALOWED")
+
         
         profilePictureView.contentMode = .scaleAspectFit
-        print(fileName)
         downloadImage(url: url!)
         
         
@@ -369,15 +267,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     func downloadImage(url: URL){
-        print("Download Started")
         getImageFromWeb(url: url) { data, response, error in
             guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-            print("image data\(data.description)")
             if(data.description == "306 bytes") // S3 needs another call
             {
-                print(url)
                 self.downloadImage(url: url)
             }
             
@@ -406,15 +299,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //        return 2
-    //    }
-    //
-    //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath as IndexPath)
-    //        return cell
-    //    }
-    
+
     
 }
 

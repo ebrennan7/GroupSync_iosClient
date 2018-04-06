@@ -36,11 +36,6 @@ class CreateGroupModel {
         self.startTime = dateFormatter.string(from: startTime)
         self.endTime = dateFormatter.string(from: endTime)
         
-
-        
-        print(startTime)
-        print(endTime)
-        
     }
     
     
@@ -168,10 +163,6 @@ class CreateGroupModel {
                 }
                 
 
-            }
-            else{
-                print(self.startTime)
-                print(self.endTime)
             }
         })
         

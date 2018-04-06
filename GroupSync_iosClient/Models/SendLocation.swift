@@ -28,7 +28,6 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
     
     func sendLocationPost(){
         
-        print("test3")
         
         let userInfo = UserDefaults.standard
         let headers = [
@@ -55,7 +54,6 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = headers
         request.httpBody = postData
-        print("test4")
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
@@ -87,12 +85,7 @@ class SendLocation:  NSObject, CLLocationManagerDelegate{
             }
             
         }
-        else if (!CLLocationManager.locationServicesEnabled())
-        {
-            print("You need to enable location services to use this app")
-            
-        }
-        
+
         
         
         

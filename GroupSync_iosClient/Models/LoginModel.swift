@@ -13,8 +13,7 @@ class LoginModel{
     
     func loginPost(email: String, password: String, completion: @escaping (_ token: String, _ success: Bool, _ user_id: Any) -> Void) -> Void
     {
-//        var tokenReturn: String?
-//        var id_return: Any?
+
         var success: Bool = false
         var fcmDeviceToken: String = ""
         
@@ -35,13 +34,11 @@ class LoginModel{
             
             ] as [String : Any]
         
-        print("Uploaded this token\(fcmDeviceToken)")
         let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         guard postData != nil else {
             return
         }
         
-        print(fcmDeviceToken)
         let request = NSMutableURLRequest(url: NSURL(string: "http://groupsyncenv.rtimfc7um2.eu-west-1.elasticbeanstalk.com/login_post")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
@@ -73,9 +70,9 @@ class LoginModel{
                                 {
                                     
                                     success=true
+
                                     completion(token,success, user_id)
 
-                                
                                     
                                 }
                                 
@@ -86,8 +83,12 @@ class LoginModel{
                             else
                             {
                                 success = false
+                                let token = ""
+                                let user_id = ""
+                                completion(token,success, user_id)
+
                             }
-                            
+
                             if let user_info = nestedDictionary["user"]{
                                 self.saveUserInfo(user_info: (user_info as! String))
                             }
@@ -116,10 +117,7 @@ class LoginModel{
         
         content = names[3].components(separatedBy: ":")
         let email = content[1]
-        
-        print(names[7])
-        print(names[6])
-        
+   
         content = names[7].components(separatedBy: ":")
         let contentType = content[1]
         

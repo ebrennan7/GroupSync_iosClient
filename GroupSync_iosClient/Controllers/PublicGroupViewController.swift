@@ -20,7 +20,6 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        print(publicGroupTuples.count)
         if(publicGroupTuples.count<1)
         {
             return 0
@@ -43,13 +42,11 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
             DispatchQueue.main.async {
                 
                 if(!self.memberOfGroup!){
-                    print("joining")
                     
                     self.performSegue(withIdentifier: "joinPageSegue", sender: nil)
                     
                 }
                 else{
-                    print("skipping")
                     self.performSegue(withIdentifier: "skipToMap", sender: nil)
                 }
             }
@@ -112,7 +109,6 @@ class PublicGroupViewController: UIViewController, UICollectionViewDelegate, UIC
             self.publicGroupCollectionView.delegate = self
             self.publicGroupCollectionView.dataSource = self
             }
-            print(self.publicGroupTuples)
         })
     }
     

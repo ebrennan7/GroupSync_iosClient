@@ -70,7 +70,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TLN-fv-cvn"/>
                                 </constraints>
-                                <state key="normal" title="Forgot Password?"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7pL-V8-jTO">
                                 <rect key="frame" x="16" y="257" width="343" height="30"/>
@@ -324,7 +326,7 @@
                                         <rect key="frame" x="22" y="174" width="201" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFI-pc-yNJ">
                                         <rect key="frame" x="82" y="127" width="80" height="21"/>
@@ -1551,7 +1553,7 @@
                         <outlet property="inviteCollectionView" destination="wUB-0G-LEW" id="GNw-38-4ly"/>
                         <outlet property="invitesView" destination="U8I-nk-tqq" id="f0o-Fo-miq"/>
                         <segue destination="4qH-13-85A" kind="unwind" identifier="unwindToViewController" unwindAction="prepareForUnwindWithSegue:" id="yek-2h-XIH"/>
-                        <segue destination="OXw-L6-zDf" kind="show" identifier="privateInvite" id="uyw-k9-G0E"/>
+                        <segue destination="NF8-Yi-hzb" kind="show" identifier="privateInvite" id="O9J-Rc-O6K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ee2-x3-2dT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1640,14 +1642,14 @@
                                                     <action selector="firstNameTextField:" destination="y7K-6D-Pu7" eventType="editingDidEnd" id="JC9-5U-6BD"/>
                                                 </connections>
                                             </textField>
-                                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7iS-IZ-Dhb">
-                                                <rect key="frame" x="0.0" y="572" width="375" height="140"/>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7iS-IZ-Dhb">
+                                                <rect key="frame" x="1" y="562" width="375" height="115"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="539031962.74405503">
                                                     <!--2018-01-30 19:06:02 +0000-->
                                                 </date>
                                             </datePicker>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8i-dw-prX">
-                                                <rect key="frame" x="0.0" y="738" width="375" height="98"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8i-dw-prX">
+                                                <rect key="frame" x="1" y="687" width="375" height="98"/>
                                                 <color key="backgroundColor" red="0.080284791600000002" green="0.83268530439999999" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="98" id="OCw-e0-Cti"/>
@@ -1661,8 +1663,8 @@
                                                     <action selector="createGroupButton:" destination="bSd-ch-DhL" eventType="touchUpInside" id="mSV-5c-AcE"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Group Active Until:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="X6s-7X-Jj1">
-                                                <rect key="frame" x="17" y="517" width="343" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Active Until:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="X6s-7X-Jj1">
+                                                <rect key="frame" x="17" y="507" width="343" height="30"/>
                                                 <color key="backgroundColor" red="0.93267565969999999" green="0.97570806740000005" blue="0.78403174880000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="OC4-H4-P5E"/>
@@ -1731,7 +1733,11 @@
                     <connections>
                         <outlet property="activeFrom" destination="4YO-wl-8aC" id="7w0-43-Ndl"/>
                         <outlet property="activeUntil" destination="7iS-IZ-Dhb" id="gKG-3m-U5E"/>
+                        <outlet property="groupActiveFromLabel" destination="N6r-5z-S33" id="hJE-QW-PGj"/>
+                        <outlet property="groupActiveUntilLabel" destination="X6s-7X-Jj1" id="cHk-UL-MUW"/>
+                        <outlet property="groupNameLabel" destination="LRg-C0-c3q" id="aEF-n3-yge"/>
                         <outlet property="groupNameTextField" destination="nR8-pn-CYc" id="7Xp-w4-1Zg"/>
+                        <outlet property="makePublicGroupLabel" destination="9aC-st-UWx" id="7ZY-UN-gKl"/>
                         <outlet property="publicSwitch" destination="U1q-ig-nmE" id="1VT-a1-7qT"/>
                         <segue destination="Kum-Vd-vso" kind="show" identifier="backToHome" id="PRm-b8-YjW"/>
                     </connections>
@@ -1759,8 +1765,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="PRm-b8-YjW"/>
         <segue reference="Lqc-Ca-Qh2"/>
-        <segue reference="bAK-Pf-KiS"/>
-        <segue reference="uyw-k9-G0E"/>
+        <segue reference="O9J-Rc-O6K"/>
         <segue reference="zPC-gT-I14"/>
     </inferredMetricsTieBreakers>
 </document>

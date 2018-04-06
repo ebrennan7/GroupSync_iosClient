@@ -69,7 +69,6 @@ class EditProfileModel{
                         {
                             if(nestedDictionary==1)
                             {
-                                print("Success")
                                 self.userInfo.set(firstName, forKey: "firstName")
                                 self.userInfo.set(lastName, forKey: "secondName")
                                 self.userInfo.set(email, forKey: "email")
@@ -92,7 +91,6 @@ class EditProfileModel{
     func changeProfilePhoto(image: UIImage!, completion: @escaping (_ success: Bool) -> () )
     {
         self.image = image.squared
-//        uploadImage()
         var success: Bool = false
         
         let user_id = userInfo.object(forKey: "userID")!
@@ -119,11 +117,9 @@ class EditProfileModel{
         let transferManager = AWSS3TransferManager.default()
         transferManager.upload(uploadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
             if task.error != nil {
-                // Error.
                 print("error")
             } else {
-                // Do something with your result.
-                print("No Error , Upload Done")
+
                 success = true
                 self.userInfo.set(false, forKey: "profilePictureChanged")
                 self.userInfo.synchronize()
@@ -133,12 +129,6 @@ class EditProfileModel{
             return nil
         })
     }
-    
-    private func uploadImage() {
-    
-        print("Hello")
-
-        }
     
     
 }

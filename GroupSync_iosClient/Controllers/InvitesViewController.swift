@@ -39,7 +39,6 @@ class InvitesViewController: UIViewController, UICollectionViewDelegate, UIColle
             calendar.timeZone = TimeZone(identifier: "GMT")!
             dateFormatter.locale = Locale(identifier: "en_GB")
 
-//            dateFormatter.locale = NSLocale.current
             
 
  
@@ -147,7 +146,6 @@ class InvitesViewController: UIViewController, UICollectionViewDelegate, UIColle
                 in self.requestTuples = (returnValue)
                 
         })
-        print(requestTuples)
     }
     
     override func viewDidLoad() {
@@ -171,22 +169,21 @@ class InvitesViewController: UIViewController, UICollectionViewDelegate, UIColle
             {
                 DispatchQueue.main.async {
                     
-                    print(index)
                     self.requestTuples.remove(at: index)
                     self.inviteCollectionView.reloadData()
                     self.performSegue(withIdentifier: "privateInvite", sender: nil)
                 }
             }
-            else{
-                print("wasn't succesful")
-            }
+   
         })
     }
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let joinController = segue.destination as! JoinPublicGroupViewController
         joinController.cellID = String(idOfCell!)
         
     }
+ */
     func declineInvite(group_id: Int, index: Int)
     {
         
@@ -195,7 +192,6 @@ class InvitesViewController: UIViewController, UICollectionViewDelegate, UIColle
             {
                 DispatchQueue.main.async {
                     
-                    print(index)
                     self.requestTuples.remove(at: index)
                     self.inviteCollectionView.reloadData()
                     

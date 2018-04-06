@@ -61,7 +61,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         getActiveStatus()
 
         
-        print(currentGroupId)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(MapViewController.tappedLabel))
        activeStatusLabel.isUserInteractionEnabled=true
@@ -85,7 +84,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         groupInfoModel.getGroupActiveTimes(group_id: currentGroupId, completion: { activeTimesTuple in
             
             self.activeTimes = activeTimesTuple
-            
+            print("Active times\(activeTimesTuple)")
             self.createAlert(title: "Group Active Times", message: "\nFrom:\n \(activeTimesTuple[0].start)\n\n To:\n \(activeTimesTuple[0].end)")
 
         })
@@ -93,20 +92,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
     
     }
-    func createAlert(title:String, message:String)
-    {
-        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default
-            
-            
-        ))
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+
     func getActiveStatus()
     {
         groupInfoModel.getGroupActiveTimes(group_id: currentGroupId, completion: {activeTimesTuple in

@@ -19,10 +19,17 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func createGroupButton(_ sender: UIButton) {
         if(groupNameTextField.text==""){
-            createUnsuccessfulAlert(title: "Please enter a group name", message: "")
+            self.createAlert(title: "Please enter a group name", message: "")
+
+        }
+        else if(activeFrom.date.description != activeUntil.date.description && activeFrom.date<activeUntil.date)
+        {
+            createGroupAction()
+
         }
         else{
-            createGroupAction()
+
+                    self.createAlert(title: "Please select a valid time interval", message: "")
         }
 
      }
@@ -59,7 +66,8 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate {
             createSuccessfulAlert(title: "Group Creation Successul", message: "")
         }
         else{
-            createUnsuccessfulAlert(title: "Group Creation Failed", message: "")
+            self.createAlert(title: "Group Creation Failed", message: "")
+
         }
     }
     
@@ -82,24 +90,20 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func createUnsuccessfulAlert(title:String, message:String)
-    {
-        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
-            
-            
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+
     
+    @IBOutlet var groupNameLabel: UILabel!
+    @IBOutlet var makePublicGroupLabel: UILabel!
+    @IBOutlet var groupActiveFromLabel: UILabel!
+    @IBOutlet var groupActiveUntilLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        groupNameTextField.roundTextFieldEdges()
+        groupNameLabel.roundLabelEdges()
+        makePublicGroupLabel.roundLabelEdges()
+        groupActiveFromLabel.roundLabelEdges()
+        groupActiveUntilLabel.roundLabelEdges()
         self.groupNameTextField.delegate = self
         
         // Do any additional setup after loading the view.

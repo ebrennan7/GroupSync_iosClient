@@ -40,9 +40,4 @@ class MapViewModel{
         return false
     }
     
-    
-    
-    func checkIfAdmin(){
-        
-    }
 }

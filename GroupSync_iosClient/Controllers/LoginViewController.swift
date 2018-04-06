@@ -26,21 +26,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func logInButton(_ sender: UIButton) {
-        if emailTextField
-            .text!.isEmpty||passwordTextField.text!.isEmpty{
+        if !emailTextField
+            .text!.isValidEmail()||passwordTextField.text!.isEmpty{
             createAlert(title: "You must fill in Email and Password fields", message: "")
         }
         else
         {
             self.loginModel.loginPost(email: emailTextField.text!.lowercased(), password: passwordTextField.text!, completion: {
                 token,success,user_id  in
-                
                 if(success)
                 {
                     self.successfulLogin(token: token, user_id: user_id as! Int)
                 }
                 else{
                     self.createAlert(title: "Couldn't log in", message: "")
+//                    self.createAlert(title: "Couldn't log in", message: "")
                 }
                 
                 
@@ -73,13 +73,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
         if let homeView = self.storyboard?.instantiateViewController(withIdentifier: "homeView") as? HomeViewController {
-            print("NOW")
             
             
             let navController = UINavigationController(rootViewController: homeView)
             
             self.present(navController, animated: true, completion: nil)
-            //                                    self.navigationController?.present(homeView, animated: true, completion: nil)
         }
     }
     
@@ -94,32 +92,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         changeLabelShapes()
 
-                self.passwordTextField.delegate=self
+            self.passwordTextField.delegate=self
         self.emailTextField.delegate=self
 
         
         
     }
     
-   
-    
-    
-    
-    func createAlert(title:String, message: String)
-    {
-        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
-            
-            
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
+
     
     
     func changeLabelShapes()
@@ -151,3 +131,17 @@ extension UITextField{
     }
 }
 
+// Used for Alerts throughout the app
+extension UIViewController {
+    func createAlert(title: String, message: String)
+    {
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default
+            
+            
+        ))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}

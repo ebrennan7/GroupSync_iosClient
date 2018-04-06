@@ -60,7 +60,7 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
             createSuccessfulAlert(title: "Group Deletion Successul", message: "")
         }
         else{
-            createUnsuccessfulAlert(title: "Group Deletion Failed", message: "")
+            self.createAlert(title: "Group Deletion Failed", message: "")
         }
     }
     
@@ -73,7 +73,6 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
         
         
         
-        //        alert.addAction(UIAlertAction(title:"Ok", style: .default, handler: {action in self.performSegue(withIdentifier: "backToGroups", sender: self)}
         
         alert.addAction(UIAlertAction(title:"Ok", style: .default, handler: {action in self.navigationController?.popToRootViewController(animated: true)}
             
@@ -86,20 +85,7 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
         
     }
     
-    func createUnsuccessfulAlert(title:String, message:String)
-    {
-        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default
-            
-            
-        ))
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+
     func alertLeaveHandler(success: Bool)
     {
         if(success)
@@ -107,7 +93,7 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
             createSuccessfulAlert(title: "You have the left the group", message: "")
         }
         else{
-            createUnsuccessfulAlert(title: "Leave group failed", message: "")
+            self.createAlert(title: "Leave group failed", message: "")
         }
     }
     
@@ -118,10 +104,10 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
     {
         if(success)
         {
-            createAddAlert(title: "User Invite Successful", message: "")
+            self.createAlert(title: "User Invite Successful", message: "")
         }
         else{
-            createAddAlert(title: "User Invite Failed", message: "")
+            self.createAlert(title: "User Invite Failed", message: "")
         }
     }
     
@@ -143,27 +129,15 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
             if(!self.admin!){
                 self.redButton.titleLabel?.text! = "Leave Group?"
             }
-            else{
+            else if(self.admin!){
                 self.redButton.titleLabel?.text! = "Delete Group?"
+            }
+            else{
+                self.redButton.titleLabel?.text! = "Leave Group?"
             }
         }
     }
-    
-    func createAddAlert(title:String, message:String)
-    {
-        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default
-            
-            
-        ))
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
+
     @IBOutlet weak var usersCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -226,7 +200,6 @@ class GroupSettingsViewController: UIViewController, UICollectionViewDelegate, U
                 }
                 else{
                     self.alertAddHandler(success: success)
-                    print("FAILURE")
                 }
                 
                 

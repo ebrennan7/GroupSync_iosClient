@@ -60,21 +60,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
   
-    func createAlert(title:String, message: String)
-    {
-        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
-            
-            
-            
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+//    func createAlert(title:String, message: String)
+//    {
+//        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+//        
+//        
+//        
+//        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+//            
+//            
+//            
+//        }))
+//        
+//        self.present(alert, animated: true, completion: nil)
+//        
+//    }
     func createLoginAlert(title:String, message: String)
     {
         let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.alert)

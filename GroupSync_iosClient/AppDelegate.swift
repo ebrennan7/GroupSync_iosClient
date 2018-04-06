@@ -11,7 +11,6 @@ import Firebase
 import UserNotifications
 import AWSCore
 import AWSS3
-//import AWSMobileClient
 
 let sendLocation = SendLocation()
 
@@ -23,22 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
 
     func application(_ application: UIApplication, open url: URL,
                      sourceApplication: String?, annotation: Any) -> Bool {
-        //
-        //        return AWSMobileClient.sharedInstance().interceptApplication(
-        //            application, open: url,
-        //            sourceApplication: sourceApplication,
-        //            annotation: annotation)
+    
         
         return true
     }
     
-    //    func application(_ application: UIApplication,
-    //                              performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
-    //    {
-    //        sendLocation.determineCurrentLocation()
-    //    }
-    //
-
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -90,14 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
     {
         Messaging.messaging().appDidReceiveMessage(userInfo)
     }
-    
-//    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
-//    {
-//
-//        Messaging.messaging().apnsToken = deviceToken
-//
-//    }
-    
+
     @objc func tokenRefreshNotification(notification: NSNotification)
     {
         if let refreshedToken = InstanceID.instanceID().token()
@@ -127,18 +108,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 
-    
-//    private func application(application: UIApplication,
-//                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//        Messaging.messaging().apnsToken = deviceToken
-//    }
-//
+ 
     func applicationDidEnterBackground(_ application: UIApplication) {
         
         print("entered Background")
-//        sendPost()
-        //        var updateTimer = Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: "sendLocation:", userInfo: nil, repeats: true)
-        
+
     }
     func sendPost()
     {
@@ -156,28 +130,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
-    //
-    //    func startReceivingSignificantLocationChanges() {
-    //        let authorizationStatus = CLLocationManager.authorizationStatus()
-    //        if authorizationStatus != .authorizedAlways {
-    //            // User has not authorized access to location information.
-    //            return
-    //        }
-    //
-    //        if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
-    //            // The service is not available.
-    //            return
-    //        }
-    //        locationManager.delegate = self
-    //        locationManager.startMonitoringSignificantLocationChanges()
-    //    }
-    //
-    //    if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
-    //    // The service is not available.
-    //    return
-    //    }
-    //    locationManager.delegate = self
-    //    locationManager.startMonitoringSignificantLocationChanges()
+   
+
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
@@ -238,28 +192,4 @@ extension AppDelegate : MessagingDelegate {
         print("Failed to register: \(error)")
     }
 }
-//
-//@available(iOS 10, *)
-//extension AppDelegate : UNUserNotificationCenterDelegate {
-//
-//    // Receive displayed notifications for iOS 10 devices.
-//
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//        let userInfo = notification.request.content.userInfo
-//        // Print message ID.
-//        print("Message ID: \(userInfo["gcm.message_id"]!)")
-//
-//        // Print full message.
-//        print("%@", userInfo)
-//
-//    }
-//
-//}
-//
-//extension AppDelegate : FIRMessagingDelegate {
-//    // Receive data message on iOS 10 devices.
-//    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
-//        print("%@", remoteMessage.appData)
-//    }
-//}
-//
+

@@ -13,13 +13,7 @@ class HomeViewController: UIViewController {
 
     
     @IBAction func groupsButton(_ sender: UIButton) {
-        if let key = KeychainService.loadPassword()
-        {
-            print(key)
-        }
-        else{
-            print("Error with Keychain")
-        }
+ 
     }
     
     
