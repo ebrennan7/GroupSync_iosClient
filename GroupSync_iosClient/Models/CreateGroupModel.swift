@@ -29,7 +29,7 @@ class CreateGroupModel {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
-        dateFormatter.locale = Locale(identifier: "en_GB_POSIX")
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         
         
     

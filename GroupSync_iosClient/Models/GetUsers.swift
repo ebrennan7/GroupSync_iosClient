@@ -81,6 +81,7 @@ class GetUsers{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss Z"
         let currentDate = Date()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
          let unitFlags = Set<Calendar.Component>([.hour, .minute])
         calendar.timeZone = TimeZone(identifier: "GMT")!
 
