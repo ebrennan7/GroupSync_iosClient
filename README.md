@@ -1,4 +1,3 @@
-
 ![alt text](https://i.imgur.com/fW0DMFj.png)
 
 GroupSync for iPhone is a mobile application that is a real-time location sharing app that supports private and public group sharing. 
