@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UNUserNotificationCenter
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
     
         
-        let accessKey = "AKIAIHFI54OFAWCCER2A"
-        let secretKey = "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"
+        let accessKey = "KEY REMOVED"
+        let secretKey = "KEY REMOVED"
         let credentialsProvider = AWSStaticCredentialsProvider(accessKey: accessKey, secretKey: secretKey)
         let configuration = AWSServiceConfiguration(region: AWSRegionType.EUWest1, credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
